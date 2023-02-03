@@ -31,6 +31,9 @@ public class PostEntity {
 
     private Long price; //의뢰 가격
 
+    @Enumerated(EnumType.ORDINAL)
+    private Category category;//카테고리
+
     @CreationTimestamp
     private LocalDateTime createDate; // 질문 등록 시간
 
@@ -38,7 +41,6 @@ public class PostEntity {
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "userId",insertable = false,updatable = false)
     private UserEntity user;
-    //userEntity 생성 후 다시 수정
 
 
     private String userId; //게시물 추가, 수정 시 사용할 외래키

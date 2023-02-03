@@ -1,6 +1,7 @@
 package store.itcen.community.postapi.dto;
 
 import lombok.*;
+import store.itcen.community.postapi.entity.Category;
 import store.itcen.community.postapi.entity.PostEntity;
 
 import javax.validation.constraints.NotBlank;
@@ -16,11 +17,15 @@ public class PostCreateRequestDTO {
     private String title;
     private String contents;
     private Long price;
+    private Category category;
+
 
     public PostEntity toEntity(){
         return PostEntity.builder()
                 .title(this.title)
                 .contents(this.contents)
+                .category(this.category)
+                .price(this.price)
                 .build();}
 
 }

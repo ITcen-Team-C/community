@@ -53,7 +53,6 @@ public class UserService {
         return userRepository.existsByEmail(email);
     }
 
-    
     // 로그인 검증
     public LoginResponseDTO getByCredentials(
             final String email,
