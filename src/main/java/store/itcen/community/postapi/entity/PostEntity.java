@@ -3,6 +3,7 @@ package store.itcen.community.postapi.entity;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
+import store.itcen.community.userapi.entity.UserEntity;
 
 import javax.persistence.*;
 import java.math.BigInteger;
@@ -37,7 +38,6 @@ public class PostEntity {
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "userId",insertable = false,updatable = false)
     private UserEntity user;
-    //userEntity 생성 후 다시 수정
 
 
     private String userId; //게시물 추가, 수정 시 사용할 외래키

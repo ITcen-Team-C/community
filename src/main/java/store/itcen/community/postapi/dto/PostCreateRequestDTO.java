@@ -21,6 +21,7 @@ public class PostCreateRequestDTO {
         return PostEntity.builder()
                 .title(this.title)
                 .contents(this.contents)
+                .price(this.price)
                 .build();}
 
 }
