@@ -1,2 +1,4 @@
-package store.itcen.community.service;public class CustomUserDetailService {
+package store.itcen.community.service;
+
+public class CustomUserDetailService {
 }

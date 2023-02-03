@@ -1,2 +1,4 @@
-package store.itcen.community.token;public class JwtAuthenticationFilter {
+package store.itcen.community.token;
+
+public class JwtAuthenticationFilter {
 }
