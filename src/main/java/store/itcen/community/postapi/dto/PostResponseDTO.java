@@ -1,6 +1,7 @@
 package store.itcen.community.postapi.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import store.itcen.community.postapi.entity.Category;
 import store.itcen.community.postapi.entity.PostEntity;
 
 import java.time.LocalDateTime;
@@ -11,6 +12,9 @@ public class PostResponseDTO {
     private String postId;
     private String title;
     private String contents;
+
+    private Category category;
+
     private long price;
 
     @JsonFormat(pattern = "yyyy년 MM월 dd일 a hh시 mm분 ss초")//a 는 am,pm표기
@@ -23,6 +27,7 @@ public class PostResponseDTO {
         this.title=postEntity.get().getPostId();
         this.contents=postEntity.get().getContents();
         this.price=postEntity.get().getPrice();
+        this.category=postEntity.get().getCategory();
         this.createDate=postEntity.get().getCreateDate();
     }
 

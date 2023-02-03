@@ -7,7 +7,6 @@ import store.itcen.community.postapi.dto.*;
 import store.itcen.community.postapi.entity.PostEntity;
 import store.itcen.community.postapi.repository.PostRepository;
 
-import java.math.BigInteger;
 import java.util.Optional;
 
 @Service
@@ -58,7 +57,9 @@ public class PostService {
         targetEntity.ifPresent(postEntity -> {
             postEntity.setTitle(modifyRequestDTO.getTitle());
             postEntity.setContents(modifyRequestDTO.getContents());
+            postEntity.setCategory(modifyRequestDTO.getCategory());
             postEntity.setPrice(modifyRequestDTO.getPrice());
+
         });
 
 //        //수정하고 나면 수정 후 글 조회
@@ -67,17 +68,17 @@ public class PostService {
 
 
     //게시글삭제
-    public PostResponseDTO delete(final String postId,final String userId){
-        try{
-            postRepository.deleteById(postId);
-        } catch (Exception e) {
-            log.error("id가 존재하지 않아 삭제에 실패했습니다. - ID: {}, err: {}"
-                    , postId, e.getMessage());
-            throw new RuntimeException("post id 가 존재하지 않아 삭제에 실패했습니다.");
-        }
-
-        return retrieve(userId);
-    }
+//    public PostResponseDTO delete(final String postId,final String userId){
+//        try{
+//            postRepository.deleteById(postId);
+//        } catch (Exception e) {
+//            log.error("id가 존재하지 않아 삭제에 실패했습니다. - ID: {}, err: {}"
+//                    , postId, e.getMessage());
+//            throw new RuntimeException("post id 가 존재하지 않아 삭제에 실패했습니다.");
+//        }
+//
+//        return retrieve(userId);
+//    }
 
 
 

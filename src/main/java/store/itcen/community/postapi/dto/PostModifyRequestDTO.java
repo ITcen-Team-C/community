@@ -1,6 +1,7 @@
 package store.itcen.community.postapi.dto;
 
 import lombok.*;
+import store.itcen.community.postapi.entity.Category;
 
 import javax.validation.constraints.NotBlank;
 
@@ -17,5 +18,7 @@ public class PostModifyRequestDTO {
     private String title;
     private String contents;
     private Long price;
+
+    private Category category;
 
 }

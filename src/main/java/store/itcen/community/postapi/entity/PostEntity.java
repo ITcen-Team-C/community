@@ -31,6 +31,9 @@ public class PostEntity {
 
     private Long price; //의뢰 가격
 
+    @Enumerated(EnumType.ORDINAL)
+    private Category category;//카테고리
+
     @CreationTimestamp
     private LocalDateTime createDate; // 질문 등록 시간
 
