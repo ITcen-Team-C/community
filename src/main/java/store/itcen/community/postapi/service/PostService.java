@@ -2,12 +2,18 @@ package store.itcen.community.postapi.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import store.itcen.community.postapi.dto.*;
 import store.itcen.community.postapi.entity.PostEntity;
 import store.itcen.community.postapi.repository.PostRepository;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -15,6 +21,39 @@ import java.util.Optional;
 public class PostService {
 
     private final PostRepository postRepository;
+
+
+    // 전체 조회 페이징
+    public PostListResponseDTO getAllList(PostPageRequestDTO pageRequestDTO) {
+        Pageable pageable = PageRequest.of(
+                pageRequestDTO.getPage() - 1, pageRequestDTO.getSizePerPage(),
+                Sort.Direction.DESC, "createdDate"
+        );
+
+        final Page<PostEntity> pageData = postRepository.findAll(pageable);
+        List<PostEntity> allPosts = pageData.getContent();
+
+//        if (allPosts.isEmpty()) {
+//            throw new RuntimeException("조회 결과 Empty!");
+//        }
+
+        // Entity => DTO ( 필요한 정보만 클라이언트에 필요한 꼴로 보내줌 )
+        List<PostResponseDTO> responseDTOList = allPosts.stream()
+                .map(et -> new PostResponseDTO(Optional.ofNullable(et)))
+                .collect(Collectors.toList());
+
+
+        PostListResponseDTO listResponseDTO = PostListResponseDTO.builder()
+                .count(responseDTOList.size())
+                .pageInfo(new PostPageResponseDTO<PostEntity>(pageData))
+                .posts(responseDTOList)
+                .build();
+
+        return listResponseDTO;
+    }
+
+
+
 
     //게시글 detail 조회
     public PostResponseDTO detail(String postId){
