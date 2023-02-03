@@ -3,6 +3,7 @@ package store.itcen.community.postapi.entity;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
+import store.itcen.community.userapi.entity.UserEntity;
 
 import javax.persistence.*;
 import java.math.BigInteger;
