@@ -4,10 +4,7 @@ import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigInteger;
 import java.time.LocalDateTime;
 
@@ -16,11 +13,11 @@ import java.time.LocalDateTime;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "todoId")
+@EqualsAndHashCode(of = "postId")
 @Builder
 
 @Entity
-@Table(name = "tbl_post")
+@Table(name = "post")
 public class PostEntity {
     @Id
     @GeneratedValue(generator = "system-uuid")
@@ -36,7 +33,18 @@ public class PostEntity {
     @CreationTimestamp
     private LocalDateTime createDate; // 질문 등록 시간
 
-    private BigInteger userId;
+    //user와 관계 설정
+//    @ManyToOne(fetch=FetchType.LAZY)
+//    @JoinColumn(name = "user_id",insertable = false,updatable = false)
+//    private UserEntity user;
+    //userEntity 생성 후 다시 수정
+
+
+
+    @Column(name = "user_id")
+    private BigInteger userId; //게시물 추가, 수정 시 사용할 외래키
+
+
 
 
 }
