@@ -27,7 +27,7 @@ public class UserEntity {
 
     private String password;
 
-    private String userName;
+    private String nickname;
 
     @CreationTimestamp
     private LocalDateTime joinDate;
