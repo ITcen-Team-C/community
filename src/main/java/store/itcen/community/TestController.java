@@ -38,11 +38,11 @@ public class TestController {
         return "redirect:/test";
     }
 
-    @GetMapping("write")
-    public String write() {
-        postRepository.save(new PostEntity("uupostid", "title", "contents", 1000L, LocalDateTime.now(), new UserEntity("uuid2", "email3", "password3", "nickname3", LocalDateTime.now()), "402880ab8615ea15018615ea26a60000"));
-        return "redirect:/test";
-    }
+//    @GetMapping("write")
+//    public String write() {
+//        postRepository.save(new PostEntity("uupostid", "title", "contents", 1000L, LocalDateTime.now(), new UserEntity("uuid2", "email3", "password3", "nickname3", LocalDateTime.now()), "402880ab8615ea15018615ea26a60000"));
+//        return "redirect:/test";
+//    }
 
 
 }
