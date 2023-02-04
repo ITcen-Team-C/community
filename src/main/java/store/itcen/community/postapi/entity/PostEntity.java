@@ -31,7 +31,7 @@ public class PostEntity {
 
     private Long price; //의뢰 가격
 
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     private Category category;//카테고리
 
     @CreationTimestamp

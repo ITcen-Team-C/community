@@ -1,12 +1,14 @@
 package store.itcen.community.postapi.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Getter;
+import lombok.ToString;
 import store.itcen.community.postapi.entity.Category;
 import store.itcen.community.postapi.entity.PostEntity;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
-
+@Getter @ToString
 public class PostResponseDTO {
 
     private String postId;
@@ -24,7 +26,7 @@ public class PostResponseDTO {
     public PostResponseDTO(Optional<PostEntity> postEntity){
 
         this.postId=postEntity.get().getPostId();
-        this.title=postEntity.get().getPostId();
+        this.title=postEntity.get().getTitle();
         this.contents=postEntity.get().getContents();
         this.price=postEntity.get().getPrice();
         this.category=postEntity.get().getCategory();
