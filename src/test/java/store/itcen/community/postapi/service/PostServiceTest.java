@@ -37,13 +37,14 @@ class PostServiceTest {
     @Rollback
     void beforeInsert(){
         UserEntity user1 = UserEntity.builder()
-                .id("uuid")
+//                .id("uuid")
                 .email("tester@email.com")
                 .nickname("테스터닉")
                 .password("임시비번")
                 .build();
 
         UserEntity dummyUser1 = userRepository.save(user1);
+        System.out.println("dummyuser : " + dummyUser1);
 
         PostCreateRequestDTO dto1=PostCreateRequestDTO.builder()
                 .title("질문 도와주세요")
@@ -97,8 +98,10 @@ class PostServiceTest {
 
 
         PostEntity post1 = dto1.toEntity();
+        System.out.println("toentity result : " + post1);
         post1.setUserId(dummyUser1.getId());
         PostEntity savedPost = postRepository.save(post1);
+        System.out.println("save result : " + savedPost);
 
         PostEntity post2 = dto1.toEntity();
         post2.setUserId(dummyUser1.getId());
@@ -143,31 +146,12 @@ class PostServiceTest {
     }
 
     @Test
-    @DisplayName("페이징 전체조회 시, PostListResponseDTO 에서 PostPageResponseDTO totalCount 정보 확인")
+    @DisplayName("페이징 전체조회 시, pageInfo 데이터 확인")
     @Transactional
     @Rollback
-    void checkPagingTest() {
-        //given
-        //7dummies
-        PostPageRequestDTO postPageRequestDTO = new PostPageRequestDTO(); //1페이지, 개당 3 기본 값
-
-        //when
-        PostListResponseDTO listResponseDTO = postService.getAllList(postPageRequestDTO);
-        PostPageResponseDTO pageInfo = listResponseDTO.getPageInfo();
-
-        //then
-        assertEquals(7, pageInfo.getTotalCount());
-    }
-
-
-    @Test
-    @DisplayName("페이징 전체조회 시, 페이지 요청이 2번째 페이지로 왔을 때 current 페이지, end 페이지 확인 ")
-    @Transactional
-    @Rollback
-    void requestPagingNum2Tset() {
-        //given
-        //7dummies //page per 3
-        PostPageRequestDTO postPageRequestDTO = new PostPageRequestDTO(); //1페이지, 개당 3 기본 값
+    void checkPageInfoTest() {
+        //given 7dummies
+        PostPageRequestDTO postPageRequestDTO = new PostPageRequestDTO(); //1페이지 요청, 페이지당 3posts 기본 값
         postPageRequestDTO.setPage(2);
 
         //when
@@ -175,10 +159,55 @@ class PostServiceTest {
         PostPageResponseDTO pageInfo = listResponseDTO.getPageInfo();
 
         //then
+        assertEquals(7, pageInfo.getTotalCount());
         assertEquals(2, pageInfo.getCurrentPage());
         assertEquals(1, pageInfo.getStartPage());
+        assertEquals(2, pageInfo.getEndPage());
+    }
+
+    @Test
+    @DisplayName("페이징 전체조회 시 PostResponseDTO 데이터 확인")
+    @Transactional
+    @Rollback
+    void checkPagingResponseDTOTest() {
+        //given 7 dummies
+        PostPageRequestDTO postPageRequestDTO = new PostPageRequestDTO(); //개당 3 기본 값
+        postPageRequestDTO.setPage(3); // 3페이지 요청 => 게시물 개수는 1개
+
+        //when
+        PostListResponseDTO listResponseDTO = postService.getAllList(postPageRequestDTO);
+        List<PostResponseDTO> posts = listResponseDTO.getPosts();
+
+        //then
+        System.out.println(posts.get(0));
+        assertEquals(1, posts.size());
+        System.out.println(posts.get(0));
+        assertEquals("자바 프로그래밍질문이요", posts.get(0).getContents());
+    }
+
+
+    @Test
+    @DisplayName("Next 마지막에 걸리는 page 요청 시, prev활성화 next 비활성화")
+    @Transactional
+    @Rollback
+    void pagingPrevNextTest() {
+
+        //given 7 dummies
+        PostPageRequestDTO postPageRequestDTO = new PostPageRequestDTO(); //페이지당 3posts 기본 값
+        postPageRequestDTO.setPage(3); // 3페이지 요청
+        // next 당 페이지 2개 / 3페이지 요청 => next 비활성화 / prev 활성화  startpage : 3 / endpage : 3
+
+        //when
+        PostListResponseDTO listResponseDTO = postService.getAllList(postPageRequestDTO);
+        PostPageResponseDTO pageInfo = listResponseDTO.getPageInfo();
+
+        //then
+        assertFalse(pageInfo.isNext());
+        assertTrue(pageInfo.isPrev());
+        assertEquals(3, pageInfo.getStartPage());
         assertEquals(3, pageInfo.getEndPage());
     }
+
 
 
 
