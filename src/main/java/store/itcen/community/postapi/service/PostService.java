@@ -27,7 +27,7 @@ public class PostService {
     public PostListResponseDTO getAllList(PostPageRequestDTO pageRequestDTO) {
         Pageable pageable = PageRequest.of(
                 pageRequestDTO.getPage() - 1, pageRequestDTO.getSizePerPage(),
-                Sort.Direction.DESC, "createdDate"
+                Sort.Direction.DESC, "createDate"
         );
 
         final Page<PostEntity> pageData = postRepository.findAll(pageable);
