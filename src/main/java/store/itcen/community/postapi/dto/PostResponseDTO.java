@@ -11,6 +11,7 @@ import java.util.Optional;
 @Getter @ToString
 public class PostResponseDTO {
 
+    private String error; //에러발생시 클라이언트에게 전달할 메세지
     private String postId;
     private String title;
     private String contents;

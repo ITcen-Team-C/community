@@ -3,8 +3,10 @@ package store.itcen.community.postapi.dto;
 import lombok.*;
 import store.itcen.community.postapi.entity.Category;
 import store.itcen.community.postapi.entity.PostEntity;
+import store.itcen.community.userapi.entity.UserEntity;
 
 import javax.validation.constraints.NotBlank;
+import java.math.BigInteger;
 
 @Setter @Getter @ToString
 @NoArgsConstructor
@@ -19,6 +21,7 @@ public class PostCreateRequestDTO {
     private Long price;
     private Category category;
 
+    private String userId;
 
     public PostEntity toEntity(){
         return PostEntity.builder()
@@ -26,6 +29,7 @@ public class PostCreateRequestDTO {
                 .contents(this.contents)
                 .category(this.category)
                 .price(this.price)
+                .userId(this.userId)
                 .build();}
 
 }
