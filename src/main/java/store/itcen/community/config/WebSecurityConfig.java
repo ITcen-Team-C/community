@@ -39,7 +39,8 @@ public class WebSecurityConfig {
                 // 인증 요청중에서 '/'경로랑 '/api/auth'로 시작되는 경로는 인증하지 않고 모두 허용
                 .authorizeRequests().antMatchers("/", "/api/auth/**").permitAll()
                 // 그 외의 모든 경로는 인증을 거쳐야함.
-                .anyRequest().authenticated();
+                .anyRequest().permitAll(); //임시
+//                .anyRequest().authenticated();
 
         // 토큰 인증 필터 등록
         http.addFilterAfter(
