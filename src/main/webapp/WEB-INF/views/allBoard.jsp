@@ -18,12 +18,15 @@
             if (!prev) {
                 $("#pagingPrevious").attr("style", "display:none");
             }
+            if (!next) {
+                $("#pagingNext").attr("style", "display:none");
+            }
 
             $("#pagingPrevious").on("click", function () {
-                alert("prev!");
+                location.replace("/post/" + ${responseDTO.pageInfo.startPage - 1})
             });
             $("#pagingNext").on("click", function () {
-                alert("next!");
+                location.replace("/post/" + ${responseDTO.pageInfo.endPage + 1})
             });
 
 
@@ -32,9 +35,6 @@
 </head>
 
 <body>
-
-페이지 정보 : ${responseDTO.pageInfo.toString()} <br>
-
 <div id="pagingDiv">
 
     <span id="pagingPrevious" style="cursor:pointer;" >◁</span>
