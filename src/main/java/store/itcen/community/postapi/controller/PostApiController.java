@@ -4,13 +4,11 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import store.itcen.community.postapi.dto.PostCreateRequestDTO;
-import store.itcen.community.postapi.dto.PostListResponseDTO;
-import store.itcen.community.postapi.dto.PostModifyRequestDTO;
-import store.itcen.community.postapi.dto.PostResponseDTO;
+import store.itcen.community.postapi.dto.*;
 import store.itcen.community.postapi.service.PostService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,6 +21,19 @@ import javax.servlet.http.HttpServletRequest;
 public class PostApiController {
 
     private final PostService postService;
+
+    // 전체 게시글 조회 ( 페이징 )
+    @GetMapping("/allpost")
+    public ResponseEntity<?> allPosts(@RequestParam int page, Model model) {
+        // 요청 페이지 Set
+        PostPageRequestDTO pageRequestDTO = new PostPageRequestDTO();
+        pageRequestDTO.setPage(page);
+
+        PostListResponseDTO responseDTO = postService.getAllList(pageRequestDTO);
+        return ResponseEntity
+                .ok()
+                .body(responseDTO);
+    }
 
 
     //글 조회 요청

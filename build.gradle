@@ -44,7 +44,7 @@ dependencies {
     // mariadb driver
     runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
     // mysql connector j
-    implementation 'mysql:mysql-connector-java:8.0.ㅍ28'
+    implementation 'mysql:mysql-connector-java:8.0.28'
 //    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 
 }

@@ -48,18 +48,19 @@ public class TestController {
 
     @ResponseBody
     @PostMapping("/community/writeProcess")
-    public ResponseEntity<?> writeProcess(@RequestBody PostCreateRequestDTO postCreateRequestDTO, Model model) {
+    public ResponseEntity<?> writeProcess(@RequestBody PostCreateRequestDTO postCreateRequestDTO) {
         System.out.println(postCreateRequestDTO);
 
         PostEntity postEntity = postCreateRequestDTO.toEntity();
         postRepository.save(postEntity);
 
-        model.addAttribute("response", new ResponseEntity<>(postCreateRequestDTO, HttpStatus.OK));
-
         return ResponseEntity
                 .ok()
                 .body(postCreateRequestDTO);
     }
+
+
+
 
 
 }
