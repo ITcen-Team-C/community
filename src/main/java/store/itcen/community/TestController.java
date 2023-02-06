@@ -12,10 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import store.itcen.community.postapi.dto.PostCreateRequestDTO;
 import store.itcen.community.postapi.entity.PostEntity;
 import store.itcen.community.postapi.repository.PostRepository;
-import store.itcen.community.userapi.entity.UserEntity;
 import store.itcen.community.userapi.repository.UserRepository;
-
-import java.time.LocalDateTime;
 
 @Controller
 public class TestController {
@@ -39,15 +36,16 @@ public class TestController {
 
     @GetMapping("/join")
     public String join() {
-        userRepository.save(new UserEntity("uuid", "email2", "password2", "nickname2", LocalDateTime.now()));
+//        userRepository.save(new UserEntity("uuid", "email2", "password2", "nickname2", LocalDateTime.now()));
         return "join";
     }
 
-    @GetMapping("write")
+    @GetMapping("/login")
     public String write() {
-        postRepository.save(new PostEntity("uupostid", "title", "contents", 1000L, LocalDateTime.now(), new UserEntity("uuid2", "email3", "password3", "nickname3", LocalDateTime.now()), "402880ab8615ea15018615ea26a60000"));
-        return "redirect:/test";
+//        postRepository.save(new PostEntity("uupostid", "title", "contents", 1000L, LocalDateTime.now(), new UserEntity("uuid2", "email3", "password3", "nickname3", LocalDateTime.now()), "402880ab8615ea15018615ea26a60000"));
+        return "login";
     }
+
     @ResponseBody
     @PostMapping("/community/joinProcess")
     public ResponseEntity<?> joinProcess(@RequestBody PostCreateRequestDTO postCreateRequestDTO, Model model) {
@@ -62,5 +60,4 @@ public class TestController {
                 .ok()
                 .body(postCreateRequestDTO);
     }
-
 }
