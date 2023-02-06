@@ -88,8 +88,8 @@ public class PostService {
 //    //게시글 수정
     public PostResponseDTO update(
             final String postId,
-            final PostModifyRequestDTO modifyRequestDTO,
-            final String userId
+            final PostModifyRequestDTO modifyRequestDTO
+            //,final String userId
     ){
         Optional<PostEntity> targetEntity = postRepository.findById(postId);
 
@@ -97,7 +97,7 @@ public class PostService {
             postEntity.setTitle(modifyRequestDTO.getTitle());
             postEntity.setContents(modifyRequestDTO.getContents());
             postEntity.setCategory(modifyRequestDTO.getCategory());
-            postEntity.setPrice(modifyRequestDTO.getPrice());
+//            postEntity.setPrice(modifyRequestDTO.getPrice());
 
         });
 
@@ -107,17 +107,18 @@ public class PostService {
 
 
     //게시글삭제
-//    public PostResponseDTO delete(final String postId,final String userId){
-//        try{
-//            postRepository.deleteById(postId);
-//        } catch (Exception e) {
-//            log.error("id가 존재하지 않아 삭제에 실패했습니다. - ID: {}, err: {}"
-//                    , postId, e.getMessage());
-//            throw new RuntimeException("post id 가 존재하지 않아 삭제에 실패했습니다.");
-//        }
-//
-//        return retrieve(userId);
-//    }
+    public PostListResponseDTO delete(final String postId){
+
+        try{
+            postRepository.deleteById(postId);
+        } catch (Exception e) {
+            log.error("id가 존재하지 않아 삭제에 실패했습니다. - ID: {}, err: {}"
+                    , postId, e.getMessage());
+            throw new RuntimeException("post id 가 존재하지 않아 삭제에 실패했습니다.");
+        }
+
+        return getAllList(new PostPageRequestDTO());
+    }
 
 
 
