@@ -97,8 +97,10 @@ public class PostService {
             postEntity.setTitle(modifyRequestDTO.getTitle());
             postEntity.setContents(modifyRequestDTO.getContents());
             postEntity.setCategory(modifyRequestDTO.getCategory());
-//            postEntity.setPrice(modifyRequestDTO.getPrice());
+            postEntity.setPrice(modifyRequestDTO.getPrice());
 
+
+            postRepository.save(postEntity);
         });
 
 //        //수정하고 나면 수정 후 글 조회
