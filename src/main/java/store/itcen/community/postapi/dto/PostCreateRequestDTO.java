@@ -30,6 +30,7 @@ public class PostCreateRequestDTO {
                 .category(this.category)
                 .price(this.price)
                 .userId(this.userId)
-                .build();}
+                .build();
+    }
 
 }
