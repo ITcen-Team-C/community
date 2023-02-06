@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 @Slf4j
 @RequiredArgsConstructor
-@RequestMapping("/api/post")
+@RequestMapping("/community/post")
 public class PostApiController {
 
     private final PostService postService;
@@ -29,7 +29,7 @@ public class PostApiController {
     @GetMapping("/{id}")
     public ResponseEntity<?> detailPost(
             @PathVariable("id") String postId){
-        log.info("/api/post/{} get ",postId);
+        log.info("/community/post/{} get ",postId);
         PostResponseDTO responseDTO=postService.detail(postId);
         return ResponseEntity.ok().body(responseDTO);
     }
@@ -50,7 +50,7 @@ public class PostApiController {
                   .body(result.getFieldError());
       }
         try {
-            PostResponseDTO responseDTO=postService.create(requestDTO,userId);
+            PostResponseDTO responseDTO=postService.create(requestDTO,"402880d08624b21b018624b2cc790000");
             return ResponseEntity
                     .ok()
                     .body(responseDTO);
@@ -67,40 +67,42 @@ public class PostApiController {
 
 
     //글 수정 요청
-//    @RequestMapping(
-//            value = "/{id}"
-//            ,method = {RequestMethod.PATCH,RequestMethod.PUT}
-//    )
-//    public ResponseEntity<?> updatePost(
-//            @AuthenticationPrincipal String userId
-//            , @PathVariable("id") String postId
-//            , @Validated @RequestBody PostModifyRequestDTO requestDTO
-//            , BindingResult result
-//            , HttpServletRequest request
-//            ){
-//        if(result.hasErrors()){
-//            return ResponseEntity.badRequest()
-//                    .body(result.getFieldError());
-//        }
-//
-//        log.info("/api/post/{} {} request",postId,requestDTO.getContents());
-//        log.info("modifying dto : {}",requestDTO);
-//
-//        try{
-//            PostResponseDTO responseDTO = postService.update(postId,requestDTO);
-//            return ResponseEntity.ok().body(responseDTO);
-//        }catch (Exception e){
-//            return ResponseEntity
-//                    .internalServerError()
-//                    .body(PostResponseDTO.error(e.getMessage()));
-//        }
-//
-//    }
+    @RequestMapping(
+            value = "/{id}"
+            ,method = {RequestMethod.PATCH,RequestMethod.PUT}
+    )
+
+    public ResponseEntity<?> updatePost(
+            @AuthenticationPrincipal String userId //userid 연결 후 입력 필요
+            , @PathVariable("id") String postId
+            , @Validated @RequestBody PostModifyRequestDTO requestDTO
+            , BindingResult result
+            , HttpServletRequest request
+            ){
+        if(result.hasErrors()){
+            return ResponseEntity.badRequest()
+                    .body(result.getFieldError());
+        }
+
+        log.info("/community/post/{} {} request",postId,request.getMethod());
+        log.info("modifying dto : {}",requestDTO);
+
+        try{
+            PostResponseDTO responseDTO = postService.update(postId,requestDTO);
+            return ResponseEntity.ok().body(responseDTO);
+        }catch (Exception e){
+            return ResponseEntity
+                    .internalServerError()
+                    .body(e.getMessage());
+        }
+
+    }
 
 
     //글 삭제 요청
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deletePost(
+            @AuthenticationPrincipal String userId,
             @PathVariable("id") String postId
     ){
         log.info("/api/post/{} Delete request!",postId);
