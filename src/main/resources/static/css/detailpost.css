@@ -1,0 +1,65 @@
+.detail{
+    margin-left: 149px;
+    margin-top: 165px;
+    width: 981px;
+    height: 730px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgb(0,0,0,0.25);
+
+    background-color: #E7E7E7;
+}
+
+.detail .title-contents{
+
+    width: 907px;
+    height: 580px;
+    margin-top: 30px;
+    margin-left: 37px;
+    background-color: white;
+    border-radius: 10px;
+
+}
+
+.detail .title-contents h1{
+    margin-left: 50px;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    width: 500px;
+}
+
+.detail .title-contents .contents{
+
+    margin-left: 50px;
+    margin-top: 30px;
+    width: 500px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 20px;
+
+}
+
+.detail .title-contents .price-box .price{
+    box-sizing: border-box;
+
+    width: 250px;
+    height: 200px;
+    margin-top: -120px;
+    margin-left: 610px;
+    border: 1px solid #000000;
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    padding-top: 30px;
+}
+
+.detail .title-contents .price-box .solve-btn{
+    width: 200px;
+    height: 50px;
+    margin-left: 635px;
+    margin-top: -80px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #222222;
+    color: white;
+    border-radius: 10px;
+}

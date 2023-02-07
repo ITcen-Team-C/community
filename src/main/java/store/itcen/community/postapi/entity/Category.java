@@ -6,10 +6,10 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum Category {
-    A("BACKEND"),
-    B("FRONTEND"),
-    C("DATABASE"),
-    D("AWS");
+    BACKEND("BACKEND"),
+    FRONTEND("FRONTEND"),
+    DATABASE("DATABASE"),
+    AWS("AWS");
 
     private String cat;
 

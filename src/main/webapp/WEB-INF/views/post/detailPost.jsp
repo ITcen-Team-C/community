@@ -2,6 +2,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="path" value="${pageContext.request.contextPath}" />
+
+<link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/detailpost.css"/>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,10 +19,35 @@
 </head>
 
 <body>
-${responseDTO.category}
-${responseDTO.title}
-${responseDTO.contents}
-${responseDTO.price}
+
+<div class="detail">
+    <div style="margin-left: 40px; padding-top: 30px; font-size: 15px; font-weight: 700;"> >>>  ${responseDTO.category}</div>
+
+    <div class="title-contents">
+
+        <h1>
+            ${responseDTO.title}
+        </h1>
+
+        <div class="contents">
+            ${responseDTO.contents}
+        </div>
+
+        <div class="price-box">
+            <div class="price">
+                ${responseDTO.price} 원
+            </div>
+            <input class="solve-btn" id="solveBTN" type="button" value="질문 해결하기">
+
+        </div>
+
+
+    </div>
+
+
+
+</div>
+
 
 </body>
 
