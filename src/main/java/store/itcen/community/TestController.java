@@ -5,15 +5,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import store.itcen.community.postapi.dto.PostCreateRequestDTO;
 import store.itcen.community.postapi.entity.PostEntity;
 import store.itcen.community.postapi.repository.PostRepository;
 import store.itcen.community.userapi.repository.UserRepository;
 
+@RequestMapping("/WEB-INF/views/user")
 @Controller
 public class TestController {
 
@@ -28,7 +26,8 @@ public class TestController {
     }
 
 
-    @GetMapping("/")
+
+    @GetMapping("/test")
     public String tester() {
         return "test";
     }
@@ -37,13 +36,13 @@ public class TestController {
     @GetMapping("/join")
     public String join() {
 //        userRepository.save(new UserEntity("uuid", "email2", "password2", "nickname2", LocalDateTime.now()));
-        return "join";
+        return "user/join";
     }
 
     @GetMapping("/login")
     public String write() {
 //        postRepository.save(new PostEntity("uupostid", "title", "contents", 1000L, LocalDateTime.now(), new UserEntity("uuid2", "email3", "password3", "nickname3", LocalDateTime.now()), "402880ab8615ea15018615ea26a60000"));
-        return "login";
+        return "user/login";
     }
 
     @ResponseBody
