@@ -124,14 +124,45 @@ public class PostService {
 
 
     public PostListResponseDTO getSearchList(PostPageRequestDTO pageRequestDTO, SearchDTO searchDTO) {
+        // 페이징 set
         Pageable pageable = PageRequest.of(
                 pageRequestDTO.getPage() - 1, pageRequestDTO.getSizePerPage(),
                 Sort.Direction.DESC, "createDate"
         );
 
+        // 검색 minmaxPrice => null 시 0 - 100000000set ( 전체조회 )
+        boolean flag = false;
+        if (searchDTO.getSearchPriceMax() == null && searchDTO.getSearchPriceMin() == null) {
+            flag = true;
+        }
 
-        // searchDTO - searchTitle 로만 검색 ( 임시 )
-        final Page<PostEntity> pageData = postRepository.findByTitleContaining(searchDTO.getSearchTitle(),pageable);
+        if (searchDTO.getSearchPriceMin() == null) {
+            searchDTO.setSearchPriceMin(0L);
+        }
+        if (searchDTO.getSearchPriceMax() == null) {
+            searchDTO.setSearchPriceMax(1000000000L);
+        }
+
+        // min max 크기 validate 필요
+
+        // searchTitle 검색
+//        final Page<PostEntity> pageData = postRepository.findByTitleContaining(searchDTO.getSearchTitle(),pageable);
+
+        // searchTitle and searchWriter 검색
+        final Page<PostEntity> pageData;
+        if (flag) {
+            pageData = postRepository.findByTitleContainingAndNickNameContaining(searchDTO.getSearchTitle(), searchDTO.getSearchWriter(), pageable);
+        } else {
+            log.info("flag - 금액까지적용쿼리 발동");
+            pageData = postRepository.findByTitleContainingAndNickNameContainingAndPriceBetween(searchDTO.getSearchTitle(), searchDTO.getSearchWriter(), searchDTO.getSearchPriceMin(), searchDTO.getSearchPriceMax(), pageable);
+
+//            List<PostEntity> collect = pageData.getContent().stream()
+//                    .filter(postEntity -> postEntity.getPrice() > searchDTO.getSearchPriceMin() && postEntity.getPrice() < searchDTO.getSearchPriceMax())
+//                    .collect(Collectors.toList());
+
+        }
+
+
         List<PostEntity> allPosts = pageData.getContent();
 
 //        if (allPosts.isEmpty()) {

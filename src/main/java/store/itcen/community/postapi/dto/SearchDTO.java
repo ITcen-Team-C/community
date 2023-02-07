@@ -9,7 +9,7 @@ import lombok.*;
 public class SearchDTO {
     private String searchTitle;
     private String searchWriter;
-    private int searchPriceMin;
-    private int searchPriceMax;
+    private Long searchPriceMin;
+    private Long searchPriceMax;
 
 }
