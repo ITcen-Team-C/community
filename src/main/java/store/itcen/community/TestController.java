@@ -12,17 +12,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import store.itcen.community.postapi.dto.PostCreateRequestDTO;
 import store.itcen.community.postapi.entity.PostEntity;
 import store.itcen.community.postapi.repository.PostRepository;
-import store.itcen.community.userapi.repository.UserRepository;
+import store.itcen.community.userapi.repository.MemberRepository;
 
 @Controller
 public class TestController {
 
 
-    UserRepository userRepository;
+    MemberRepository userRepository;
     PostRepository postRepository;
 
     @Autowired
-    public TestController(UserRepository userRepository, PostRepository postRepository) {
+    public TestController(MemberRepository userRepository, PostRepository postRepository) {
         this.userRepository = userRepository;
         this.postRepository = postRepository;
     }

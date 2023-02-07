@@ -3,10 +3,9 @@ package store.itcen.community.postapi.entity;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
-import store.itcen.community.userapi.entity.UserEntity;
+import store.itcen.community.userapi.entity.Member;
 
 import javax.persistence.*;
-import java.math.BigInteger;
 import java.time.LocalDateTime;
 
 @Setter
@@ -37,7 +36,7 @@ public class PostEntity {
     //user와 관계 설정
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "userId",insertable = false,updatable = false)
-    private UserEntity user;
+    private Member user;
     //userEntity 생성 후 다시 수정
 
 
