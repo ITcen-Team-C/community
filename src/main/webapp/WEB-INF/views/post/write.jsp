@@ -84,7 +84,7 @@
 <div class="write">
     <form id="writeForm">
 
-        <select style="width: 150px;
+        <select id="category" style="width: 150px;
                     height: 60px;
                     margin-top: 30px;
                     margin-left: 37px;
