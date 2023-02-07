@@ -22,7 +22,7 @@ public class PostApiController {
 
     private final PostService postService;
 
-    // 전체 게시글 조회 ( 페이징 )
+    // 전체 게시글 조회 ( 페이징 ) // 사용안함 => MVC Controller
     @GetMapping("/allpost")
     public ResponseEntity<?> allPosts(@RequestParam int page, Model model) {
         // 요청 페이지 Set

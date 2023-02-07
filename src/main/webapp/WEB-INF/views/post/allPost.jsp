@@ -55,13 +55,13 @@
 <c:forEach items="${responseDTO.posts}" var="each">
     <div class="pricing-box text-center">
         <h5>${each.category}</h5>
-        <p class="price"><a href="/post/${each.postId}">${each.title}</a></p>
+        <p class="price">${each.title}</p>
         <ul class="features-list">
             <li><strong>가격</strong> ${each.price}</li>
             <li><strong>내용 </strong> ${each.contents}</li>
 <%--            <li>${each.createdtime}</li>--%>
         </ul>
-        <button id="chatbtn" class="btn-primary">Get Started</button>
+        <button id="chatbtn" class="btn-primary"><a href="/post/detail/${each.postId}">Get Started</a></button>
     </div>
 
 </c:forEach>
