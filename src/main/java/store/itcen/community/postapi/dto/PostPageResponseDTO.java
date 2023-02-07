@@ -19,7 +19,7 @@ public class PostPageResponseDTO<T> {
     private int totalCount;
 
     // prev / next 당 보여 줄 페이지 수
-    private static final int PAGE_COUNT = 3;
+    private static final int PAGE_COUNT = 2;
 
     // 생성자 설정
     public PostPageResponseDTO(Page<T> pageData) {
