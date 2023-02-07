@@ -11,7 +11,7 @@
 
     <!--          link 선언          -->
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/style_login.css">
+    <link rel="stylesheet" href="../css/style_join.css">
 
     <!--          script 선언          -->
     <script src="https://kit.fontawesome.com/e1bd1cb2a5.js"></script>
@@ -20,7 +20,7 @@
     <script src="../js/script.js"></script>
 
     <title>
-        community
+        kim
     </title>
 </head>
 
@@ -41,20 +41,37 @@
     </div>
 </header>
 
-<div class="login_containers">
+<div class="join_container">
     <h2>
-        로그인
+        회원 가입
     </h2>
-    <form method="post" action="/auth/api/signup">
+    <form method="post" action="join_Action.jsp">
         <h3>이메일</h3>
-        <div class="loginID">
-            <input type="text" class="input" placeholder="이메일" name="email" maxlength="20">
+        <div class="joinID">
+            <input type="text" class="input" style="ime-mode:disabled;" placeholder="이메일" name="email" title="이메일" maxlength="20">
         </div>
         <h3>비밀번호</h3>
-        <div class="loginPassword">
-            <input type="password" class="input" placeholder="비밀번호" name="password" maxlength="20">
+        <div class="joinPassword">
+            <input type="password" class="input" placeholder="비밀번호" name="password" title="비밀번호" maxlength="20">
         </div>
-        <input type="submit" class="bt_login" value="로그인">
+        <h3>이름</h3>
+        <div class="joinName">
+            <input type="text" class="input" placeholder="이름" name="name" title="이름" maxlength="20">
+        </div>
+
+        <h3>별명</h3>
+        <div class="joinName">
+            <input type="text" class="input" placeholder="별명" name="nickname" title="별명" maxlength="20">
+        </div>
+
+        <h3>나이</h3>
+        <div class="joinName">
+            <input type="text" class="input" placeholder="나이" name="age" title="나이" maxlength="20">
+        </div>
+
+
+
+        <input type="submit" class="bt_join" value="회원가입">
     </form>
 </div>
 
@@ -64,7 +81,7 @@
             kim
         </div>
         <div class="footB">
-            Copyright © kim All Rights Reserved.
+            Copyright © community All Rights Reserved.
         </div>
     </div>
 </footer>
