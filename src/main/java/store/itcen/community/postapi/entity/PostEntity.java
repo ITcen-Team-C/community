@@ -45,5 +45,7 @@ public class PostEntity {
 
     private String userId; //게시물 추가, 수정 시 사용할 외래키
 
+    private String nickName; //사용자 닉네임
+
 
 }
