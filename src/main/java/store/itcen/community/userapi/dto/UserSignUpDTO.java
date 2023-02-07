@@ -29,12 +29,17 @@ public class UserSignUpDTO {
 //    @Size(min = 2, max = 5)
     private String nickname;
 
+    private Integer age;
+
+    private String name; // 실명
     // 엔터티로 변경하는 메서드
     public UserEntity toEntity() {
         return UserEntity.builder()
                 .email(this.email)
                 .password(this.password)
                 .nickname(this.nickname)
+                .age(this.age)
+                .name(this.name)
                 .build();
     }
 }

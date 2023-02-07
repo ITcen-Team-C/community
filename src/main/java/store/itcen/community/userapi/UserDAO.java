@@ -7,11 +7,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class UserDAO {
-    private String userID;
-    private String userPassword;
-    private String userName;
-    private String userGender;
-    private String userDate;
+    private String email;
+    private String password;
+    private String name;
+    private String nickname;
+    private String joinDate;
 
     private Connection con;
     private ResultSet rs;
@@ -35,13 +35,13 @@ public class UserDAO {
      * 0: 비밀번호 틀림
      * 1: 성공
      */
-    public int login(String userID, String userPassword) {
+    public int login(String email, String password) {
         try {
             PreparedStatement pst = con.prepareStatement("SELECT userPassword FROM user WHERE userID = ?");
-            pst.setString(1, userID);
+            pst.setString(1, email);
             rs = pst.executeQuery();
             if (rs.next()) {
-                return rs.getString(1).equals(userPassword) ? 1 : 0;
+                return rs.getString(1).equals(password) ? 1 : 0;
             } else {
                 return -2;
             }
@@ -52,10 +52,10 @@ public class UserDAO {
     }
 
     // 중복여부 확인
-    public boolean ID_Check(String userID) {
+    public boolean ID_Check(String email) {
         try {
             PreparedStatement pst = con.prepareStatement("SELECT * FROM user WHERE userID = ?");
-            pst.setString(1, userID);
+            pst.setString(1, email);
             rs = pst.executeQuery();
             if (rs.next()) {
                 return false;
@@ -75,15 +75,15 @@ public class UserDAO {
      * 1: 성공
      */
     public int join(UserDAO userDAO) {
-        if(!ID_Check(userDAO.getUserID())) return 0;
+        if(!ID_Check(userDAO.getEmail())) return 0;
 
         try {
             PreparedStatement pst = con.prepareStatement("INSERT INTO user VALUES (?,?,?,?,?)");
-            pst.setString(1, userDAO.getUserID());
-            pst.setString(2, userDAO.getUserPassword());
-            pst.setString(3, userDAO.getUserName());
-            pst.setString(4, userDAO.getUserGender());
-            pst.setString(5, userDAO.getUserDate());
+            pst.setString(1, userDAO.getEmail());
+            pst.setString(2, userDAO.getPassword());
+            pst.setString(3, userDAO.getName());
+            pst.setString(4, userDAO.getNickname());
+            pst.setString(5, userDAO.getJoinDate());
             return pst.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -99,11 +99,11 @@ public class UserDAO {
             rs = pst.executeQuery();
             if (rs.next()) {
                 UserDAO userDAO = new UserDAO();
-                userDAO.setUserID(rs.getString(1));
-                userDAO.setUserPassword(rs.getString(2));
-                userDAO.setUserName(rs.getString(3));
-                userDAO.setUserGender(rs.getString(4));
-                userDAO.setUserDate(rs.getString(5));
+                userDAO.setEmail(rs.getString(1));
+                userDAO.setPassword(rs.getString(2));
+                userDAO.setName(rs.getString(3));
+                userDAO.setNickname(rs.getString(4));
+                userDAO.setJoinDate(rs.getString(5));
                 return userDAO;
             }
         } catch (Exception e) {
@@ -112,34 +112,34 @@ public class UserDAO {
         return null;
     }
 
-    public String getUserID() {
-        return userID;
+    public String getEmail() {
+        return email;
     }
-    public void setUserID(String userID) {
-        this.userID = userID;
+    public void setEmail(String email) {
+        this.email = email;
     }
-    public String getUserPassword() {
-        return userPassword;
+    public String getPassword() {
+        return password;
     }
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
+    public void setPassword(String password) {
+        this.password = password;
     }
-    public String getUserName() {
-        return userName;
+    public String getName() {
+        return name;
     }
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setName(String name) {
+        this.name = name;
     }
-    public String getUserGender() {
-        return userGender;
+    public String getNickname() {
+        return nickname;
     }
-    public void setUserGender(String userGender) {
-        this.userGender = userGender;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
-    public String getUserDate() {
-        return userDate;
+    public String getJoinDate() {
+        return joinDate;
     }
-    public void setUserDate(String userDate) {
-        this.userDate = userDate;
+    public void setJoinDate(String joinDate) {
+        this.joinDate = joinDate;
     }
 }

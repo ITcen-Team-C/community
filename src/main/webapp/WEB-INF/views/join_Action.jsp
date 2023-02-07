@@ -10,21 +10,21 @@
   <meta charset="UTF-8">
 
   <title>
-    Jo's
+    kim
   </title>
 </head>
 
 <body>
 <%
-  String userID		= request.getParameter("userID");
-  String userPassword = request.getParameter("userPassword");
-  String userName		= request.getParameter("userName");
-  String userGender	= request.getParameter("userGender");
-  String userDate		= request.getParameter("userDate");
+  String email		= request.getParameter("email");
+  String password = request.getParameter("password");
+  String name		= request.getParameter("name");
+  String nickname		= request.getParameter("nickname");
+  String joinDate		= request.getParameter("joinDate");
 
   // -1: 서버 오류 / 0: 이미존재하는 아이디 / 1: 성공
-  if(userID == null || userPassword == null || userName == null
-          || userGender == null || userDate == null) {
+  if(email == null || password == null || name == null || nickname == null
+          || joinDate == null) {
     PrintWriter script = response.getWriter();
     script.println("<script>");
     script.println("alert('빈칸을 확인해 주세요')");
@@ -33,11 +33,11 @@
   } else {
     UserDAO userDAO = new UserDAO();
 
-    userDAO.setUserID(userID);
-    userDAO.setUserPassword(userPassword);
-    userDAO.setUserName(userName);
-    userDAO.setUserGender(userGender);
-    userDAO.setUserDate(userDate);
+    userDAO.setEmail(email);
+    userDAO.setPassword(password);
+    userDAO.setName(name);
+    userDAO.setNickname(nickname);
+    userDAO.setJoinDate(joinDate);
 
     int result = userDAO.join(userDAO);
 

@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @Builder
 @Entity
 @Table(name = "user")
-public class UserEntity extends BaseTimeEntity {
+public class UserEntity {
 
     @Id
     @Column(name = "userId")
@@ -34,7 +34,7 @@ public class UserEntity extends BaseTimeEntity {
 
     private String nickname; // 별명
 
-    @Column(nullable = false, length = 30)
+    @Column(length = 30)
     private Integer age; // 나이
 
     @Enumerated(EnumType.STRING)
