@@ -35,6 +35,50 @@
 </head>
 
 <body>
+
+
+<%-- 검색 --%>
+
+<div class="smart-search-container">
+<form class="smart-search-box mb-4" action="/post/smartSearch/1" method="post">
+    <table class="smartSearchBox-Table">
+        <tr>
+            <td>제목</td>
+        </tr>
+        <tr>
+            <th><input id="searchTitle" type="text" name="searchTitle" placeholder="검색"></th>
+        </tr>
+
+        <tr>
+            <td>작성자</td>
+        </tr>
+        <tr>
+            <th><input id="searchWriter" type="text" name="searchWriter" placeholder="검색"></th>
+        </tr>
+
+
+        <tr>
+            <td>가격</td>
+        </tr>
+        <tr>
+            <th><input id="searchPriceMin" type="number"
+                       name="searchPriceMin" placeholder="최소가격(₩)" step="500"></th>
+        </tr>
+        <tr>
+            <th><input type="number" name="searchPriceMax"
+                       id="searchPriceMax" placeholder="최대가격(₩)" step="500"></th>
+        </tr>
+
+        <tr>
+            <th><input class="smart-search-button" type="submit" value="검색"></th>
+        </tr>
+    </table>
+</form>
+</div>
+
+
+
+<%-- 페이징 --%>
 <div id="pagingDiv">
 
     <span id="pagingPrevious" style="cursor:pointer;" >◁</span>
@@ -48,20 +92,20 @@
 </div>
 
 
-<%--게시물 정보 : ${responseDTO.posts}--%>
 
 
+<%-- 전체 게시물 --%>
 <div class="pricing-box-container">
 <c:forEach items="${responseDTO.posts}" var="each">
     <div class="pricing-box text-center">
         <h5>${each.category}</h5>
-        <p class="price"><a href="/post/${each.postId}">${each.title}</a></p>
+        <p class="price">${each.title}</p>
         <ul class="features-list">
             <li><strong>가격</strong> ${each.price}</li>
             <li><strong>내용 </strong> ${each.contents}</li>
 <%--            <li>${each.createdtime}</li>--%>
         </ul>
-        <button id="chatbtn" class="btn-primary">Get Started</button>
+        <button id="chatbtn" class="btn-primary"><a href="/post/detail/${each.postId}">Get Started</a></button>
     </div>
 
 </c:forEach>

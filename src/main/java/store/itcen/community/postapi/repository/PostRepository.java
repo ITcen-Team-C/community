@@ -23,7 +23,7 @@ public interface PostRepository extends JpaRepository<PostEntity,String> {
 
 
     // 제목 검색조회 페이징
-    Page<PostEntity> findByTitleContaining(@Param("searchKeyword") String searchKeyword, Pageable pageable);
+    Page<PostEntity> findByTitleContaining(@Param("searchTitle") String searchTitle, Pageable pageable);
     // 작성자 검색조회 페이징
     Page<PostEntity> findByUserIdContaining(@Param("searchKeyword") String searchKeyword, Pageable pageable);
 
