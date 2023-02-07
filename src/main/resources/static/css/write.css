@@ -27,6 +27,7 @@
     margin-left: 37px;
     background-color: white;
     border-radius: 10px;
+    box-shadow: 0 0 8px #aaa;
 }
 
 .write .title-contents .title{
