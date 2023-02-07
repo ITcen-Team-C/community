@@ -79,9 +79,9 @@
 <body>
 
 <div class="write">
-<form id="writeForm">
+    <form id="writeForm">
 
-    <select style="width: 150px;
+        <select style="width: 150px;
                     height: 60px;
                     margin-top: 30px;
                     margin-left: 37px;
@@ -89,20 +89,20 @@
                     background-color: white;
                     border: none;
                     border-radius: 4px;">
-        <c:forEach items="${Category.values()}" var="category">
-            <option value="${category}">${category.cat}</option>
-        </c:forEach>
-    </select>
-    <input class="input-price" id="price" name="price" type="number" placeholder="질문 해결 가격을 입력하세요!">
-    <div class="title-contents">
-        <input class="title" id="title" name="title" type="text" placeholder="제목" > <br>
+            <c:forEach items="${Category.values()}" var="category">
+                <option value="${category}">${category.cat}</option>
+            </c:forEach>
+        </select>
+        <input class="input-price" id="price" name="price" type="number" placeholder="질문 해결 가격을 입력하세요!">
+        <div class="title-contents">
+            <input class="title" id="title" name="title" type="text" placeholder="제목" > <br>
 
-        <textarea class="contents" id="contents" name="contents" PLACEHOLDER="내용"></textarea> <br>
-    </div>
+            <textarea class="contents" id="contents" name="contents" PLACEHOLDER="내용"></textarea> <br>
+        </div>
 
-    <input id="writer" name="userId" type=hidden value="402880ab861642ee01861645eb220000">
-    <input class="send-btn" id="writeBTN" type="button" value="작성">
-</form>
+        <input id="writer" name="userId" type=hidden value="402880ab861642ee01861645eb220000">
+        <input class="send-btn" id="writeBTN" type="button" value="작성">
+    </form>
 </div>
 
 
