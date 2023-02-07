@@ -91,7 +91,8 @@
                     padding-left: 10px;
                     background-color: white;
                     border: none;
-                    border-radius: 4px;">
+                    border-radius: 4px;
+                    cursor: pointer;">
             <c:forEach items="${Category.values()}" var="category">
                 <option value="${category}">${category.cat}</option>
             </c:forEach>
@@ -104,7 +105,7 @@
         </div>
 
         <input id="nickName" name="nickName" type="hidden" value="닉넴">
-        <input id="userId" name="userId" type=hidden value="402880ab861642ee01861645eb220000">
+        <input id="userId" name="userId" type=hidden value="402880d08624b21b018624b2cc790000">
         <input class="send-btn" id="writeBTN" type="button" value="작성">
     </form>
 </div>
