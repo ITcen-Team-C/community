@@ -38,8 +38,17 @@
                 ${responseDTO.price} 원
             </div>
             <input class="solve-btn" id="solveBTN" type="button" value="질문 해결하기">
-
         </div>
+
+        <div class="ul-modify-delete">
+            <div class="post-modify">
+                수정
+            </div>
+            <div class="post-delete">
+                삭제
+            </div>
+        </div>
+
 
 
     </div>
