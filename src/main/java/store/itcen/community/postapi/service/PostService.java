@@ -123,5 +123,37 @@ public class PostService {
     }
 
 
+    public PostListResponseDTO getSearchList(PostPageRequestDTO pageRequestDTO, SearchDTO searchDTO) {
+        Pageable pageable = PageRequest.of(
+                pageRequestDTO.getPage() - 1, pageRequestDTO.getSizePerPage(),
+                Sort.Direction.DESC, "createDate"
+        );
+
+
+        // searchDTO - searchTitle 로만 검색 ( 임시 )
+        final Page<PostEntity> pageData = postRepository.findByTitleContaining(searchDTO.getSearchTitle(),pageable);
+        List<PostEntity> allPosts = pageData.getContent();
+
+//        if (allPosts.isEmpty()) {
+//            throw new RuntimeException("조회 결과 Empty!");
+//        }
+
+        // Entity => DTO ( 필요한 정보만 클라이언트에 필요한 꼴로 보내줌 )
+        List<PostResponseDTO> responseDTOList = allPosts.stream()
+                .map(et -> new PostResponseDTO(Optional.ofNullable(et)))
+                .collect(Collectors.toList());
+
+
+        PostListResponseDTO listResponseDTO = PostListResponseDTO.builder()
+                .count(responseDTOList.size())
+                .pageInfo(new PostPageResponseDTO<PostEntity>(pageData))
+                .posts(responseDTOList)
+                .build();
+
+        return listResponseDTO;
+    }
+
+
+
 
 }
