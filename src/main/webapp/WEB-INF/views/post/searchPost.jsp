@@ -23,10 +23,10 @@
             }
 
             $("#pagingPrevious").on("click", function () {
-                location.replace("/post/" + ${responseDTO.pageInfo.startPage - 1})
+                location.replace("/post/smartSearch/" + ${responseDTO.pageInfo.startPage - 1} + "?searchTitle=${param.searchTitle}&searchWriter=${param.searchWriter}&searchPriceMin=${param.searchPriceMin}&searchPriceMax=${param.searchPriceMax}")
             });
             $("#pagingNext").on("click", function () {
-                location.replace("/post/" + ${responseDTO.pageInfo.endPage + 1})
+                location.replace("/post/smartSearch/" + ${responseDTO.pageInfo.endPage + 1} + "?searchTitle=${param.searchTitle}&searchWriter=${param.searchWriter}&searchPriceMin=${param.searchPriceMin}&searchPriceMax=${param.searchPriceMax}")
             });
 
 
@@ -40,7 +40,7 @@
 <%-- 검색 --%>
 
 <div class="smart-search-container">
-<form class="smart-search-box mb-4" action="/post/smartSearch/1" method="post">
+<form class="smart-search-box mb-4" action="/post/smartSearch/1" method="get">
     <table class="smartSearchBox-Table">
         <tr>
             <td>제목</td>
