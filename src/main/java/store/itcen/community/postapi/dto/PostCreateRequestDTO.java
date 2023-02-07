@@ -23,6 +23,8 @@ public class PostCreateRequestDTO {
 
     private String userId;
 
+    private String nickName; //사용자 닉네임
+
     public PostEntity toEntity(){
         return PostEntity.builder()
                 .title(this.title)
@@ -30,6 +32,7 @@ public class PostCreateRequestDTO {
                 .category(this.category)
                 .price(this.price)
                 .userId(this.userId)
+                .nickName(this.nickName)
                 .build();
     }
 

@@ -2,6 +2,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="path" value="${pageContext.request.contextPath}" />
+
+<%@ page import ="store.itcen.community.postapi.entity.Category" %>
+<link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/write.css"/>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -74,14 +78,33 @@
 
 <body>
 
+<div class="write">
 <form id="writeForm">
-    제목 : <input id="title" name="title" type="text"> <br>
-    내용 : <textarea id="contents" name="contents"></textarea> <br>
-    카테고리 : <input id="category" name="category" type="text"> <br>
-    가격 : <input id="price" name="price" type="number"> <br>
+
+    <select style="width: 150px;
+                    height: 60px;
+                    margin-top: 30px;
+                    margin-left: 37px;
+                    padding-left: 10px;
+                    background-color: white;
+                    border: none;
+                    border-radius: 4px;">
+        <c:forEach items="${Category.values()}" var="category">
+            <option value="${category}">${category.cat}</option>
+        </c:forEach>
+    </select>
+    <input class="input-price" id="price" name="price" type="number" placeholder="질문 해결 가격을 입력하세요!">
+    <div class="title-contents">
+        <input class="title" id="title" name="title" type="text" placeholder="제목" > <br>
+
+        <textarea class="contents" id="contents" name="contents" PLACEHOLDER="내용"></textarea> <br>
+    </div>
+
     <input id="writer" name="userId" type=hidden value="402880ab861642ee01861645eb220000">
-    <input id="writeBTN" type="button" value="작성">
+    <input class="send-btn" id="writeBTN" type="button" value="작성">
 </form>
+</div>
+
 
 </body>
 
