@@ -32,6 +32,7 @@ public class UserSignUpDTO {
     private Integer age;
 
     private String name; // 실명
+
     // 엔터티로 변경하는 메서드
     public UserEntity toEntity() {
         return UserEntity.builder()
