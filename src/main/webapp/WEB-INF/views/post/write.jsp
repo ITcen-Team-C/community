@@ -21,7 +21,9 @@
                 const contents = $("#contents").val();
                 const price = $("#price").val();
                 const category = $("#category").val();
-                const userId = $("#writer").val();
+                const nickName = $("#nickName").val();
+                alert(nickName);
+                const userId = $("#userId").val();
 
                 console.log(title + " " + contents + " " + category + " " + price);
 
@@ -62,6 +64,7 @@
                         'contents': contents,
                         'price': price,
                         'category': category,
+                        'nickName': nickName,
                         'userId': userId
                     })
                 })
@@ -100,7 +103,8 @@
             <textarea class="contents" id="contents" name="contents" PLACEHOLDER="내용"></textarea> <br>
         </div>
 
-        <input id="writer" name="userId" type=hidden value="402880ab861642ee01861645eb220000">
+        <input id="nickName" name="nickName" type="hidden" value="닉넴">
+        <input id="userId" name="userId" type=hidden value="402880ab861642ee01861645eb220000">
         <input class="send-btn" id="writeBTN" type="button" value="작성">
     </form>
 </div>

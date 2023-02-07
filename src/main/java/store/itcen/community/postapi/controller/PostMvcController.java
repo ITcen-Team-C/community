@@ -44,7 +44,7 @@ public class PostMvcController {
         return "post/detailPost";
     }
 
-    @PostMapping("/smartSearch/{page}")
+    @GetMapping("/smartSearch/{page}")
     public String smartSearch(SearchDTO searchDTO, @PathVariable int page, Model model) {
 
         log.info("searchdto - {}", searchDTO);

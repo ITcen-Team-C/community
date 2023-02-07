@@ -40,7 +40,7 @@
 <%-- 검색 --%>
 
 <div class="smart-search-container">
-<form class="smart-search-box mb-4" action="/post/smartSearch/1" method="post">
+<form class="smart-search-box mb-4" action="/post/smartSearch/1" method="get">
     <table class="smartSearchBox-Table">
         <tr>
             <td>제목</td>

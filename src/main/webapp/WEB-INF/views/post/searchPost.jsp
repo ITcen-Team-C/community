@@ -84,8 +84,9 @@
     <span id="pagingPrevious" style="cursor:pointer;" >◁</span>
     <c:set var="counter" value="0" />
     <c:forEach begin="${responseDTO.pageInfo.startPage}" end="${responseDTO.pageInfo.endPage}" varStatus="vs">
-        <a href="/post/${responseDTO.pageInfo.startPage + counter}"> ${responseDTO.pageInfo.startPage + counter} </a>
-    <c:set var="counter" value="${counter + 1}" />
+        <a href="/post/smartSearch/${responseDTO.pageInfo.startPage + counter}?searchTitle=${param.searchTitle}&searchWriter=${param.searchWriter}&searchPriceMin=${param.searchPriceMin}&searchPriceMax=${param.searchPriceMax}">
+                ${responseDTO.pageInfo.startPage + counter} </a>
+        <c:set var="counter" value="${counter + 1}" />
     </c:forEach>
     <span id="pagingNext" style="cursor:pointer">▷</span>
 
