@@ -45,7 +45,7 @@
     <h2>
         로그인
     </h2>
-    <form method="post" action="/auth/api/signup">
+    <form method="post" action="/api/auth/signin">
         <h3>이메일</h3>
         <div class="loginID">
             <input type="text" class="input" placeholder="이메일" name="email" maxlength="20">

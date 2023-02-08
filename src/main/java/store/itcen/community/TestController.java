@@ -11,7 +11,7 @@ import store.itcen.community.postapi.entity.PostEntity;
 import store.itcen.community.postapi.repository.PostRepository;
 import store.itcen.community.userapi.repository.UserRepository;
 
-@RequestMapping("/WEB-INF/views/user")
+
 @Controller
 public class TestController {
 
@@ -33,17 +33,17 @@ public class TestController {
     }
 
 
-    @GetMapping("/join")
-    public String join() {
-//        userRepository.save(new UserEntity("uuid", "email2", "password2", "nickname2", LocalDateTime.now()));
-        return "user/join";
-    }
-
-    @GetMapping("/login")
-    public String write() {
-//        postRepository.save(new PostEntity("uupostid", "title", "contents", 1000L, LocalDateTime.now(), new UserEntity("uuid2", "email3", "password3", "nickname3", LocalDateTime.now()), "402880ab8615ea15018615ea26a60000"));
-        return "user/login";
-    }
+//    @GetMapping("/join")
+//    public String join() {
+////        userRepository.save(new UserEntity("uuid", "email2", "password2", "nickname2", LocalDateTime.now()));
+//        return "user/join";
+//    }
+//
+//    @GetMapping("/login")
+//    public String write() {
+////        postRepository.save(new PostEntity("uupostid", "title", "contents", 1000L, LocalDateTime.now(), new UserEntity("uuid2", "email3", "password3", "nickname3", LocalDateTime.now()), "402880ab8615ea15018615ea26a60000"));
+//        return "user/login";
+//    }
 
     @ResponseBody
     @PostMapping("/community/joinProcess")

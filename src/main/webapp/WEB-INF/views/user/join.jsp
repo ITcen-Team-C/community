@@ -45,7 +45,7 @@
     <h2>
         회원 가입
     </h2>
-    <form method="post" action="api/auth/signup">
+    <form method="post" action="/api/auth/signup">
         <h3>이메일</h3>
         <div class="joinID">
             <input type="text" class="input" style="ime-mode:disabled;" placeholder="이메일" name="email" title="이메일" maxlength="20">
