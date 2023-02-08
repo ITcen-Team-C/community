@@ -6,6 +6,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum Category {
+    ALL("기타"),
     BACKEND("BACKEND"),
     FRONTEND("FRONTEND"),
     DATABASE("DATABASE"),
