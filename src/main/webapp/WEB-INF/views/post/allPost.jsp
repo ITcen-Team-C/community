@@ -47,12 +47,8 @@
         });
     </script>
 </head>
-
 <body>
-
-
 <%-- 검색 --%>
-
 <div class="smart-search-container">
 <form class="smart-search-box mb-4" action="/post/smartSearch/1" method="get">
     <table class="smartSearchBox-Table">
@@ -133,14 +129,9 @@
 
 <%--</div>--%>
 
-
-
-
 <%-- 전체 게시물 --%>
 <div class="pricing-box-container">
 <c:forEach items="${responseDTO.posts}" var="each">
-
-
     <div class="pricing-box text-center">
         <h5>${each.category}</h5>
         <p class="price">${each.title}</p>
@@ -150,13 +141,8 @@
         </ul>
         <button id="chatbtn" class="btn-primary"><a href="/post/detail/${each.postId}">Get Started</a></button>
     </div>
-
 </c:forEach>
 </div>
 
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
-
 </html>
