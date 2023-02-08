@@ -29,6 +29,27 @@
             })
 
 
+            $("#okBTN").on("click",function (e){
+                fetch('/community/post/delete/${responseDTO.postId}',{
+                    method:"DELETE",
+                    headers: {"content-type" : "application/json"}
+                })
+                    .then(response=>
+                        response.json)
+                    .then(result => {
+                        console.log(result);
+
+                        window.location.href="/post/1"
+                    })
+            })
+
+            $("#updateBTN").on("click",function (){
+                window.location.href="/post/update/${responseDTO.postId}"
+            })
+
+
+
+
         });
     </script>
 
