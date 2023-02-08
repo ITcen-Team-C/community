@@ -11,6 +11,12 @@ public class SignMvcController
 {
 
     @GetMapping("/")
+    public String home(Map<String, Object> model) {
+        model.put("time", new Date());
+        return "user/home";
+    }
+
+    @GetMapping("/index")
     public String index(Map<String, Object> model) {
         model.put("time", new Date());
         return "user/index";

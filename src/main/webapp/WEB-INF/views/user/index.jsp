@@ -11,6 +11,23 @@
     <title>무엇이든 물어보세요</title>
 </head>
 <body>
+<header>
+    <div class="header_container">
+        <div class="logo_container">
+            <a href="http://www.naver.com">BLOG</a>
+        </div>
+
+        <div class="login_container">
+            <ul class="login">
+                <li class="menu_login"><a class="menu_title" href="http://localhost:8080/login">로그아웃</a></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+</header>
+
+
+
   무엇이든 물어보세요
 <br>
     환영메세지

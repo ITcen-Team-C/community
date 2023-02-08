@@ -18,7 +18,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-// 클라이언트에 헤더에 담아서 보낸 토큰을 검사하는 필터
+// 클라이언트 헤더에 담아서 보낸 토큰을 검사하는 필터
+// username + password를 통한 인증을 Jwt를 통해 수행
 @Component
 @RequiredArgsConstructor
 @Slf4j

@@ -4,12 +4,35 @@
 * {
     margin: 0;
     padding: 0;
+    background: #7CBB93;
 }
+.logo_container{
+    font-size: 40px;
+    display: block;
+    margin: 100px auto;
+    text-align: left;
+    background: #2d93ad;
+
+    width: 85px;
+    height: 100%;
+
+}
+
+
+.login_container{
+    display: block;
+    margin: 100px auto;
+    text-align: right;
+
+}
+
+
 
 .login_containers {
     display: block;
     margin: 100px auto;
     text-align: center;
+
 }
 
 .login_containers h2 {

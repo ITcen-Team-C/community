@@ -4,10 +4,9 @@ package store.itcen.community.userapi.controller;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import store.itcen.community.userapi.dto.LoginRequestDTO;
 import store.itcen.community.userapi.dto.LoginResponseDTO;
 import store.itcen.community.userapi.dto.UserSignUpDTO;
@@ -48,17 +47,19 @@ public class UserApiController {
 
     @PostMapping("/signin")
     public String signIn(
-            @Validated @RequestBody LoginRequestDTO requestDTO) {
+             LoginRequestDTO requestDTO
+    , RedirectAttributes ra) {
 
         try {
             LoginResponseDTO userInfo = userService.getByCredentials(
                     requestDTO.getEmail(),
                     requestDTO.getPassword()
             );
-            return "redirect:/";
+            return "redirect:/index";
         } catch (RuntimeException e) {
             log.warn("비밀번호 오류");
-            return "";
+            ra.addFlashAttribute("message", "비번 틀림!");
+            return "redirect:/login";
         }
 
     }

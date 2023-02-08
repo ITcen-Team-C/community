@@ -12,6 +12,8 @@ import store.itcen.community.security.JwtAuthFilter;
 
 @EnableWebSecurity
 @RequiredArgsConstructor
+
+// spring security 설정을 위한 클래스
 public class WebSecurityConfig {
 
     private final JwtAuthFilter jwtAuthFilter;
