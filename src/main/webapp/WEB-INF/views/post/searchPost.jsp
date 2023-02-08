@@ -21,6 +21,9 @@
             // 검색어 유지
             $("#searchTitle").val('${searchDTO.searchTitle}');
             $("#searchWriter").val('${searchDTO.searchWriter}');
+            $("#searchCategory").val('${searchDTO.searchCategory}');
+
+
 
             if ('${searchDTO.searchPriceMin}' != 0) {
                 $("#searchPriceMin").val('${searchDTO.searchPriceMin}');
@@ -48,10 +51,10 @@
             }
 
             $("#pagingPrevious").on("click", function () {
-                location.replace("/post/smartSearch/" + ${responseDTO.pageInfo.startPage - 1} + "?searchTitle=${param.searchTitle}&searchWriter=${param.searchWriter}&searchPriceMin=${param.searchPriceMin}&searchPriceMax=${param.searchPriceMax}")
+                location.replace("/post/smartSearch/" + ${responseDTO.pageInfo.startPage - 1} + "?searchTitle=${param.searchTitle}&searchWriter=${param.searchWriter}&searchPriceMin=${param.searchPriceMin}&searchPriceMax=${param.searchPriceMax}&searchCategory=${param.searchCategory}")
             });
             $("#pagingNext").on("click", function () {
-                location.replace("/post/smartSearch/" + ${responseDTO.pageInfo.endPage + 1} + "?searchTitle=${param.searchTitle}&searchWriter=${param.searchWriter}&searchPriceMin=${param.searchPriceMin}&searchPriceMax=${param.searchPriceMax}")
+                location.replace("/post/smartSearch/" + ${responseDTO.pageInfo.endPage + 1} + "?searchTitle=${param.searchTitle}&searchWriter=${param.searchWriter}&searchPriceMin=${param.searchPriceMin}&searchPriceMax=${param.searchPriceMax}&searchCategory=${param.searchCategory}")
             });
 
             // 현재 페이지 색 표시
@@ -68,6 +71,24 @@
 <div class="smart-search-container">
 <form class="smart-search-box mb-4" action="/post/smartSearch/1" method="get">
     <table class="smartSearchBox-Table">
+
+        <tr>
+            <td>카테고리</td>
+        </tr>
+        <tr>
+            <th>
+                <select id="searchCategory" name="searchCategory">
+                    <option>ALL</option>
+                    <option>BACKEND</option>
+                    <option>FRONTEND</option>
+                    <option>DATABASE</option>
+                    <option>AWS</option>
+                </select>
+            </th>
+        </tr>
+
+
+
         <tr>
             <td>제목</td>
         </tr>
@@ -113,7 +134,7 @@
 
         <c:set var="counter" value="0" />
         <c:forEach begin="${responseDTO.pageInfo.startPage}" end="${responseDTO.pageInfo.endPage}" varStatus="vs">
-            <li id="pageNumList${counter}" class="page-item"><a id="pageNumLink${counter}" class="page-link" href="/post/smartSearch/${responseDTO.pageInfo.startPage + counter}?searchTitle=${param.searchTitle}&searchWriter=${param.searchWriter}&searchPriceMin=${param.searchPriceMin}&searchPriceMax=${param.searchPriceMax}">
+            <li id="pageNumList${counter}" class="page-item"><a id="pageNumLink${counter}" class="page-link" href="/post/smartSearch/${responseDTO.pageInfo.startPage + counter}?searchTitle=${param.searchTitle}&searchWriter=${param.searchWriter}&searchPriceMin=${param.searchPriceMin}&searchPriceMax=${param.searchPriceMax}&searchCategory=${param.searchCategory}">
                     ${responseDTO.pageInfo.startPage + counter}</a></li>
             <c:set var="counter" value="${counter + 1}" />
         </c:forEach>
@@ -150,6 +171,7 @@
         <p class="price">${each.title}</p>
         <ul class="features-list">
             <li><strong>가격</strong> ${each.price}</li>
+            <li><strong>작성자</strong> ${each.nickName}</li>
             <li><strong>${dateDiffShow}</strong></li>
         </ul>
         <button id="chatbtn" class="btn-primary"><a href="/post/detail/${each.postId}">Get Started</a></button>

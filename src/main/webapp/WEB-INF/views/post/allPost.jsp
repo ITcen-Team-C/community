@@ -53,6 +53,21 @@
 <form class="smart-search-box mb-4" action="/post/smartSearch/1" method="get">
     <table class="smartSearchBox-Table">
         <tr>
+            <td>카테고리</td>
+        </tr>
+        <tr>
+            <th>
+                <select id="searchCategory" name="searchCategory">
+                    <option>ALL</option>
+                    <option>BACKEND</option>
+                    <option>FRONTEND</option>
+                    <option>DATABASE</option>
+                    <option>AWS</option>
+                </select>
+            </th>
+        </tr>
+
+        <tr>
             <td>제목</td>
         </tr>
         <tr>
