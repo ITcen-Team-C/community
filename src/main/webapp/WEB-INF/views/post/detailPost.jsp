@@ -4,16 +4,31 @@
 <c:set var="path" value="${pageContext.request.contextPath}" />
 
 <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/detailpost.css"/>
+<link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/modal.css"/>
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>detail</title>
-    <link rel="stylesheet" href="${path}/css/test.css">
+<%--    <link rel="stylesheet" href="${path}/css/test.css">--%>
     <script src="${path}/js/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
+
+            $("#deleteBTN").click(function (e){
+                $(".modal").fadeIn();
+            });
+
+            $("#modal, .close").on('click',function (){
+                $(".modal").fadeOut();
+            })
+
+            $("#noBTN").on('click',function (){
+                $(".modal").fadeOut();
+            })
+
+
         });
     </script>
 
@@ -49,14 +64,22 @@
 
         </div>
 
-
-
     </div>
-
 
 
 </div>
 
+<div class="modal">
+    <div class="modal_content">
+        <p href="" class="close">x</p>
+        <br>
+        <div class="desc">삭제하시겠습니까?</div><br>
+
+        <input class="delete-no" id="noBTN" type="button" value="취소">
+        <input class="delete-ok"  id="okBTN" type="button" value="삭제">
+
+    </div>
+</div>
 
 </body>
 
