@@ -54,6 +54,16 @@ public class PostMvcController {
         return "post/detailPost";
     }
 
+    @GetMapping("/delete/{id}")
+    public String deletePost(@PathVariable("id") String postId, Model model){
+        log.info("/community/post/delete/{} get ", postId);
+        PostListResponseDTO responseDTO=postService.delete(postId);
+        model.addAttribute("responseDTO",responseDTO);
+//        allPosts(1,model);
+        return "post/allPost";
+    }
+
+
     @GetMapping("/smartSearch/{page}")
     public String smartSearch(SearchDTO searchDTO, @PathVariable int page, Model model) {
 
