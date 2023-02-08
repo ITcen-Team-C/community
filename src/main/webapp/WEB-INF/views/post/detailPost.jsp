@@ -16,7 +16,10 @@
         $(document).ready(function() {
         });
     </script>
+
 </head>
+
+<%--http://localhost:8080/post/detail/402880d0862a376b01862a37c3820000--%>
 
 <body>
 

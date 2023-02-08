@@ -73,9 +73,9 @@ public class PostService {
     {
         PostEntity post=createRequestDTO.toEntity();
         post.setUserId(userId);
+        postRepository.save(post);
         String postId=post.getPostId();
 
-        postRepository.save(post);
         log.info("게시글 등록. 제목 : {}, 내용 :{}, 가격 :{}",createRequestDTO.getTitle(),createRequestDTO.getContents(),createRequestDTO.getPrice());
 
         //추가하고 나면 목록 조회불러오기
