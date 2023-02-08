@@ -132,12 +132,30 @@
 <%-- 전체 게시물 --%>
 <div class="pricing-box-container">
 <c:forEach items="${responseDTO.posts}" var="each">
+
+    <!-- 날짜 몇일 전으로 변환 -->
+    <fmt:parseDate value="${each.createDate}" var="uploadDate" pattern="yyyy-MM-dd" />
+    <c:set var="current" value="<%=new java.util.Date()%>" />
+    <fmt:formatDate value="${current}" pattern="yyyy-MM-dd" var="currentForm" />
+    <fmt:parseDate value="${currentForm}" var="now" pattern="yyyy-MM-dd" />
+
+    <fmt:parseNumber value="${ (now.time - uploadDate.time)/(1000*60*60*24)}" integerOnly="true"
+                     var="dateDiff">
+    </fmt:parseNumber>
+
+    <c:set var="dateDiffShow" value="${dateDiff}일전" />
+
+    <c:if test="${dateDiffShow == '0일전'}">
+        <c:set var="dateDiffShow" value="오늘" />
+    </c:if>
+
+
     <div class="pricing-box text-center">
         <h5>${each.category}</h5>
         <p class="price">${each.title}</p>
         <ul class="features-list">
             <li><strong>가격</strong> ${each.price}</li>
-            <li><strong>${each.createDate}</strong></li>
+            <li><strong>${dateDiffShow}</strong></li>
         </ul>
         <button id="chatbtn" class="btn-primary"><a href="/post/detail/${each.postId}">Get Started</a></button>
     </div>
