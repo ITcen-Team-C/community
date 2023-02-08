@@ -81,12 +81,12 @@
     cursor: pointer;
     font-size: 20px;
 
-    text-decoration: underline;
+    /*text-decoration: underline;*/
 }
 
 .detail .post-delete{
     margin-left: 20px;
     cursor: pointer;
     font-size: 20px;
-    text-decoration: underline;
+    /*text-decoration: underline;*/
 }
