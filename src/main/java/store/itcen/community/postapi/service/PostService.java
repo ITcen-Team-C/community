@@ -85,7 +85,7 @@ public class PostService {
 
 
 
-//    //게시글 수정
+    //게시글 수정
     public PostResponseDTO update(
             final String postId,
             final PostModifyRequestDTO modifyRequestDTO

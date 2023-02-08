@@ -20,6 +20,8 @@ public class PostResponseDTO {
 
     private long price;
 
+    private String nickName;
+
     @JsonFormat(pattern = "yyyy년 MM월 dd일 a hh시 mm분 ss초")//a 는 am,pm표기
     private LocalDateTime createDate;
 
@@ -32,6 +34,7 @@ public class PostResponseDTO {
         this.price=postEntity.get().getPrice();
         this.category=postEntity.get().getCategory();
         this.createDate=postEntity.get().getCreateDate();
+        this.nickName=postEntity.get().getNickName();
     }
 
 }

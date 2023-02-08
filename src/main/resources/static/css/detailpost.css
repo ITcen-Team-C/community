@@ -74,19 +74,28 @@
 
 .detail .ul-modify-delete{
     display: flex;
-    margin-left: 730px;
+    margin-left: 700px;
     margin-top: 280px;
 }
 .detail .post-modify{
     cursor: pointer;
-    font-size: 20px;
+    font-size: 15px;
+    background-color: #222222;
+    color: white;
+    border-radius: 10px;
+    width: 60px;
+    height: 40px;
 
     /*text-decoration: underline;*/
 }
 
 .detail .post-delete{
+    width: 60px;
+    height: 40px;
     margin-left: 20px;
     cursor: pointer;
-    font-size: 20px;
-    /*text-decoration: underline;*/
+    font-size: 15px;
+    background-color: #222222;
+    color: white;
+    border-radius: 10px;
 }

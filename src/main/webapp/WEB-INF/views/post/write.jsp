@@ -4,6 +4,7 @@
 <c:set var="path" value="${pageContext.request.contextPath}" />
 
 <%@ page import ="store.itcen.community.postapi.entity.Category" %>
+
 <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/write.css"/>
 
 <!DOCTYPE html>
