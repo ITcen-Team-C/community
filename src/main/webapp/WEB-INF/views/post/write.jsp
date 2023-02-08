@@ -22,7 +22,6 @@
                 const price = $("#price").val();
                 const category = $("#category").val();
                 const nickName = $("#nickName").val();
-                alert(nickName);
                 const userId = $("#userId").val();
 
                 console.log(title + " " + contents + " " + category + " " + price);

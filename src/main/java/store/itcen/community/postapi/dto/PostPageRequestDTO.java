@@ -12,7 +12,7 @@ public class PostPageRequestDTO {
     // 기본생성자 => 초기 세팅 => int 기본 값 0 으로 잡혀있으니까 기본 값 1로 설정, sizeperPage 설정
     public PostPageRequestDTO() {
         this.page = 1;
-        this.sizePerPage = 3;
+        this.sizePerPage = 9;
     }
 
     // Setter 이용 트롤 처리
@@ -26,8 +26,8 @@ public class PostPageRequestDTO {
     }
 
     public void setSizePerPage(int sizePerPage) {
-        if (sizePerPage < 10 || sizePerPage > 100) {
-            this.sizePerPage = 10; // 이거 공격자가 선넘게 이상하게 고쳐두면  10 으로 설정.
+        if (sizePerPage < 9 || sizePerPage > 100) {
+            this.sizePerPage = 9; // 이거 공격자가 선넘게 이상하게 고쳐두면  10 으로 설정.
             return;
         }
         this.sizePerPage = sizePerPage;
