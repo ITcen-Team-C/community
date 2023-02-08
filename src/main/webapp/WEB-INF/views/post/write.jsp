@@ -56,7 +56,7 @@
                 //
                 // }); //ajax
 
-                fetch("/community/writeProcess",{
+                fetch("/community/post/writeProcess",{
                     method: "POST",
                     headers: {"content-type" : "application/json"},
                     body: JSON.stringify({
