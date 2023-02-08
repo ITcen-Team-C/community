@@ -155,6 +155,7 @@
         <p class="price">${each.title}</p>
         <ul class="features-list">
             <li><strong>가격</strong> ${each.price}</li>
+            <li><strong>작성자</strong> ${each.nickName}</li>
             <li><strong>${dateDiffShow}</strong></li>
         </ul>
         <button id="chatbtn" class="btn-primary"><a href="/post/detail/${each.postId}">Get Started</a></button>
