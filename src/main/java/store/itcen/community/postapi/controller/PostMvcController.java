@@ -23,6 +23,12 @@ public class PostMvcController {
     }
 
 
+    @GetMapping("/write")
+    public String writePost() {
+        return "post/write";
+    }
+
+
     @GetMapping("/{page}")
     public String allPosts(@PathVariable int page, Model model) {
         // 요청 페이지 Set

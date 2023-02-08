@@ -48,7 +48,7 @@ public class PostApiController {
 
 
     //글 등록 요청
-    @PostMapping
+    @PostMapping("/writeProcess")
     public ResponseEntity<?> createPost(
             @AuthenticationPrincipal String userId,
             @Validated @RequestBody PostCreateRequestDTO requestDTO,
