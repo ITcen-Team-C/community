@@ -44,12 +44,9 @@
         </div>
 
         <div class="ul-modify-delete">
-            <div class="post-modify">
-                수정
-            </div>
-            <div class="post-delete">
-                삭제
-            </div>
+            <input class="post-modify"  id="updateBTN" type="button" value="수정">
+            <input class="post-delete"  id="deleteBTN" type="button" value="삭제">
+
         </div>
 
 

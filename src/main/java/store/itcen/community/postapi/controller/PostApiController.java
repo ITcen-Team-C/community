@@ -78,11 +78,7 @@ public class PostApiController {
 
 
     //글 수정 요청
-    @RequestMapping(
-            value = "/{id}"
-            ,method = {RequestMethod.PATCH,RequestMethod.PUT}
-    )
-
+    @PatchMapping("/update/{id}")
     public ResponseEntity<?> updatePost(
             @AuthenticationPrincipal String userId //userid 연결 후 입력 필요
             , @PathVariable("id") String postId

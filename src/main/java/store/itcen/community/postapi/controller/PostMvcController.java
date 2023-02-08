@@ -5,10 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import store.itcen.community.postapi.dto.PostListResponseDTO;
-import store.itcen.community.postapi.dto.PostPageRequestDTO;
-import store.itcen.community.postapi.dto.PostResponseDTO;
-import store.itcen.community.postapi.dto.SearchDTO;
+import store.itcen.community.postapi.dto.*;
 import store.itcen.community.postapi.service.PostService;
 
 @Controller
@@ -28,6 +25,13 @@ public class PostMvcController {
         return "post/write";
     }
 
+    @GetMapping("/update/{id}")
+    public String updatePost(@PathVariable("id") String postId,
+                             Model model) {
+        PostResponseDTO responseDTO=postService.detail(postId);
+        model.addAttribute("responseDTO",responseDTO);
+        return "post/updatePost";
+    }
 
     @GetMapping("/{page}")
     public String allPosts(@PathVariable int page, Model model) {
