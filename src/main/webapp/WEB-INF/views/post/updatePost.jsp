@@ -42,7 +42,7 @@
                     .then(response => response.json())
                     .then(result => {
                         console.log(result);
-                        console.log(result.title);
+                        window.location.href="/post/detail/${responseDTO.postId}"
                     })
 
             })

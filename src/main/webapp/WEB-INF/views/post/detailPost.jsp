@@ -43,6 +43,10 @@
                     })
             })
 
+            $("#updateBTN").on("click",function (){
+                window.location.href="/post/update/${responseDTO.postId}"
+            })
+
 
 
 
