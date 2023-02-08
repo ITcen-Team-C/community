@@ -6,20 +6,45 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>title</title>
+    <title>Question</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="${path}/css/allboard.css">
-
     <script src="${path}/js/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function() {
+            const currentPage = ${responseDTO.pageInfo.currentPage};
             const prev = ${responseDTO.pageInfo.prev};
             const next = ${responseDTO.pageInfo.next};
 
+            // 검색어 유지
+            $("#searchTitle").val('${searchDTO.searchTitle}');
+            $("#searchWriter").val('${searchDTO.searchWriter}');
+
+            if ('${searchDTO.searchPriceMin}' != 0) {
+                $("#searchPriceMin").val('${searchDTO.searchPriceMin}');
+            }
+            if ('${searchDTO.searchPriceMax}' != 1000000000) {
+                $("#searchPriceMax").val('${searchDTO.searchPriceMax}');
+            }
+
+            // 최소가격 최대가격 확인
+            if (${searchDTO.searchPriceMin} > ${searchDTO.searchPriceMax}) {
+                alert("최소가격과 최대가격을 확인하세요.");
+            }
+
+
+
+
+
+
+            // prev next 활성-비활성 및 링크설정
             if (!prev) {
-                $("#pagingPrevious").attr("style", "display:none");
+                $("#pagingPrevious").attr("class", "page-item disabled");
             }
             if (!next) {
-                $("#pagingNext").attr("style", "display:none");
+                $("#pagingNext").attr("class", "page-item disabled");
             }
 
             $("#pagingPrevious").on("click", function () {
@@ -29,16 +54,17 @@
                 location.replace("/post/smartSearch/" + ${responseDTO.pageInfo.endPage + 1} + "?searchTitle=${param.searchTitle}&searchWriter=${param.searchWriter}&searchPriceMin=${param.searchPriceMin}&searchPriceMax=${param.searchPriceMax}")
             });
 
-
+            // 현재 페이지 색 표시
+            for (let i = 0; i < 10; i ++) {
+                if ($("#pageNumLink" + i).html() == currentPage) {
+                    $("#pageNumList" + i).attr("class", "page-item active");
+                }
+            }
         });
     </script>
 </head>
-
 <body>
-
-
 <%-- 검색 --%>
-
 <div class="smart-search-container">
 <form class="smart-search-box mb-4" action="/post/smartSearch/1" method="get">
     <table class="smartSearchBox-Table">
@@ -79,32 +105,52 @@
 
 
 <%-- 페이징 --%>
-<div id="pagingDiv">
+<nav aria-label="...">
+    <ul class="pagination pagination-lg">
+        <li id="pagingPrevious" class="page-item">
+            <a class="page-link" href="#" tabindex="-1">Previous</a>
+        </li>
 
-    <span id="pagingPrevious" style="cursor:pointer;" >◁</span>
-    <c:set var="counter" value="0" />
-    <c:forEach begin="${responseDTO.pageInfo.startPage}" end="${responseDTO.pageInfo.endPage}" varStatus="vs">
-        <a href="/post/smartSearch/${responseDTO.pageInfo.startPage + counter}?searchTitle=${param.searchTitle}&searchWriter=${param.searchWriter}&searchPriceMin=${param.searchPriceMin}&searchPriceMax=${param.searchPriceMax}">
-                ${responseDTO.pageInfo.startPage + counter} </a>
-        <c:set var="counter" value="${counter + 1}" />
-    </c:forEach>
-    <span id="pagingNext" style="cursor:pointer">▷</span>
+        <c:set var="counter" value="0" />
+        <c:forEach begin="${responseDTO.pageInfo.startPage}" end="${responseDTO.pageInfo.endPage}" varStatus="vs">
+            <li id="pageNumList${counter}" class="page-item"><a id="pageNumLink${counter}" class="page-link" href="/post/smartSearch/${responseDTO.pageInfo.startPage + counter}?searchTitle=${param.searchTitle}&searchWriter=${param.searchWriter}&searchPriceMin=${param.searchPriceMin}&searchPriceMax=${param.searchPriceMax}">
+                    ${responseDTO.pageInfo.startPage + counter}</a></li>
+            <c:set var="counter" value="${counter + 1}" />
+        </c:forEach>
 
-</div>
-
-
+        <li id="pagingNext" class="page-item">
+            <a class="page-link" href="#">Next</a>
+        </li>
+    </ul>
+</nav>
 
 
 <%-- 전체 게시물 --%>
 <div class="pricing-box-container">
 <c:forEach items="${responseDTO.posts}" var="each">
+
+    <!-- 날짜 몇일 전으로 변환 -->
+    <fmt:parseDate value="${each.createDate}" var="uploadDate" pattern="yyyy-MM-dd" />
+    <c:set var="current" value="<%=new java.util.Date()%>" />
+    <fmt:formatDate value="${current}" pattern="yyyy-MM-dd" var="currentForm" />
+    <fmt:parseDate value="${currentForm}" var="now" pattern="yyyy-MM-dd" />
+
+    <fmt:parseNumber value="${ (now.time - uploadDate.time)/(1000*60*60*24)}" integerOnly="true"
+                     var="dateDiff">
+    </fmt:parseNumber>
+
+    <c:set var="dateDiffShow" value="${dateDiff}일전" />
+
+    <c:if test="${dateDiffShow == '0일전'}">
+        <c:set var="dateDiffShow" value="오늘" />
+    </c:if>
+
     <div class="pricing-box text-center">
         <h5>${each.category}</h5>
         <p class="price">${each.title}</p>
         <ul class="features-list">
             <li><strong>가격</strong> ${each.price}</li>
-            <li><strong>내용 </strong> ${each.contents}</li>
-<%--            <li>${each.createdtime}</li>--%>
+            <li><strong>${dateDiffShow}</strong></li>
         </ul>
         <button id="chatbtn" class="btn-primary"><a href="/post/detail/${each.postId}">Get Started</a></button>
     </div>
@@ -112,9 +158,5 @@
 </c:forEach>
 </div>
 
-
-
-
 </body>
-
 </html>

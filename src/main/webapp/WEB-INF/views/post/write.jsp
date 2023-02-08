@@ -4,6 +4,7 @@
 <c:set var="path" value="${pageContext.request.contextPath}" />
 
 <%@ page import ="store.itcen.community.postapi.entity.Category" %>
+
 <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/write.css"/>
 
 <!DOCTYPE html>
@@ -22,7 +23,6 @@
                 const price = $("#price").val();
                 const category = $("#category").val();
                 const nickName = $("#nickName").val();
-                alert(nickName);
                 const userId = $("#userId").val();
 
                 console.log(title + " " + contents + " " + category + " " + price);
@@ -56,7 +56,7 @@
                 //
                 // }); //ajax
 
-                fetch("/community/writeProcess",{
+                fetch("/community/post/writeProcess",{
                     method: "POST",
                     headers: {"content-type" : "application/json"},
                     body: JSON.stringify({

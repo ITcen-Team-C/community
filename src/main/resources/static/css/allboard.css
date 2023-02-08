@@ -122,6 +122,9 @@ footer a {
 
 /*여기까지 가져온 전체게시물 CSS*/
 
+
+
+/* 검색 CSS */
 .smart-search-container {
 }
 
@@ -204,6 +207,15 @@ footer a {
     cursor: pointer;
 }
 
+/* END 검색 CSS */
 
+
+/* 페이징 nav */
+nav {
+    position: absolute;
+    left: 50%;
+    bottom: 0%;
+    transform: translate(-50%, 0);
+}
 
 

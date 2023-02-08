@@ -5,10 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import store.itcen.community.postapi.dto.PostListResponseDTO;
-import store.itcen.community.postapi.dto.PostPageRequestDTO;
-import store.itcen.community.postapi.dto.PostResponseDTO;
-import store.itcen.community.postapi.dto.SearchDTO;
+import store.itcen.community.postapi.dto.*;
 import store.itcen.community.postapi.service.PostService;
 
 @Controller
@@ -22,6 +19,19 @@ public class PostMvcController {
         this.postService = postService;
     }
 
+
+    @GetMapping("/write")
+    public String writePost() {
+        return "post/write";
+    }
+
+    @GetMapping("/update/{id}")
+    public String updatePost(@PathVariable("id") String postId,
+                             Model model) {
+        PostResponseDTO responseDTO=postService.detail(postId);
+        model.addAttribute("responseDTO",responseDTO);
+        return "post/updatePost";
+    }
 
     @GetMapping("/{page}")
     public String allPosts(@PathVariable int page, Model model) {
@@ -46,9 +56,6 @@ public class PostMvcController {
 
     @GetMapping("/smartSearch/{page}")
     public String smartSearch(SearchDTO searchDTO, @PathVariable int page, Model model) {
-
-
-
         log.info("searchdto - {}", searchDTO);
         log.info("page - {}", page);
 
@@ -58,6 +65,7 @@ public class PostMvcController {
 
         PostListResponseDTO responseDTO = postService.getSearchList(pageRequestDTO, searchDTO);
         model.addAttribute("responseDTO", responseDTO);
+        model.addAttribute("searchDTO", searchDTO);
 
         return "post/searchPost";
 
