@@ -107,7 +107,7 @@ public class PostApiController {
 
 
     //글 삭제 요청
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deletePost(
             @AuthenticationPrincipal String userId,
             @PathVariable("id") String postId
