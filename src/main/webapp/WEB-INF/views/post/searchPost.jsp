@@ -6,7 +6,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>title</title>
+    <title>Question</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="${path}/css/allboard.css">
@@ -17,6 +17,27 @@
             const currentPage = ${responseDTO.pageInfo.currentPage};
             const prev = ${responseDTO.pageInfo.prev};
             const next = ${responseDTO.pageInfo.next};
+
+            // 검색어 유지
+            $("#searchTitle").val('${searchDTO.searchTitle}');
+            $("#searchWriter").val('${searchDTO.searchWriter}');
+
+            if ('${searchDTO.searchPriceMin}' != 0) {
+                $("#searchPriceMin").val('${searchDTO.searchPriceMin}');
+            }
+            if ('${searchDTO.searchPriceMax}' != 1000000000) {
+                $("#searchPriceMax").val('${searchDTO.searchPriceMax}');
+            }
+
+            // 최소가격 최대가격 확인
+            if (${searchDTO.searchPriceMin} > ${searchDTO.searchPriceMax}) {
+                alert("최소가격과 최대가격을 확인하세요.");
+            }
+
+
+
+
+
 
             // prev next 활성-비활성 및 링크설정
             if (!prev) {

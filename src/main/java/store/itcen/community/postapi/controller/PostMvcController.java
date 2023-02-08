@@ -56,9 +56,6 @@ public class PostMvcController {
 
     @GetMapping("/smartSearch/{page}")
     public String smartSearch(SearchDTO searchDTO, @PathVariable int page, Model model) {
-
-
-
         log.info("searchdto - {}", searchDTO);
         log.info("page - {}", page);
 
@@ -68,6 +65,7 @@ public class PostMvcController {
 
         PostListResponseDTO responseDTO = postService.getSearchList(pageRequestDTO, searchDTO);
         model.addAttribute("responseDTO", responseDTO);
+        model.addAttribute("searchDTO", searchDTO);
 
         return "post/searchPost";
 
