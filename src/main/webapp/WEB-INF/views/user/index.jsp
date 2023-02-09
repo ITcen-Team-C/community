@@ -37,5 +37,17 @@
   <br>
 
   시작하기
+
+
+<script>
+    const ACCESS_TOKEN = '${token}';
+    // console.log(ACCESS_TOKEN);
+
+    window.localStorage.setItem("ACCESS_TOKEN", ACCESS_TOKEN);
+
+
+    const item = window.localStorage.getItem("ACCESS_TOKEN");
+    console.log(item);
+</script>
 </body>
 </html>

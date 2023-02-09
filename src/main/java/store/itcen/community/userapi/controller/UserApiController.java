@@ -55,6 +55,7 @@ public class UserApiController {
                     requestDTO.getEmail(),
                     requestDTO.getPassword()
             );
+            ra.addFlashAttribute("token", userInfo.getToken());
             return "redirect:/index";
         } catch (RuntimeException e) {
             ra.addFlashAttribute("message", "비번 틀림!");
