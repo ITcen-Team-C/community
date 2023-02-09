@@ -67,6 +67,8 @@
     </script>
 </head>
 <body>
+
+<div class="allPostContainer">
 <%-- 검색 --%>
 <div class="smart-search-container">
 <form class="smart-search-box mb-4" action="/post/smartSearch/1" method="get">
@@ -124,61 +126,64 @@
 </div>
 
 
+    <%-- 전체 게시물 + 페이징 --%>
+    <div class="main-content">
+        <div class="pricing-box-container">
+            <c:forEach items="${responseDTO.posts}" var="each">
 
-<%-- 페이징 --%>
-<nav aria-label="...">
-    <ul class="pagination pagination-lg">
-        <li id="pagingPrevious" class="page-item">
-            <a class="page-link" href="#" tabindex="-1">Previous</a>
-        </li>
+                <!-- 날짜 몇일 전으로 변환 -->
+                <fmt:parseDate value="${each.createDate}" var="uploadDate" pattern="yyyy-MM-dd" />
+                <c:set var="current" value="<%=new java.util.Date()%>" />
+                <fmt:formatDate value="${current}" pattern="yyyy-MM-dd" var="currentForm" />
+                <fmt:parseDate value="${currentForm}" var="now" pattern="yyyy-MM-dd" />
 
-        <c:set var="counter" value="0" />
-        <c:forEach begin="${responseDTO.pageInfo.startPage}" end="${responseDTO.pageInfo.endPage}" varStatus="vs">
-            <li id="pageNumList${counter}" class="page-item"><a id="pageNumLink${counter}" class="page-link" href="/post/smartSearch/${responseDTO.pageInfo.startPage + counter}?searchTitle=${param.searchTitle}&searchWriter=${param.searchWriter}&searchPriceMin=${param.searchPriceMin}&searchPriceMax=${param.searchPriceMax}&searchCategory=${param.searchCategory}">
-                    ${responseDTO.pageInfo.startPage + counter}</a></li>
-            <c:set var="counter" value="${counter + 1}" />
-        </c:forEach>
+                <fmt:parseNumber value="${ (now.time - uploadDate.time)/(1000*60*60*24)}" integerOnly="true"
+                                 var="dateDiff">
+                </fmt:parseNumber>
 
-        <li id="pagingNext" class="page-item">
-            <a class="page-link" href="#">Next</a>
-        </li>
-    </ul>
-</nav>
+                <c:set var="dateDiffShow" value="${dateDiff}일전" />
+
+                <c:if test="${dateDiffShow == '0일전'}">
+                    <c:set var="dateDiffShow" value="오늘" />
+                </c:if>
+
+                <div class="pricing-box text-center">
+                    <h5>${each.category}</h5>
+                    <p class="price">${each.title}</p>
+                    <ul class="features-list">
+                        <li><strong>가격</strong> ${each.price}</li>
+                        <li><strong>작성자</strong> ${each.nickName}</li>
+                        <li><strong>${dateDiffShow}</strong></li>
+                    </ul>
+                    <button id="chatbtn" class="btn-primary"><a href="/post/detail/${each.postId}">Get Started</a></button>
+                </div>
+
+            </c:forEach>
+        </div>
 
 
-<%-- 전체 게시물 --%>
-<div class="pricing-box-container">
-<c:forEach items="${responseDTO.posts}" var="each">
+        <%-- 페이징 --%>
+        <nav aria-label="...">
+            <ul class="pagination pagination-lg">
+                <li id="pagingPrevious" class="page-item">
+                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                </li>
 
-    <!-- 날짜 몇일 전으로 변환 -->
-    <fmt:parseDate value="${each.createDate}" var="uploadDate" pattern="yyyy-MM-dd" />
-    <c:set var="current" value="<%=new java.util.Date()%>" />
-    <fmt:formatDate value="${current}" pattern="yyyy-MM-dd" var="currentForm" />
-    <fmt:parseDate value="${currentForm}" var="now" pattern="yyyy-MM-dd" />
+                <c:set var="counter" value="0" />
+                <c:forEach begin="${responseDTO.pageInfo.startPage}" end="${responseDTO.pageInfo.endPage}" varStatus="vs">
+                    <li id="pageNumList${counter}" class="page-item"><a id="pageNumLink${counter}" class="page-link" href="/post/smartSearch/${responseDTO.pageInfo.startPage + counter}?searchTitle=${param.searchTitle}&searchWriter=${param.searchWriter}&searchPriceMin=${param.searchPriceMin}&searchPriceMax=${param.searchPriceMax}&searchCategory=${param.searchCategory}">
+                            ${responseDTO.pageInfo.startPage + counter}</a></li>
+                    <c:set var="counter" value="${counter + 1}" />
+                </c:forEach>
 
-    <fmt:parseNumber value="${ (now.time - uploadDate.time)/(1000*60*60*24)}" integerOnly="true"
-                     var="dateDiff">
-    </fmt:parseNumber>
-
-    <c:set var="dateDiffShow" value="${dateDiff}일전" />
-
-    <c:if test="${dateDiffShow == '0일전'}">
-        <c:set var="dateDiffShow" value="오늘" />
-    </c:if>
-
-    <div class="pricing-box text-center">
-        <h5>${each.category}</h5>
-        <p class="price">${each.title}</p>
-        <ul class="features-list">
-            <li><strong>가격</strong> ${each.price}</li>
-            <li><strong>작성자</strong> ${each.nickName}</li>
-            <li><strong>${dateDiffShow}</strong></li>
-        </ul>
-        <button id="chatbtn" class="btn-primary"><a href="/post/detail/${each.postId}">Get Started</a></button>
+                <li id="pagingNext" class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>
     </div>
-
-</c:forEach>
 </div>
+
 
 </body>
 </html>
