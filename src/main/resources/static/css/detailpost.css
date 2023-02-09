@@ -75,10 +75,21 @@
 
 }
 
+
 .detail .ul-modify-delete{
     display: flex;
-    margin-left: 700px;
+    margin-left: 630px;
     margin-top: 280px;
+}
+
+.detail .to-list{
+    cursor: pointer;
+    font-size: 15px;
+    background-color: #222222;
+    color: white;
+    border-radius: 10px;
+    width: 60px;
+    height: 40px;
 }
 .detail .post-modify{
     cursor: pointer;
@@ -88,7 +99,7 @@
     border-radius: 10px;
     width: 60px;
     height: 40px;
-
+    margin-left: 20px;
     /*text-decoration: underline;*/
 }
 
