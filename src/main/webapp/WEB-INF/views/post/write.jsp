@@ -73,6 +73,7 @@
                     .then(result => {
                         console.log(result);
                         console.log(result.title);
+                        window.location.href="/post/1"
                     })
 
             }); //onClick
