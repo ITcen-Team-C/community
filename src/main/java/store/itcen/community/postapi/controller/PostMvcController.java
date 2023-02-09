@@ -22,6 +22,7 @@ public class PostMvcController {
 
     @GetMapping("/write")
     public String writePost() {
+//        PostResponseDTO responseDTO=postService.detail(postId)
         return "post/write";
     }
 
