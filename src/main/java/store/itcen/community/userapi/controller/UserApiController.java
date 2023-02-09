@@ -57,7 +57,6 @@ public class UserApiController {
             );
             return "redirect:/index";
         } catch (RuntimeException e) {
-            log.warn("비밀번호 오류");
             ra.addFlashAttribute("message", "비번 틀림!");
             return "redirect:/login";
         }
