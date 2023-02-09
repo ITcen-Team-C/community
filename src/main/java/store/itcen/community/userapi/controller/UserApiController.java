@@ -56,7 +56,7 @@ public class UserApiController {
                     requestDTO.getPassword()
             );
             ra.addFlashAttribute("token", userInfo.getToken());
-            return "redirect:/index";
+            return "redirect:/post/1";
         } catch (RuntimeException e) {
             ra.addFlashAttribute("message", "비번 틀림!");
             return "redirect:/login";
