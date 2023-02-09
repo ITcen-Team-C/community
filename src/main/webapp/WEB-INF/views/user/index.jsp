@@ -35,8 +35,10 @@
   <br>
   소개
   <br>
+<form method="get" action="/post/1">
+    <input type="submit" class="bt_start" value="시작하기">
+</form>
 
-  시작하기
 
 
 <script>
