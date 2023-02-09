@@ -11,6 +11,7 @@
           integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="${path}/css/allboard.css">
+    <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/header_footer.css"/>
     <script src="${path}/js/jquery-3.6.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
@@ -50,6 +51,7 @@
 </head>
 <body>
 
+<%@include file="/WEB-INF/views/post/header.jsp"%>
 
 
 
@@ -195,6 +197,8 @@
 
 <%--</div>--%>
 
+
+<%@include file="/WEB-INF/views/post/footer.jsp"%>
 
 </body>
 </html>
