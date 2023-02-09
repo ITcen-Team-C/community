@@ -6,6 +6,7 @@
 <%@ page import ="store.itcen.community.postapi.entity.Category" %>
 
 <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/write.css"/>
+<link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/header_footer.css"/>
 
 <!DOCTYPE html>
 <html>
@@ -80,6 +81,7 @@
 </head>
 
 <body>
+<%@include file="/WEB-INF/views/post/header.jsp"%>
 
 <div class="write">
     <form id="writeForm">
@@ -110,7 +112,7 @@
     </form>
 </div>
 
-
+<%@include file="/WEB-INF/views/post/footer.jsp"%>
 </body>
 
 </html>

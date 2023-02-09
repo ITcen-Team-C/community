@@ -5,6 +5,7 @@
 <%@ page import ="store.itcen.community.postapi.entity.Category" %>
 
 <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/updatepost.css"/>
+<link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/header_footer.css"/>
 
 <!DOCTYPE html>
 <html>
@@ -53,7 +54,7 @@
 </head>
 <body>
 
-
+<%@include file="/WEB-INF/views/post/header.jsp"%>
 
 <div class="update">
     <form id="updateForm">
@@ -89,6 +90,6 @@
 
 
 
-
+<%@include file="/WEB-INF/views/post/footer.jsp"%>
 </body>
 </html>
