@@ -5,6 +5,7 @@
 
 <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/detailpost.css"/>
 <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/modal.css"/>
+<link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/header_footer.css"/>
 
 <!DOCTYPE html>
 <html>
@@ -12,6 +13,8 @@
     <meta charset="UTF-8">
     <title>detail</title>
 <%--    <link rel="stylesheet" href="${path}/css/test.css">--%>
+
+
     <script src="${path}/js/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
@@ -53,11 +56,16 @@
         });
     </script>
 
+
 </head>
 
 <%--http://localhost:8080/post/detail/402880d0862a376b01862a37c3820000--%>
 
 <body>
+
+
+<%@include file="/WEB-INF/views/post/header.jsp"%>
+
 
 <div class="detail">
     <div style="margin-left: 40px; padding-top: 30px; font-size: 15px; font-weight: 700;"> >>>  ${responseDTO.category}</div>
@@ -101,6 +109,10 @@
 
     </div>
 </div>
+
+<%@include file="/WEB-INF/views/post/footer.jsp"%>
+
+
 
 </body>
 
