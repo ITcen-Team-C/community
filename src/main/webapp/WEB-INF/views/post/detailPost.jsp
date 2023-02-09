@@ -46,8 +46,18 @@
                     })
             })
 
+            const $form=document.getElementById("mod-del");
             $("#updateBTN").on("click",function (){
-                window.location.href="/post/update/${responseDTO.postId}"
+                <%--window.location.href="/post/update/${responseDTO.postId}"--%>
+                $form.setAttribute("action", "/post/update/${responseDTO.postId}");
+                let headers = new Headers();
+                headers.set("Au")
+                new FormData()
+            })
+
+
+            $("#toListBTN").on("click",function (){
+                window.location.href="/post/1"
             })
 
 
@@ -88,8 +98,13 @@
         </div>
 
         <div class="ul-modify-delete">
-            <input class="post-modify"  id="updateBTN" type="button" value="수정">
-            <input class="post-delete"  id="deleteBTN" type="button" value="삭제">
+            <form id="mod-del">
+                <input class="to-list"  id="toListBTN" type="button" value="목록">
+                <input class="post-modify"  id="updateBTN" type="button" value="수정">
+                <input class="post-delete"  id="deleteBTN" type="button" value="삭제">
+
+            </form>
+
 
         </div>
 

@@ -15,6 +15,9 @@ import store.itcen.community.userapi.exception.DuplicatedEmailException;
 import store.itcen.community.userapi.exception.NoRegisteredArgumentsException;
 import store.itcen.community.userapi.service.UserService;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+
 @Controller
 @Slf4j
 @RequiredArgsConstructor
@@ -47,15 +50,19 @@ public class UserApiController {
 
     @PostMapping("/signin")
     public String signIn(
-             LoginRequestDTO requestDTO
-    , RedirectAttributes ra) {
+            LoginRequestDTO requestDTO
+    , RedirectAttributes ra, HttpServletResponse response) {
 
         try {
             LoginResponseDTO userInfo = userService.getByCredentials(
                     requestDTO.getEmail(),
                     requestDTO.getPassword()
             );
-            ra.addFlashAttribute("token", userInfo.getToken());
+//            ra.addFlashAttribute("token", userInfo.getToken());
+            Cookie cookie = new Cookie("token", userInfo.getToken());
+            cookie.setPath("/");
+            cookie.setMaxAge(60 * 60 * 24);
+            response.addCookie(cookie);
             return "redirect:/index";
         } catch (RuntimeException e) {
             ra.addFlashAttribute("message", "비번 틀림!");

@@ -11,9 +11,11 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
+import org.springframework.web.util.WebUtils;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -36,7 +38,10 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
         try {
             // 요청 헤더에서 토큰 가져오기
-            String token = parseBearerToken(request);
+            Cookie tokenCookie = WebUtils.getCookie(request, "token");
+            String token = tokenCookie.getValue();
+
+//            String token = parseBearerToken(request);
             log.info("Jwt Token Filter is running.... - token: {}", token);
 
             // 토큰 위조 여부 검사
