@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="path" value="${pageContext.request.contextPath}" />
 <%@ page import ="store.itcen.community.postapi.entity.Category" %>
 
@@ -53,7 +54,7 @@
 
 </head>
 <body>
-
+<%--responseDTO.category eq cg.cat--%>
 <%@include file="/WEB-INF/views/post/header.jsp"%>
 
 <div class="update">
@@ -70,7 +71,7 @@
                     cursor: pointer;">
             <c:forEach items="${Category.values()}" var="cg">
                 <option value="${cg}"
-                    <c:if test="${responseDTO.category eq cg.cat}"> selected="selected"</c:if>>
+                    <c:if test="${fn:contains(responseDTO.category,cg.cat)}"> selected="selected"</c:if>>
                         ${cg.cat}</option>
             </c:forEach>
         </select>
