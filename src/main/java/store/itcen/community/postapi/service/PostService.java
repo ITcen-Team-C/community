@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import store.itcen.community.postapi.dto.*;
+import store.itcen.community.postapi.entity.Category;
 import store.itcen.community.postapi.entity.PostEntity;
 import store.itcen.community.postapi.repository.PostRepository;
 
@@ -123,6 +124,7 @@ public class PostService {
     }
 
 
+    // 검색 조회 리스트
     public PostListResponseDTO getSearchList(PostPageRequestDTO pageRequestDTO, SearchDTO searchDTO) {
         // 페이징 set
         Pageable pageable = PageRequest.of(
@@ -150,17 +152,31 @@ public class PostService {
 
         // searchTitle and searchWriter 검색
         final Page<PostEntity> pageData;
-        if (flag) {
-            pageData = postRepository.findByTitleContainingAndNickNameContaining(searchDTO.getSearchTitle(), searchDTO.getSearchWriter(), pageable);
-        } else {
-            log.info("flag - 금액까지적용쿼리 발동");
-            pageData = postRepository.findByTitleContainingAndNickNameContainingAndPriceBetween(searchDTO.getSearchTitle(), searchDTO.getSearchWriter(), searchDTO.getSearchPriceMin(), searchDTO.getSearchPriceMax(), pageable);
 
-//            List<PostEntity> collect = pageData.getContent().stream()
-//                    .filter(postEntity -> postEntity.getPrice() > searchDTO.getSearchPriceMin() && postEntity.getPrice() < searchDTO.getSearchPriceMax())
-//                    .collect(Collectors.toList());
-
+        if (searchDTO.getSearchCategory() == Category.ALL) {
+            searchDTO.setSearchCategory(null);
         }
+
+        if (searchDTO.getSearchCategory() == null) {
+            if (flag) {
+                pageData = postRepository.findByTitleContainingAndNickNameContaining(searchDTO.getSearchTitle(), searchDTO.getSearchWriter(), pageable);
+            } else {
+                log.info("flag - 금액까지적용쿼리 발동");
+                pageData = postRepository.findByTitleContainingAndNickNameContainingAndPriceBetween(searchDTO.getSearchTitle(), searchDTO.getSearchWriter(), searchDTO.getSearchPriceMin(), searchDTO.getSearchPriceMax(), pageable);
+            }
+            // 검색조건 유지를 위해 다시 ALL 로 SET
+            searchDTO.setSearchCategory(Category.ALL);
+        } else {
+            if (flag) {
+                pageData = postRepository.findByTitleContainingAndNickNameContainingAndCategory(searchDTO.getSearchTitle(), searchDTO.getSearchWriter(), searchDTO.getSearchCategory(), pageable);
+            } else {
+                log.info("flag - 금액까지적용쿼리 발동");
+                pageData = postRepository.findByTitleContainingAndNickNameContainingAndPriceBetweenAndCategory(searchDTO.getSearchTitle(), searchDTO.getSearchWriter(), searchDTO.getSearchPriceMin(), searchDTO.getSearchPriceMax(), searchDTO.getSearchCategory(), pageable);
+            }
+        }
+
+
+
 
 
         List<PostEntity> allPosts = pageData.getContent();
@@ -183,6 +199,37 @@ public class PostService {
 
         return listResponseDTO;
     }
+
+
+    public PostListResponseDTO getCategoryList(Category category, PostPageRequestDTO pageRequestDTO) {
+        Pageable pageable = PageRequest.of(
+                pageRequestDTO.getPage() - 1, pageRequestDTO.getSizePerPage(),
+                Sort.Direction.DESC, "createDate"
+        );
+
+        final Page<PostEntity> pageData = postRepository.findByCategory(category, pageable);
+        List<PostEntity> allPosts = pageData.getContent();
+
+//        if (allPosts.isEmpty()) {
+//            throw new RuntimeException("조회 결과 Empty!");
+//        }
+
+        // Entity => DTO ( 필요한 정보만 클라이언트에 필요한 꼴로 보내줌 )
+        List<PostResponseDTO> responseDTOList = allPosts.stream()
+                .map(et -> new PostResponseDTO(Optional.ofNullable(et)))
+                .collect(Collectors.toList());
+
+
+        PostListResponseDTO listResponseDTO = PostListResponseDTO.builder()
+                .count(responseDTOList.size())
+                .pageInfo(new PostPageResponseDTO<PostEntity>(pageData))
+                .posts(responseDTOList)
+                .build();
+
+        return listResponseDTO;
+    }
+
+
 
 
 

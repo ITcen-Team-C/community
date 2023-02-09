@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import store.itcen.community.postapi.dto.SearchDTO;
+import store.itcen.community.postapi.entity.Category;
 import store.itcen.community.postapi.entity.PostEntity;
 
 import java.util.List;
@@ -31,11 +32,19 @@ public interface PostRepository extends JpaRepository<PostEntity,String> {
 
 
     Page<PostEntity> findByTitleContainingAndNickNameContainingAndPriceBetween(@Param("searchTitle") String searchTitle, @Param("searchWriter") String searchWriter,
-                                                                               @Param("searchPriceMin") Long searchPriceMin, @Param("searchPriceMax") Long searchPriceMax ,Pageable pageable);
+                                                                               @Param("searchPriceMin") Long searchPriceMin, @Param("searchPriceMax") Long searchPriceMax, Pageable pageable);
+
+    Page<PostEntity> findByTitleContainingAndNickNameContainingAndCategory(@Param("searchTitle") String searchTitle, @Param("searchWriter") String searchWriter,
+                                                                               @Param("category") Category category, Pageable pageable);
+
+    Page<PostEntity> findByTitleContainingAndNickNameContainingAndPriceBetweenAndCategory(@Param("searchTitle") String searchTitle, @Param("searchWriter") String searchWriter,
+                                                                               @Param("searchPriceMin") Long searchPriceMin, @Param("searchPriceMax") Long searchPriceMax, @Param("category") Category category, Pageable pageable);
 
 
-    // 위 JPA 문 결과문을 이용해서 가격 조건 추가 (예정)
 
+
+    // findByCategory
+    Page<PostEntity> findByCategory(@Param("category") Category category, Pageable pageable);
 
 
 
