@@ -1,3 +1,4 @@
+
 package store.itcen.community.userapi.service;
 
 
@@ -75,7 +76,10 @@ public class UserService {
         // 토큰 발급
         String token = tokenProvider.createToken(originalUser);
 
-        return new LoginResponseDTO(originalUser, token);
+        LoginResponseDTO loginResponseDTO = new LoginResponseDTO(originalUser, token);
+        log.info("{}",loginResponseDTO);
+        return loginResponseDTO;
     }
 
 }
+
