@@ -38,7 +38,7 @@
 
     <div class="login-form">
         <div class="form-wrapper">
-            <form method="post" action="/api/auth/signin">
+            <form method="post">
                 <label class="form-wrapper__label" for="login-username">Username</label>
                 <input id="login-username" class="form-wrapper__input" type="text" placeholder="Username" name="username" required>
                 <label class="form-wrapper__label" for="login-password">Password</label>
@@ -62,21 +62,16 @@
     <div class="login-form login-form--register">
         <div class="form-wrapper">
             <form method="post" action="/api/auth/signup">
-                <label class="form-wrapper__label">Email</label>
-                <input type="text" class="input" style="ime-mode:disabled;" placeholder="이메일" name="email" title="이메일" maxlength="20">
-
-                <label class="form-wrapper__label">Username</label>
-                <input type="text" class="input" placeholder="이름" name="name" title="이름" maxlength="20">
-
-                <label class="form-wrapper__label">Password</label>
-                <input type="password" class="input" placeholder="비밀번호" name="password" title="비밀번호" maxlength="20">
-
-                <label class="form-wrapper__label">Nickname</label>
-                <input type="text" class="input" placeholder="별명" name="nickname" title="별명" maxlength="20">
-
-                <label class="form-wrapper__label">Age</label>
-                <input type="text" class="input" placeholder="나이" name="age" title="나이" maxlength="20">
-
+                <label class="form-wrapper__label" for="signup-email">Email</label>
+                <input id="signup-email" class="form-wrapper__input" type="text" style="ime-mode:disalbed;" placeholder="example@hotmail.com" name="email" required>
+                <label class="form-wrapper__label" for="signup-username">Username</label>
+                <input id="signup-username" class="form-wrapper__input" type="text" placeholder="Username" name="username" required>
+                <label class="form-wrapper__label" for="signup-password">Password</label>
+                <input id="signup-password" class="form-wrapper__input" type="password" placeholder="Password" name="password" pattern=".{3,}" title="Password must contain at least 3 characters" required>
+                <label class="form-wrapper__label" for="signup-nickname">Nickname</label>
+                <input id="signup-nickname" class="form-wrapper__input" type="text" placeholder="nickname" name="nickname" required>
+                <label class="form-wrapper__label" for="signup-age">Age</label>
+                <input id="signup-age" class="form-wrapper__input" type="text" placeholder="age" name="age" required>
                 <button class="buttons__signup buttons__signup--sign-up-form" type="submit">Sign up</button>
 
             </form>
