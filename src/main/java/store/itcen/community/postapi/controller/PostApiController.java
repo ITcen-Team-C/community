@@ -61,7 +61,7 @@ public class PostApiController {
                   .body(result.getFieldError());
       }
         try {
-            PostResponseDTO responseDTO=postService.create(requestDTO,"402880d08624b21b018624b2cc790000");
+            PostResponseDTO responseDTO=postService.create(requestDTO,userId);
             return ResponseEntity
                     .ok()
                     .body(responseDTO);

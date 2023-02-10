@@ -107,8 +107,8 @@
             <textarea class="contents" id="contents" name="contents" PLACEHOLDER="내용"></textarea> <br>
         </div>
 
-        <input id="nickName" name="nickName" type="hidden" value="닉넴">
-        <input id="userId" name="userId" type=hidden value="402880d08624b21b018624b2cc790000">
+        <input id="nickName" name="nickName" type="hidden" value="${nickname}">
+        <input id="userId" name="userId" type=hidden value="${userId}">
         <input class="send-btn" id="writeBTN" type="button" value="작성">
     </form>
 </div>
