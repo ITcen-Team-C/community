@@ -22,6 +22,8 @@ public class PostResponseDTO {
 
     private String nickName;
 
+    private String userId;
+
     @JsonFormat(pattern = "yyyy년 MM월 dd일 a hh시 mm분 ss초")//a 는 am,pm표기
     private LocalDateTime createDate;
 
@@ -29,6 +31,7 @@ public class PostResponseDTO {
     public PostResponseDTO(Optional<PostEntity> postEntity){
 
         this.postId=postEntity.get().getPostId();
+        this.userId=postEntity.get().getUserId();
         this.title=postEntity.get().getTitle();
         this.contents=postEntity.get().getContents();
         this.price=postEntity.get().getPrice();

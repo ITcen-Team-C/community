@@ -33,27 +33,61 @@
 
 
             $("#okBTN").on("click",function (e){
-                fetch('/community/post/delete/${responseDTO.postId}',{
-                    method:"DELETE",
-                    headers: {"content-type" : "application/json"}
-                })
-                    .then(response=>
-                        response.json)
-                    .then(result => {
-                        console.log(result);
+                console.log("${userId}")
+                console.log("${responseDTO.userId}")
 
-                        window.location.href="/post/1"
-                    })
+                if ("${userId}"=="${responseDTO.userId}"){
+                    $form.setAttribute("action", "/post/delete/${responseDTO.postId}");
+                    $form.submit();
+                }
+                else if(${userId eq ""}){
+                    console.log("로그인 후 이용 바랍니다.")
+                    window.alert("로그인 후 이용 바랍니다.")
+                    window.location.href="/login"
+                }
+                else{
+                    console.log("작성자만 삭제 가능합니다.")
+                    window.alert("작성자만 삭제 가능합니다.")
+                }
             })
+
+
 
             const $form=document.getElementById("mod-del");
             $("#updateBTN").on("click",function (){
+
                 <%--window.location.href="/post/update/${responseDTO.postId}"--%>
-                $form.setAttribute("action", "/post/update/${responseDTO.postId}");
-                let headers = new Headers();
-                headers.set("Au")
-                new FormData()
+                console.log("${userId}")
+                console.log("${responseDTO.userId}")
+
+                if ("${userId}"=="${responseDTO.userId}"){
+                    $form.setAttribute("action", "/post/update/${responseDTO.postId}");
+                    $form.submit();
+                }
+                else if(${userId eq ""}){
+                    console.log("로그인 후 이용 바랍니다.")
+                    window.alert("로그인 후 이용 바랍니다.")
+                    window.location.href="/login"
+                }
+                else{
+                    console.log("작성자만 수정 가능합니다.")
+                    window.alert("작성자만 수정 가능합니다.")
+                }
+
             })
+
+            <%--$("#updateBTN").on("click",function (e){--%>
+            <%--    fetch('/community/post/update/${responseDTO.postId}',{--%>
+            <%--        method:"FETCH",--%>
+            <%--        headers: {"content-type" : "application/json"}--%>
+            <%--    })--%>
+            <%--        .then(response=>--%>
+            <%--            response.json)--%>
+            <%--        .then(result => {--%>
+            <%--            console.log(result);--%>
+            <%--            // window.location.href="/post/1"--%>
+            <%--        })--%>
+            <%--})--%>
 
 
             $("#toListBTN").on("click",function (){

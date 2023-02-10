@@ -242,11 +242,11 @@ footer a {
 }
     /* 페이징 nav */
 .main-content nav {
-    position: absolute;
+    position: relative;
     width: fit-content;
-    left: 40%;
+    left: 30%;
     /*bottom: 0%;*/
     /*transform: translate(-50%, 0);*/
-    margin-top: 800px;
+    /*margin-top: 800px;*/
 
 }
