@@ -31,6 +31,13 @@
                 $(".modal").fadeOut();
             })
 
+            $("#goListBTN").on('click',function (){
+                console.log("elifejlw")
+                window.location.href="/post/1"
+            })
+
+
+            const $form=document.getElementById("mod-del");
 
             $("#okBTN").on("click",function (e){
                 console.log("${userId}")
@@ -48,12 +55,13 @@
                 else{
                     console.log("작성자만 삭제 가능합니다.")
                     window.alert("작성자만 삭제 가능합니다.")
+                    $(".modal").fadeOut();
+
                 }
             })
 
 
 
-            const $form=document.getElementById("mod-del");
             $("#updateBTN").on("click",function (){
 
                 <%--window.location.href="/post/update/${responseDTO.postId}"--%>
@@ -76,23 +84,9 @@
 
             })
 
-            <%--$("#updateBTN").on("click",function (e){--%>
-            <%--    fetch('/community/post/update/${responseDTO.postId}',{--%>
-            <%--        method:"FETCH",--%>
-            <%--        headers: {"content-type" : "application/json"}--%>
-            <%--    })--%>
-            <%--        .then(response=>--%>
-            <%--            response.json)--%>
-            <%--        .then(result => {--%>
-            <%--            console.log(result);--%>
-            <%--            // window.location.href="/post/1"--%>
-            <%--        })--%>
-            <%--})--%>
 
 
-            $("#toListBTN").on("click",function (){
-                window.location.href="/post/1"
-            })
+
 
 
 
@@ -133,7 +127,7 @@
 
         <div class="ul-modify-delete">
             <form id="mod-del">
-                <input class="to-list"  id="toListBTN" type="button" value="목록">
+                <input class="to-list"  id="goListBTN" type="button" value="목록">
                 <input class="post-modify"  id="updateBTN" type="button" value="수정">
                 <input class="post-delete"  id="deleteBTN" type="button" value="삭제">
 
@@ -149,7 +143,7 @@
 
 <div class="modal">
     <div class="modal_content">
-        <p href="" class="close">x</p>
+        <div id="modalCloseBTN" class="close">x</div>
         <br>
         <div class="desc">삭제하시겠습니까?</div><br>
 
