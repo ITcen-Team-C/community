@@ -41,8 +41,11 @@
                         'userId': userId
                     })
                 })
+
                     .then(response => response.json())
+
                     .then(result => {
+
                         console.log(result);
                         window.location.href="/post/detail/${responseDTO.postId}"
                     })
@@ -83,8 +86,8 @@
             <textarea class="contents" id="contents" name="contents" type="text" >${responseDTO.contents}</textarea> <br>
         </div>
 
-        <input id="nickName" name="nickName" type="hidden" value="닉넴">
-        <input id="userId" name="userId" type=hidden value="402880d08624b21b018624b2cc790000">
+        <input id="nickName" name="nickName" type="hidden" value=${nickname}>
+        <input id="userId" name="userId" type=hidden value=${userId}>
         <input class="send-btn" id="updateBTN" type="button" value="수정">
     </form>
 </div>

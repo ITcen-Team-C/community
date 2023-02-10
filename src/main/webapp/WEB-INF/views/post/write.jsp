@@ -70,6 +70,7 @@
                     })
                 })
                     .then(response => response.json())
+                    .catch()
                     .then(result => {
                         console.log(result);
                         console.log(result.title);
