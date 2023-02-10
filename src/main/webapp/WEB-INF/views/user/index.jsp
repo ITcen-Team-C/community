@@ -19,7 +19,7 @@
 
         <div class="login_container">
             <ul class="login">
-                <li class="menu_login"><a class="menu_title" href="http://localhost:8080/login">로그아웃</a></li>
+                <li class="menu_login"><a class="menu_title" href="http://localhost:8080/signin">로그아웃</a></li>
             </ul>
         </div>
     </div>

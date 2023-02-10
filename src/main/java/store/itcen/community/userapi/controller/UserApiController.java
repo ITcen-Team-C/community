@@ -36,7 +36,7 @@ public class UserApiController {
         try {
             UserSignUpResponseDTO responseDTO
                     = userService.create(signUpDTO);
-            return "redirect:/login";
+            return "redirect:/index";
         } catch (NoRegisteredArgumentsException e) {
             // 예외 상황 2가지 (dto가 null인 문제, 이메일 중복문제)
             log.warn("필수 가입 정보를 다시확인하세요.");
@@ -66,7 +66,7 @@ public class UserApiController {
             return "redirect:/index";
         } catch (RuntimeException e) {
             ra.addFlashAttribute("message", "비번 틀림!");
-            return "redirect:/login";
+            return "redirect:/signin";
         }
 
     }

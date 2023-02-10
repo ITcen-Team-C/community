@@ -13,7 +13,7 @@ public class SignMvcController
     @GetMapping("/")
     public String home(Map<String, Object> model) {
         model.put("time", new Date());
-        return "user/home";
+        return "user/test";
     }
 
     @GetMapping("/index")
@@ -22,17 +22,22 @@ public class SignMvcController
         return "user/index";
     }
 
-    @GetMapping("/join")
+    @GetMapping("/test3")
     public String join() {
 //        userRepository.save(new UserEntity("uuid", "email2", "password2", "nickname2", LocalDateTime.now()));
-        return "user/join";
+        return "user/test3";
+    }
+
+    @GetMapping("/test2")
+    public String test2() {
+        return "user/test2";
     }
 
 
-    @GetMapping("/login")
-    public String write() {
-//        postRepository.save(new PostEntity("uupostid", "title", "contents", 1000L, LocalDateTime.now(), new UserEntity("uuid2", "email3", "password3", "nickname3", LocalDateTime.now()), "402880ab8615ea15018615ea26a60000"));
-        return "user/login";
-    }
+//    @GetMapping("/login")
+//    public String write() {
+////        postRepository.save(new PostEntity("uupostid", "title", "contents", 1000L, LocalDateTime.now(), new UserEntity("uuid2", "email3", "password3", "nickname3", LocalDateTime.now()), "402880ab8615ea15018615ea26a60000"));
+//        return "user/login";
+//    }
 
 }

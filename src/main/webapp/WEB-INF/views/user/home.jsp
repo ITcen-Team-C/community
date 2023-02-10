@@ -13,8 +13,8 @@
 <body>
 <div class="login_container">
     <ul class="login">
-        <li class="menu_login"><a class="menu_title" href="http://localhost:8080/login">로그인</a></li>
-        <li class="menu_join"><a class="menu_title" href="http://localhost:8080/join">회원가입</a></li>
+        <li class="menu_login"><a class="menu_title" href="http://localhost:8080/signin">로그인</a></li>
+        <li class="menu_join"><a class="menu_title" href="http://localhost:8080/signin">회원가입</a></li>
     </ul>
 </div>
 홈화면
