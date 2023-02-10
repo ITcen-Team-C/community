@@ -5,23 +5,50 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.WebUtils;
 import store.itcen.community.postapi.dto.*;
 import store.itcen.community.postapi.service.PostService;
+import store.itcen.community.security.TokenProvider;
+import store.itcen.community.userapi.entity.UserEntity;
+import store.itcen.community.userapi.repository.UserRepository;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import java.util.Optional;
 
 @Controller
 @Slf4j
 @RequestMapping("/post")
 public class PostMvcController {
     PostService postService;
+    TokenProvider tokenProvider;
+    UserRepository userRepository;
 
     @Autowired
-    public PostMvcController(PostService postService) {
+    public PostMvcController(PostService postService, TokenProvider tokenProvider, UserRepository userRepository) {
         this.postService = postService;
+        this.tokenProvider = tokenProvider;
+        this.userRepository = userRepository;
     }
 
 
     @GetMapping("/write")
-    public String writePost() {
+    public String writePost(HttpServletRequest request, Model model) {
+
+        Cookie tokenCookie = WebUtils.getCookie(request, "token");
+        String token = tokenCookie.getValue();
+        String userId = tokenProvider.validateAndGetUserId(token);
+
+        log.info("userID : {}", userId);
+
+        Optional<UserEntity> userDTO = userRepository.findById(userId);
+        log.info("usrDTO : {}", userDTO);
+
+
+        model.addAttribute("userId", userId);
+        model.addAttribute("nickname", userDTO.get().getNickname());
+
+
 //        PostResponseDTO responseDTO=postService.detail(postId)
         return "post/write";
     }
