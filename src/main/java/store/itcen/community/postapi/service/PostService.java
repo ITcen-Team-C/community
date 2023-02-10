@@ -7,6 +7,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 import store.itcen.community.postapi.dto.*;
 import store.itcen.community.postapi.entity.Category;
 import store.itcen.community.postapi.entity.PostEntity;
@@ -89,7 +90,7 @@ public class PostService {
     //게시글 수정
     public PostResponseDTO update(
             final String postId,
-            final PostModifyRequestDTO modifyRequestDTO
+            final @Validated PostModifyRequestDTO modifyRequestDTO
             //,final String userId
     ){
         Optional<PostEntity> targetEntity = postRepository.findById(postId);

@@ -31,34 +31,62 @@
                 $(".modal").fadeOut();
             })
 
-
-            $("#okBTN").on("click",function (e){
-                fetch('/community/post/delete/${responseDTO.postId}',{
-                    method:"DELETE",
-                    headers: {"content-type" : "application/json"}
-                })
-                    .then(response=>
-                        response.json)
-                    .then(result => {
-                        console.log(result);
-
-                        window.location.href="/post/1"
-                    })
-            })
-
-            const $form=document.getElementById("mod-del");
-            $("#updateBTN").on("click",function (){
-                <%--window.location.href="/post/update/${responseDTO.postId}"--%>
-                $form.setAttribute("action", "/post/update/${responseDTO.postId}");
-                let headers = new Headers();
-                headers.set("Au")
-                new FormData()
-            })
-
-
-            $("#toListBTN").on("click",function (){
+            $("#goListBTN").on('click',function (){
+                console.log("elifejlw")
                 window.location.href="/post/1"
             })
+
+
+            const $form=document.getElementById("mod-del");
+
+            $("#okBTN").on("click",function (e){
+                console.log("${userId}")
+                console.log("${responseDTO.userId}")
+
+                if ("${userId}"=="${responseDTO.userId}"){
+                    $form.setAttribute("action", "/post/delete/${responseDTO.postId}");
+                    $form.submit();
+                }
+                else if(${userId eq ""}){
+                    console.log("로그인 후 이용 바랍니다.")
+                    window.alert("로그인 후 이용 바랍니다.")
+                    window.location.href="/login"
+                }
+                else{
+                    console.log("작성자만 삭제 가능합니다.")
+                    window.alert("작성자만 삭제 가능합니다.")
+                    $(".modal").fadeOut();
+
+                }
+            })
+
+
+
+            $("#updateBTN").on("click",function (){
+
+                <%--window.location.href="/post/update/${responseDTO.postId}"--%>
+                console.log("${userId}")
+                console.log("${responseDTO.userId}")
+
+                if ("${userId}"=="${responseDTO.userId}"){
+                    $form.setAttribute("action", "/post/update/${responseDTO.postId}");
+                    $form.submit();
+                }
+                else if(${userId eq ""}){
+                    console.log("로그인 후 이용 바랍니다.")
+                    window.alert("로그인 후 이용 바랍니다.")
+                    window.location.href="/login"
+                }
+                else{
+                    console.log("작성자만 수정 가능합니다.")
+                    window.alert("작성자만 수정 가능합니다.")
+                }
+
+            })
+
+
+
+
 
 
 
@@ -99,7 +127,7 @@
 
         <div class="ul-modify-delete">
             <form id="mod-del">
-                <input class="to-list"  id="toListBTN" type="button" value="목록">
+                <input class="to-list"  id="goListBTN" type="button" value="목록">
                 <input class="post-modify"  id="updateBTN" type="button" value="수정">
                 <input class="post-delete"  id="deleteBTN" type="button" value="삭제">
 
@@ -108,14 +136,36 @@
 
         </div>
 
+
+        <!-- 채팅버튼 -->
+        <div class="product-detail-chatbutton">
+            <form id="chatSubmit_form" action="/chatMessage" method="GET">
+                <a id="chatLink" href="javascript:{}" onclick="chatSubmit()">
+                    <input type="hidden" name="buyerId" value="${userId}" />
+                    <input type="hidden" name="sellerId" value="${responseDTO.userId}" />
+                    <input type="hidden" name="post_id" value="${responseDTO.postId}" />
+                    <input type="hidden" name="post_title" value="${responseDTO.title}" />
+
+                    <button class="chat-on-button" id="btn_chat">채팅하기</button>
+                </a>
+            </form>
+        </div>
+
     </div>
+
+
+
+
+
+
+</div>
 
 
 </div>
 
 <div class="modal">
     <div class="modal_content">
-        <p href="" class="close">x</p>
+        <div id="modalCloseBTN" class="close">x</div>
         <br>
         <div class="desc">삭제하시겠습니까?</div><br>
 
@@ -127,7 +177,12 @@
 
 <%@include file="/WEB-INF/views/post/footer.jsp"%>
 
-
+<script>
+    // 채팅 data submit
+    function chatSubmit(e) {
+        document.getElementById('chatSubmit_form').submit();
+    }
+</script>
 
 </body>
 

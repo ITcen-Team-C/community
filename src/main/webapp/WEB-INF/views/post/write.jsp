@@ -70,6 +70,7 @@
                     })
                 })
                     .then(response => response.json())
+                    .catch()
                     .then(result => {
                         console.log(result);
                         console.log(result.title);
@@ -107,8 +108,13 @@
             <textarea class="contents" id="contents" name="contents" PLACEHOLDER="내용"></textarea> <br>
         </div>
 
+<<<<<<< HEAD
         <input id="nickName" name="nickName" type="hidden" value="닉넴">
         <input id="userId" name="userId" type=hidden value="402880cf86353371018635339dd80000">
+=======
+        <input id="nickName" name="nickName" type="hidden" value="${nickname}">
+        <input id="userId" name="userId" type=hidden value="${userId}">
+>>>>>>> master
         <input class="send-btn" id="writeBTN" type="button" value="작성">
     </form>
 </div>
