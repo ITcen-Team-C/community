@@ -33,7 +33,7 @@
     
         <script>
             let chatList = document.querySelector('.chatlist-box');
-            var sessionid = '${sessionScope.sessiondto.nickname}';
+            var sessionid = '${sessionid}';
             
             $(document).ready(initialize());
 

@@ -122,7 +122,19 @@
             <div class="price">
                 ${responseDTO.price} 원
             </div>
-            <input class="solve-btn" id="solveBTN" type="button" value="질문 해결하기">
+
+            <form id="chatSubmit_form" action="/chatMessage" method="GET">
+                <a id="chatLink" href="javascript:{}" onclick="chatSubmit()">
+                    <input type="hidden" name="buyerId" value="${nickname}" />
+                    <input type="hidden" name="sellerId" value="${responseDTO.nickName}" />
+                    <input type="hidden" name="post_id" value="${responseDTO.postId}" />
+                    <input type="hidden" name="post_title" value="${responseDTO.title}" />
+
+                    <button class="solve-btn" id="btn_chat">채팅하기</button>
+                </a>
+            </form>
+
+<%--            <input class="solve-btn" id="solveBTN" type="button" value="질문 해결하기">--%>
         </div>
 
         <div class="ul-modify-delete">
@@ -139,16 +151,7 @@
 
         <!-- 채팅버튼 -->
         <div class="product-detail-chatbutton">
-            <form id="chatSubmit_form" action="/chatMessage" method="GET">
-                <a id="chatLink" href="javascript:{}" onclick="chatSubmit()">
-                    <input type="hidden" name="buyerId" value="${userId}" />
-                    <input type="hidden" name="sellerId" value="${responseDTO.userId}" />
-                    <input type="hidden" name="post_id" value="${responseDTO.postId}" />
-                    <input type="hidden" name="post_title" value="${responseDTO.title}" />
 
-                    <button class="chat-on-button" id="btn_chat">채팅하기</button>
-                </a>
-            </form>
         </div>
 
     </div>

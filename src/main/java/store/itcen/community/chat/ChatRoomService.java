@@ -9,10 +9,12 @@ import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
- 
+
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+@Slf4j
 @Service
 public class ChatRoomService {
     
@@ -74,7 +76,7 @@ public class ChatRoomService {
     }
     
     public void createFile(String post_id, int id) throws IOException {
-        System.out.println("상품아이디 : "+post_id + ", 채팅방아이디 : " + id);
+		log.info("상품아이디 : {}, 채팅방 아이디 : {}", post_id, id);
         String fileName = post_id + "_" + id + ".txt";
         String pathName = fileUploadPath + fileName;
         //File 클래스에 pathName 할당
@@ -102,30 +104,25 @@ public class ChatRoomService {
 		String post_id = chatRoom.getPost_id();
 		String buyerId = chatRoom.getBuyerId();
 
-		System.out.println("pr id : " + post_id);
-		System.out.println("buyerid : " + buyerId);
-		System.out.println("파인드파이챗아이디 전");
+		log.info("postid : {}, buyerid : {}", post_id, buyerId);
 		ChatRoom chatRoomAppend = chatRoomRepository.findByChatId(post_id, buyerId);
-		System.out.println("파인드바이아이디 성공");
-		System.out.println("어펜드 : "+chatRoomAppend.toString());
+		log.info("append 내용 : {}", chatRoomAppend.toString());
 		String pathName = fileUploadPath + chatRoomAppend.getFileName();
 		
 		FileOutputStream fos = new FileOutputStream(pathName, true);
 		String content = chatRoom.getContent();
 		String senderId = chatRoom.getSenderId();
 		String sendTime = chatRoom.getSendTime();
-//		System.out.println("print:" + content);
-		
+
 		String writeContent = senderId + "\n" + content + "\n" + "[" +  sendTime + "]" + "\n";
 		
 		byte[] b = writeContent.getBytes();
 		
 		fos.write(b);
 		fos.close();
-		
-		System.out.println("senderId: "+ senderId);
-		System.out.println("sellerId: "+ chatRoom.getSellerId());
-		System.out.println(senderId.equals(chatRoom.getSellerId()));
+
+		log.info("senderId: {}, sellerId : {}", senderId, chatRoom.getSellerId());
+		log.info("sender 와 seller equal 테스트 {}",senderId.equals(chatRoom.getSellerId()));
 		
 		//알림 
 		if (senderId.equals(chatRoom.getSellerId())) {
