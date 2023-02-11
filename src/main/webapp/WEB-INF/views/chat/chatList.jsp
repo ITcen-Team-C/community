@@ -44,14 +44,14 @@
             }
             
             // 채팅 상대방 설정
-            function addChatDivImg(i, sellerId, sessionid, pr_id, buyerId, pr_title, img1) {
+            function addChatDivImg(i, sellerId, sessionid, post_id, buyerId, post_title, img1) {
             	var opponent = "";
             	if(sessionid==sellerId){
             		opponent = buyerId;
             	}else {
             		opponent = sellerId; 
             	}
-                $(chatList).prepend('<div class=chat-list-box chatMessageInfo' + i + '><div class="chatbox wrapPr_img"><img height=100% width=67 class="chatbox-img" src="/upload/' + img1 + '"><a href="/chatRoom/' + pr_id + '/' + buyerId  + '"><div class=chat-title>'+ pr_title+'</div><div class=chat-name><span style="color:orange; font-size:15px; font-weight : bold;">'+ opponent + '</span>  님 과의 채팅방'+'</div> <div class="wrapSellerTitle' + i +'"></div></div>');
+                $(chatList).prepend('<div class=chat-list-box chatMessageInfo' + i + '><div class="chatbox wrapPr_img"><img height=100% width=67 class="chatbox-img" src="/upload/' + img1 + '"><a href="/chatRoom/' + post_id + '/' + buyerId  + '"><div class=chat-title>'+ post_title+'</div><div class=chat-name><span style="color:orange; font-size:15px; font-weight : bold;">'+ opponent + '</span>  님 과의 채팅방'+'</div> <div class="wrapSellerTitle' + i +'"></div></div>');
             }
     
             //페이지가 로드되는 시점 한 번만 출력하면 되는 div, img를 출력하는 메서드
@@ -79,7 +79,7 @@
                         var length = parsed.chatList.length;
                         for (var i = 0; i < length; i++) {
                             //채팅방 갯수만큼 반복문을 돌면서 채팅방 틀(div, img 태그)를 만들어줌 
-                            addChatDivImg(i, parsed.chatList[i].sellerId, sessionid, parsed.chatList[i].pr_id, parsed.chatList[i].buyerId, parsed.chatList[i].pr_title);
+                            addChatDivImg(i, parsed.chatList[i].sellerId, sessionid, parsed.chatList[i].post_id, parsed.chatList[i].buyerId, parsed.chatList[i].post_title);
                         }
                     } // success
                 }); //ajax 
@@ -103,7 +103,7 @@
                             
                             for (var i = 0; i < length; i++) {
                                $('.wrapSellerTitle' + i).html('');
-                                addChatList(parsed.chatList[i].pr_id, parsed.chatList[i].buyerId, parsed.chatList[i].senderName, parsed.chatList[i].pr_title, parsed.chatList[i].messageUnread, i);
+                                addChatList(parsed.chatList[i].post_id, parsed.chatList[i].buyerId, parsed.chatList[i].senderName, parsed.chatList[i].post_title, parsed.chatList[i].messageUnread, i);
                             }
                         } //success
                 }); //ajax
@@ -118,11 +118,11 @@
             }
             
             //일정 간격으로 업데이트된 데이터를 화면에 출력하는 메서드  //새 메세지 받는 용도로 사용 
-            function addChatList(pr_id, buyerId, senderName, pr_title, messageUnread, idx) {
+            function addChatList(post_id, buyerId, senderName, post_title, messageUnread, idx) {
     
                 var str =
                 '<a href="/chatRoom/' + 
-                pr_id +
+                post_id +
                 '/' + 
                 buyerId + 
                 '">' +

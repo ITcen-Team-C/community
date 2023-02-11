@@ -105,8 +105,8 @@ public class ChatRoom {
 		return post_id;
 	}
 
-	public void setPost_id(String pr_id) {
-		this.post_id = pr_id;
+	public void setPost_id(String post_id) {
+		this.post_id = post_id;
 	}
 
 	public String getSellerId() {
@@ -169,8 +169,8 @@ public class ChatRoom {
 		return post_title;
 	}
 
-	public void setPost_title(String pr_title) {
-		this.post_title = pr_title;
+	public void setPost_title(String post_title) {
+		this.post_title = post_title;
 	}
 
 

@@ -96,14 +96,14 @@ public class ChatApplicationController {
         
 
     // 채팅리스트에서 채팅방 입장
-    @RequestMapping(value="/chatRoom/{pr_id}/{buyerId}", method=RequestMethod.GET)
+    @RequestMapping(value="/chatRoom/{post_id}/{buyerId}", method=RequestMethod.GET)
 	public String getChatRoom(@PathVariable Map<String, String> requestVar,
 			Model model) throws IOException {
 
 //    	String sessionId = (String)session.getAttribute("sessiondto");
 
 		String buyerId = requestVar.get("buyerId");
-		String post_id = requestVar.get("pr_id");
+		String post_id = requestVar.get("post_id");
 			
 		//read chatHistory
 		ChatRoom chatRoomRead = chatRoomService.findByChatId(post_id, buyerId);
@@ -111,15 +111,15 @@ public class ChatApplicationController {
 		model.addAttribute("chatHistory", chatHistory);
 		
 		int id = chatRoomService.getId(post_id, buyerId);
-		String pr_title = chatRoomRead.getPost_title();
+		String post_title = chatRoomRead.getPost_title();
 		String sellerId = chatRoomRead.getSellerId();
 
 
 		model.addAttribute("id", id);
-		model.addAttribute("pr_id", post_id);
+		model.addAttribute("post_id", post_id);
 		model.addAttribute("buyerId", buyerId);
 		model.addAttribute("sellerId", sellerId);
-		model.addAttribute("pr_title", pr_title);
+		model.addAttribute("post_title", post_title);
 		
 		return "chat/chatBroadcastChatRoomList";
 	}
@@ -162,9 +162,9 @@ public class ChatApplicationController {
    		 for (ChatRoom chatList : chatRoomList) {
    			
    			 JSONObject jo = new JSONObject();
-   			 jo.put("pr_id", chatList.getPost_id());
+   			 jo.put("post_id", chatList.getPost_id());
    			 jo.put("buyerId", chatList.getBuyerId());
-   			 jo.put("pr_title", chatList.getPost_title());
+   			 jo.put("post_title", chatList.getPost_title());
    			 jo.put("sellerId", chatList.getSellerId());
    			 ja.put(jo);
    		}
@@ -260,7 +260,7 @@ public class ChatApplicationController {
 		 for (ChatRoom chatList : chatRoomList) {
 			//chatRoom 정보를 JSON Object에 put 해줌, chatRoom이 반복문에서 넘어갈 때마다 객체 초기화 
 			 JSONObject jo = new JSONObject();
-			 jo.put("pr_id", chatList.getPost_id());
+			 jo.put("post_id", chatList.getPost_id());
 			 jo.put("buyerId", chatList.getBuyerId());
 		 	//리스트에 출력할 상대방 닉네임 확인
 		 if (chatList.getBuyerId().equals(sessionid)) {
@@ -269,7 +269,7 @@ public class ChatApplicationController {
 			 jo.put("senderName", chatList.getBuyerId());
 		 }
 		 
-		 	 jo.put("pr_title", chatList.getPost_title());
+		 	 jo.put("post_title", chatList.getPost_title());
 		 //읽지 않은 chatRoom이 0개일때
 		 if (unreadChatId.size() == 0) {
 			 jo.put("messageUnread", "");
