@@ -29,7 +29,7 @@ integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+f
     <div id="chatImg2" class="chatroom-picture-box2 ">
       
     </div>
-        <p class="chatroom-title">${pr_title}</p>
+        <p class="chatroom-title">${post_title}</p>
         <div class="chatroom-content-box">    
                 <%--chatHistory와 member가 실시간 입력하는 메시지 출력 --%>
                 <div id="content" class="chatroom-content-message">
@@ -79,10 +79,10 @@ integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+f
 var stompClient = null;
 var buyerId = "${buyerId}";
 var sellerId = "${sellerId}";    
-var pr_id = "${pr_id}";
+var post_id = "${post_id}";
 var id = "${id}";
-var pr_title = "${pr_title}";
-var sessionId = '${sessionScope.sessiondto.nickname}';
+var post_title = "${post_title}";
+var sessionId = '${sellerId}';
 
 var img = ["${img1}", "${img2}", "${img3}", "${img4}", "${img5}", "${img6}"];
 
@@ -153,7 +153,7 @@ $(document).ready(function(){
             'content': content,
             'buyerId': buyerId, 
             'sellerId': sellerId,
-            'pr_id': pr_id,
+            'post_id': post_id,
             'senderId': sessionId    //채팅리스트에서 입장하는 것  
             });
         $('#message').val("");
