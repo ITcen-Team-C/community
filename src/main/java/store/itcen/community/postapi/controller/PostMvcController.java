@@ -87,11 +87,13 @@ public class PostMvcController {
     @GetMapping("/detail/{id}")
     public String detailPost(@PathVariable("id") String postId,HttpServletRequest request, Model model) {
 
-        String userId="";
+        String userId = "";
+        String nickname = "";
         if (WebUtils.getCookie(request,"token")!=null){
             Cookie tokenCookie = WebUtils.getCookie(request, "token");
             String token = tokenCookie.getValue();
             userId = tokenProvider.validateAndGetUserId(token);
+            nickname = userRepository.getNicknameByUserId(userId);
         }
 
 
@@ -100,6 +102,7 @@ public class PostMvcController {
 
         model.addAttribute("responseDTO", responseDTO);
         model.addAttribute("userId", userId);
+        model.addAttribute("nickname", nickname);
         return "post/detailPost";
     }
 

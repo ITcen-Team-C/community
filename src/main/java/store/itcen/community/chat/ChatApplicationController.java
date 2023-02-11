@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import org.springframework.web.util.WebUtils;
 import store.itcen.community.security.TokenProvider;
+import store.itcen.community.userapi.repository.UserRepository;
 
 @Slf4j
 @Controller
@@ -32,12 +33,14 @@ public class ChatApplicationController {
     private SimpMessagingTemplate simpMessage;
 	private ChatRoomService chatRoomService;
 	private TokenProvider tokenProvider;
+	private UserRepository userRepository;
 
 	@Autowired
-	public ChatApplicationController(SimpMessagingTemplate simpMessage, ChatRoomService chatRoomService, TokenProvider tokenProvider) {
+	public ChatApplicationController(SimpMessagingTemplate simpMessage, ChatRoomService chatRoomService, TokenProvider tokenProvider, UserRepository userRepository) {
 		this.simpMessage = simpMessage;
 		this.chatRoomService = chatRoomService;
 		this.tokenProvider = tokenProvider;
+		this.userRepository = userRepository;
 	}
 
 	//상세페이지에서 채팅방 입장
@@ -68,7 +71,10 @@ public class ChatApplicationController {
 
 		Cookie tokenCookie = WebUtils.getCookie(request, "token");
 		String token = tokenCookie.getValue();
-		String buyerId = tokenProvider.validateAndGetUserId(token);
+		String buyerUserId = tokenProvider.validateAndGetUserId(token);
+		String buyerId = userRepository.getNicknameByUserId(buyerUserId);
+
+
 //		MemberDTO sessiondto = (MemberDTO)session.getAttribute("sessiondto");
 //			String buyerId = sessiondto.getNickname();
     		String post_id = chatRoom.getPost_id();
@@ -122,19 +128,32 @@ public class ChatApplicationController {
     
     // 채팅방 리스트 
     @RequestMapping(value="/chatList", method=RequestMethod.GET)
-   	public String getChatList() {
-   		 return "chat/chatList";
+   	public String getChatList(HttpServletRequest request, Model model) {
+		Cookie tokenCookie = WebUtils.getCookie(request, "token");
+		String token = tokenCookie.getValue();
+		String buyerUserId = tokenProvider.validateAndGetUserId(token);
+		String buyerId = userRepository.getNicknameByUserId(buyerUserId);
+
+		model.addAttribute("sessionid", buyerId);
+
+		return "chat/chatList";
    	}
        
        
     // 채팅방 리스트 AJAX    
     @RequestMapping(value="/chatList/ajax", method=RequestMethod.POST)
    	@ResponseBody
-   	public String chatList(@RequestBody String json) {
-   		
-   		JSONObject jsn = new JSONObject(json);
-   		String sessionid = (String) jsn.get("sessionid");
-	    log.info("sessionid : {} ",sessionid);
+   	public String chatList(HttpServletRequest request) {
+
+		Cookie tokenCookie = WebUtils.getCookie(request, "token");
+		String token = tokenCookie.getValue();
+		String buyerUserId = tokenProvider.validateAndGetUserId(token);
+		String sessionid = userRepository.getNicknameByUserId(buyerUserId);
+
+
+//   		JSONObject jsn = new JSONObject(json);
+//   		String sessionid = (String) jsn.get("sessionid");
+//	    log.info("sessionid : {} ",sessionid);
 
    		List<ChatRoom> chatRoomList = chatRoomService.findByUserId(sessionid);
    		
