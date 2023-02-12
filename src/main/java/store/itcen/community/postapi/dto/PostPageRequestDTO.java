@@ -12,7 +12,7 @@ public class PostPageRequestDTO {
     // 기본생성자 => 초기 세팅 => int 기본 값 0 으로 잡혀있으니까 기본 값 1로 설정, sizeperPage 설정
     public PostPageRequestDTO() {
         this.page = 1;
-        this.sizePerPage = 6;
+        this.sizePerPage = 9;
     }
 
     // Setter 이용 트롤 처리
