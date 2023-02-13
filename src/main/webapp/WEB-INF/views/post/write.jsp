@@ -103,7 +103,7 @@
         </select>
         <input class="input-price" id="price" name="price" type="number" placeholder="질문 해결 가격을 입력하세요!">
         <div class="title-contents">
-            <input class="title" id="title" name="title" type="text" placeholder="제목" > <br>
+            <input class="title-write" id="title" name="title" type="text" placeholder="제목" > <br>
 
             <textarea class="contents" id="contents" name="contents" PLACEHOLDER="내용"></textarea> <br>
         </div>
@@ -118,3 +118,9 @@
 </body>
 
 </html>
+
+
+
+
+
+
