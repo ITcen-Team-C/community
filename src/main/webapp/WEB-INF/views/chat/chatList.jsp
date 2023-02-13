@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, width=device-width">
 
-    <title>Connect Us</title>
+    <title>Any Q</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="${path}/css/chat.css">
@@ -24,7 +24,7 @@
         <div class="content-container">
             
     	   <div class="chat-container">
-            <p class="chatTitle">Connect List</p>
+            <p class="chatTitle">Chat List</p>
     		    <div class="chatlist-box">
      	 	    </div>
       	   </div>
