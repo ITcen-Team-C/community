@@ -43,15 +43,15 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
 //            String token = parseBearerToken(request);
 
-            // 채팅 알림 log 멈추기용 임시
-            boolean flag = request.getRequestURI().startsWith("/chatUnreadAlert");
-            if (flag) return;
+            // 채팅 알림 log 멈추기용 ( 적용시 채팅 alert 작동 X )
+//            boolean flag = request.getRequestURI().startsWith("/chatUnreadAlert");
+//            if (flag) return;
 
             // 토큰 위조 여부 검사
             if (token != null) {
-                log.info("Jwt Token Filter is running.... - token: {}", token);
+//                log.info("Jwt Token Filter is running.... - token: {}", token);
                 String userId = provider.validateAndGetUserId(token);
-                log.info("인증된 userId : {}", userId);
+//                log.info("인증된 userId : {}", userId);
 
                 // 인증 완료!! api서버에서는 SecurityContextHolder에 등록해야 인증된 사용자라고 생각한다.
                 AbstractAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
