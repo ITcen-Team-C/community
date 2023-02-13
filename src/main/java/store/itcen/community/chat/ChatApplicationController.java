@@ -238,7 +238,10 @@ public class ChatApplicationController {
 		
 		JSONObject jsn = new JSONObject(json);
 		String sessionId = (String) jsn.get("sessionId");
-    	int messages = chatRoomService.getUnreadMessages(sessionId);
+
+		String nicknameByUserId = userRepository.getNicknameByUserId(sessionId);
+
+		int messages = chatRoomService.getUnreadMessages(nicknameByUserId);
 		return messages;
 	}
 
