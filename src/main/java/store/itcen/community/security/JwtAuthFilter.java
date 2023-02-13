@@ -42,10 +42,14 @@ public class JwtAuthFilter extends OncePerRequestFilter {
             String token = tokenCookie.getValue();
 
 //            String token = parseBearerToken(request);
-            log.info("Jwt Token Filter is running.... - token: {}", token);
+
+            // 채팅 알림 log 멈추기용 임시
+            boolean flag = request.getRequestURI().startsWith("/chatUnreadAlert");
+            if (flag) return;
 
             // 토큰 위조 여부 검사
             if (token != null) {
+                log.info("Jwt Token Filter is running.... - token: {}", token);
                 String userId = provider.validateAndGetUserId(token);
                 log.info("인증된 userId : {}", userId);
 
