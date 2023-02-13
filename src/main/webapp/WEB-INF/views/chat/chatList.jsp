@@ -19,6 +19,10 @@
 </head>
 
 <body>
+
+<%--<img class="chatList-BG" src="/pictures/chatListBG.png">--%>
+
+
     <div class="main-container">
         <!-- content-section -->
         <div class="content-container">
@@ -39,8 +43,8 @@
 
             function initialize() {
                 getChatList();
-                // getUnreadMessageInfo();
-                // unreadAlertInfinite();
+                getUnreadMessageInfo();
+                unreadAlertInfinite();
             }
             
             // 채팅 상대방 설정
