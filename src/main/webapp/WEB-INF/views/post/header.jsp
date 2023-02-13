@@ -1,6 +1,6 @@
 <%@ page import="org.springframework.web.util.WebUtils" %>
 <%@ page import="store.itcen.community.security.TokenProvider" %>
-<%@ page import="store.itcen.community.userapi.repository.UserRepository" %>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -38,15 +38,25 @@
 
 
         $("#toLoginBTN").on('click',function (){
-            // window.location.href="/login"
 
-            console.log("로그인/로그아웃 버튼이 눌렸어요~!")
-            <%--    if("<%=token%>"==null){--%>
-            <%--        console.log("토큰이없다")--%>
-            <%--    }--%>
+            // console.log("로그인/로그아웃 버튼이 눌렸어요~!")
+            if($(this).val()=="로그아웃"){
+                console.log("로그인이되어있는데?")
+                if(confirm("로그아웃 하시겠습니까?")==true){
+                    window.location.href="/api/auth/signout"
+                    console.log("로그아웃완")
 
-            <%--$("#toLoginBTN").val("로그아웃")--%>
-            // window.location.href="/api/auth/signin"
+                }else {
+                    return ;
+                }
+
+
+            }
+            else{
+                window.location.href="/"
+            }
+
+
         })
         $("#toSignUpBTN").on('click',function (){
             window.location.href="/join"

@@ -4,9 +4,11 @@ package store.itcen.community.userapi.controller;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.util.WebUtils;
 import store.itcen.community.userapi.dto.LoginRequestDTO;
 import store.itcen.community.userapi.dto.LoginResponseDTO;
 import store.itcen.community.userapi.dto.UserSignUpDTO;
@@ -16,6 +18,7 @@ import store.itcen.community.userapi.exception.NoRegisteredArgumentsException;
 import store.itcen.community.userapi.service.UserService;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Controller
@@ -71,6 +74,17 @@ public class UserApiController {
 
     }
 
+
+    @GetMapping("/signout")
+    public String signOut(
+            HttpServletRequest request, HttpServletResponse response) {
+       Cookie tokenCookie = WebUtils.getCookie(request, "token");
+       tokenCookie.setPath("/");
+       tokenCookie.setMaxAge(0);
+       response.addCookie(tokenCookie);
+       return "redirect:/index";
+
+    }
 
 
 
