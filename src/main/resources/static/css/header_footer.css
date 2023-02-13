@@ -27,10 +27,20 @@ body{
 
 }
 
+.to-chat{
+    position: relative;
+    border: none;
+    left: 63%;
+    /*margin-left: 1400px;*/
+    background-color: rgba(0,0,0,0);
+    font-size: 15px;
+    cursor: pointer;
+}
+
 .to-login{
     position: relative;
     /*top: 40%;*/
-    left: 70%;
+    left: 66%;
     border: none;
     /*margin-left: 1400px;*/
     background-color: rgba(0,0,0,0);
@@ -41,7 +51,7 @@ body{
 .to-signup{
     position: relative;
     /*top: 40%;*/
-    left: 73%;
+    left: 69%;
     font-size: 15px;
     border: none;
     /*margin-left: 20px;*/
@@ -52,7 +62,7 @@ body{
 .to-write{
     position: relative;
     top: 30%;
-    left: 76%;
+    left: 72%;
     width: 80px;
     height: 50px;
     /*margin-top: 30px;*/
@@ -80,4 +90,6 @@ footer{
     background: #222222;
     color: white;
     z-index: 100;
+
 }
+
