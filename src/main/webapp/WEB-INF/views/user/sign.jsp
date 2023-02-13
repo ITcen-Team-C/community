@@ -11,9 +11,8 @@
     <meta name="keywords" content="Yulian Brito, Yulian, Brito, Frontend Developer, Sign Up Sign In 1"/>
     <meta name="author" content="Yulian Brito"/>
     <title>Sign Up / Sign In 1</title>
-    <link rel="stylesheet" href="/css/test.css"/>
-<%--    <link rel="stylesheet" href="/css/signin.css"/>--%>
-    <script type="text/javascript" src="/js/test.js"></script>
+    <link rel="stylesheet" href="/css/sign.css"/>
+    <script type="text/javascript" src="/js/sign.js"></script>
 </head>
 
 <body class="body">

@@ -12,7 +12,7 @@
 <head>
     <meta charset="UTF-8">
     <title>detail</title>
-<%--    <link rel="stylesheet" href="${path}/css/test.css">--%>
+<%--    <link rel="stylesheet" href="${path}/css/sign.css">--%>
 
     <script src="${path}/js/jquery-3.6.0.min.js"></script>
     <script>

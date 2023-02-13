@@ -1,57 +1,148 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: PC - 08
-  Date: 2023-02-07
-  Time: 오후 4:02
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="path" value="${pageContext.request.contextPath}" />
+
+
+<!DOCTYPE HTML>
+<html lang="ko">
+</html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>무엇이든 물어보세요</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-
+	<meta charset="UTF-8">
+	<title>무몰보</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/css/main.css" />
+	<noscript><link rel="stylesheet" href="/css/noscript.css" /></noscript>
 </head>
-<body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<body class="is-preload">
 
-<header>
-    <nav class="navbar navbar-expand-lg bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">무물보</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link1" href="http://localhost:8080/post/write">질문하기</a>
-                    <a class="nav-link2" href="http://localhost:8080/post/1">질문찾기</a>
-                    <a class="nav-link3" href="http://localhost:8080">로그아웃</a>
+<!-- Wrapper -->
+<div id="wrapper" class="fade-in">
 
-                </div>
-            </div>
-        </div>
-    </nav>
-</header>
+	<!-- Intro -->
+	<div id="intro">
+		<h1>무엇이든지<br />
+			물어보세요</h1>
+		<p>넘쳐나는 정보 속에서 필요한것들만 쏙쏙<!doctype html>
+			<html lang="ko">
+			<head>
+				<meta charset="UTF-8">
+				<meta name="viewport"
+					  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+				<meta http-equiv="X-UA-Compatible" content="ie=edge">
+				<title>무물보</title>
+			</head>
+			<body>
 
-<br>
-<form method="get" action="/post/1">
-    <input type="submit" class="bt_start" value="시작하기">
-</form>
+			</body>
+			</html><br />
+		</p>
+		<ul class="actions">
+			<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">계속하기</a></li>
+		</ul>
+	</div>
+
+	<!-- Header -->
+	<header id="header">
+		<a href="http://localhost:8080/post/1" class="logo">시작하기</a>
+	</header>
+
+	<!-- Nav -->
+	<nav id="nav">
+		<ul class="links">
+			<li class="active">무물보란?</li>
+		</ul>
+		<ul class="icons">
+			<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+			<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+			<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+			<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+		</ul>
+	</nav>
+
+	<!-- Main -->
+	<div id="main">
+
+		<!-- Featured Post -->
+		<article class="post featured">
+			<header class="major">
+				<span class="date">Febrary 2023</span>
+				<h2><a href="#">무엇이든지 물어보세요<br />
+					소개</a></h2>
+				<p>넘처나는 정보화 사회속에서 필요한 정보만 찾기 힘든 지금. 무물보를 이용해보세요.</p>
+			</header>
+			<a href="#" class="image main"><img src="/images/pic01.jpg" alt="" /></a>
+			<ul class="actions special">
+				<li><a href="#" class="button large">Full Story</a></li>
+			</ul>
+		</article>
 
 
+		<footer id="footer">
+			<section>
+				<form method="post" action="#">
+					<div class="fields">
+						<div class="field">
+							<label for="name">Name</label>
+							<input type="text" name="name" id="name" />
+						</div>
+						<div class="field">
+							<label for="email">Email</label>
+							<input type="text" name="email" id="email" />
+						</div>
+						<div class="field">
+							<label for="message">Message</label>
+							<textarea name="message" id="message" rows="3"></textarea>
+						</div>
+					</div>
+					<ul class="actions">
+						<li><input type="submit" value="Send Message" /></li>
+					</ul>
+				</form>
+			</section>
+			<section class="split contact">
+				<section class="alt">
+					<h3>Address</h3>
+					<p>1234 Somewhere Road<br />
+						Nashville, TN 00000-0000</p>
+				</section>
+				<section>
+					<h3>Phone</h3>
+					<p><a href="#">(000) 000-0000</a></p>
+				</section>
+				<section>
+					<h3>Email</h3>
+					<p><a href="#">info@untitled.tld</a></p>
+				</section>
+				<section>
+					<h3>Social</h3>
+					<ul class="icons alt">
+						<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+					</ul>
+				</section>
+			</section>
+		</footer>
 
-<script>
-    const ACCESS_TOKEN = '${token}';
-    // console.log(ACCESS_TOKEN);
+		<!-- Copyright -->
+		<div id="copyright">
+			<ul><li>&copy; 무몰보</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+		</div>
 
-    window.localStorage.setItem("ACCESS_TOKEN", ACCESS_TOKEN);
+	</div>
 
-
-    const item = window.localStorage.getItem("ACCESS_TOKEN");
-    console.log(item);
-</script>
+	<!-- Scripts -->
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/jquery.scrollex.min.js"></script>
+	<script src="/js/jquery.scrolly.min.js"></script>
+	<script src="/js/browser.min.js"></script>
+	<script src="/js/breakpoints.min.js"></script>
+	<script src="/js/util.js"></script>
+	<script src="/js/main.js"></script>
+</div>
 </body>
+
 </html>
