@@ -81,5 +81,11 @@ public class UserService {
         return loginResponseDTO;
     }
 
+    public String getNicknameByUserId(String userId) {
+        return userRepository.getNicknameByUserId(userId);
+    }
+
+
+
 }
 

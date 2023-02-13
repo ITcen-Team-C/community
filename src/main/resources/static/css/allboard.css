@@ -1,12 +1,13 @@
 /*여기부터 전체게시물 가져온 CSS*/
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
+
 * {
     box-sizing: border-box;
 }
 
 body {
-    background-color: #f6f5f7;
+    background-color: white;
     font-family: 'Open Sans', sans-serif;
     margin-bottom: 50px;
 }
@@ -25,7 +26,36 @@ body {
     margin: 2%;
     min-width: 250px;
     max-width: 350px;
+    height: 400px;
 }
+
+.pricing-box:hover {
+    box-shadow: 0px 10px 30px 0px rgba(200,10,20,0.5);
+}
+
+.pricing-box:hover .btn-primary {
+    visibility:visible;
+}
+
+
+
+.allboard-a {
+    text-decoration : none;
+    color: black;
+}
+
+
+
+#allboard-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    height: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /*white-space: nowrap;*/
+}
+
 
 .pricing-box h5 {
     text-transform: uppercase;
@@ -60,18 +90,21 @@ body {
 .btn-primary {
     border-radius: 25px;
     border: none;
-    background-color: #EC1362;
-    color: #ffffff;
+    background-color: rgba(200,10,20,0.5);
+    /*color: #ffffff;*/
     cursor: pointer;
     padding: 10px 15px;
     margin-top: 20px;
     text-transform: uppercase;
     transition: all 0.1s ease-in-out;
+    visibility: hidden;
 }
 
 .btn-primary:hover {
     box-shadow: 0px 2px 15px 0px rgba(0,0,0,0.5);
     transform: translateY(-3px);
+    /*color: rgba(200,10,20,0.5);*/
+    background-color: rgb(255, 153, 0);
 }
 
 .pricing-box-bg-image {
@@ -118,7 +151,7 @@ footer a {
 
 
 .allPostContainer {
-    /*position: relative;*/
+    position: relative;
     display: flex;
     flex-direction: row;
     margin-top: 120px;
@@ -136,7 +169,7 @@ footer a {
     width: 25%;
     height: 6rem;
     text-align: center;
-    /*position: fixed;*/
+    position: fixed;
     /*left: 0.2rem;*/
     /*top: 18rem;*/
     padding-top: 2rem;
@@ -223,8 +256,11 @@ footer a {
 .main-content {
     width: 75%;
     /*background: orange;*/
-      display: flex;
-      flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-left: 40rem;
+
 }
 
 /* 전체 게시물 리스트 */

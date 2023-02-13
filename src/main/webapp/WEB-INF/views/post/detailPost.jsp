@@ -14,10 +14,19 @@
     <title>detail</title>
 <%--    <link rel="stylesheet" href="${path}/css/test.css">--%>
 
-
     <script src="${path}/js/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
+
+            $("#noSession_FakeChatBTN").on("click", function () {
+                alert("로그인 후 이용 가능합니다.");
+            });
+
+            $("#Owner_FakeChatBTN").on("click", function () {
+                alert("내가 올린 질문 입니다.");
+            });
+
+
 
             $("#deleteBTN").click(function (e){
                 $(".modal").fadeIn();
@@ -84,21 +93,11 @@
 
             })
 
-
-
-
-
-
-
-
         });
     </script>
 
 
 </head>
-
-<%--http://localhost:8080/post/detail/402880d0862a376b01862a37c3820000--%>
-
 <body>
 
 
@@ -122,7 +121,34 @@
             <div class="price">
                 ${responseDTO.price} 원
             </div>
-            <input class="solve-btn" id="solveBTN" type="button" value="질문 해결하기">
+
+            <c:if test="${userId != responseDTO.userId && not empty userId }">
+            <form id="chatSubmit_form" action="/chatMessage" method="GET">
+                <a id="chatLink" href="javascript:{}" onclick="chatSubmit()">
+                    <input type="hidden" name="buyerId" value="${nickname}" />
+                    <input type="hidden" name="sellerId" value="${responseDTO.nickName}" />
+                    <input type="hidden" name="post_id" value="${responseDTO.postId}" />
+                    <input type="hidden" name="post_title" value="${responseDTO.title}" />
+
+                    <button class="solve-btn" id="btn_chat">채팅하기</button>
+                </a>
+            </form>
+            </c:if>
+
+            <!-- 세션 없을 때, 가짜 채팅버튼 -->
+            <c:if test="${empty userId }">
+                <button class="solve-btn" id="noSession_FakeChatBTN">채팅하기</button>
+            </c:if>
+
+            <!-- 자기가 올린 물품일 때, 가짜 채팅버튼 -->
+            <c:if test="${userId == responseDTO.userId && not empty userId }">
+                <button class="solve-btn" id="Owner_FakeChatBTN">채팅하기</button>
+            </c:if>
+
+
+
+
+        <%--            <input class="solve-btn" id="solveBTN" type="button" value="질문 해결하기">--%>
         </div>
 
         <div class="ul-modify-delete">
@@ -136,7 +162,20 @@
 
         </div>
 
+
+        <!-- 채팅버튼 -->
+        <div class="product-detail-chatbutton">
+
+        </div>
+
     </div>
+
+
+
+
+
+
+</div>
 
 
 </div>
@@ -155,7 +194,12 @@
 
 <%@include file="/WEB-INF/views/post/footer.jsp"%>
 
-
+<script>
+    // 채팅 data submit
+    function chatSubmit(e) {
+        document.getElementById('chatSubmit_form').submit();
+    }
+</script>
 
 </body>
 

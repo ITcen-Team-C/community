@@ -46,6 +46,15 @@
             }
 
 
+
+            // hover 시 버튼
+            // $(".price-box").mouseover(function () {
+            //     console.log("mouseover");
+            //     $(".btn-primary").attr("style", "display:inline");
+            // });
+
+
+
         });
     </script>
 </head>
@@ -132,15 +141,17 @@
 
 
                 <div class="pricing-box text-center">
-                    <h5>${each.category}</h5>
-                    <p class="price">${each.title}</p>
+                    <a class="allboard-a" href="/post/detail/${each.postId}">
+                    <h5><strong>${each.category}</strong></h5>
+                    <p id="allboard-title" class="price">${each.title}</p>
                     <ul class="features-list">
                         <li><strong>가격</strong> ${each.price}</li>
                         <li><strong>작성자</strong> ${each.nickName}</li>
                         <li><strong>${dateDiffShow}</strong></li>
                     </ul>
-                    <button id="chatbtn" class="btn-primary"><a href="/post/detail/${each.postId}">Get Started</a>
+                    <button class="btn-primary"><a class="allboard-a" href="/post/detail/${each.postId}">답변하러 가기</a>
                     </button>
+                    </a>
                 </div>
             </c:forEach>
             <%--PricingBox Container--%>
