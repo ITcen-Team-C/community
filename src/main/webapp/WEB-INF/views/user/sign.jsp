@@ -12,6 +12,7 @@
     <meta name="author" content="Yulian Brito"/>
     <title>Sign Up / Sign In 1</title>
     <link rel="stylesheet" href="/css/test.css"/>
+<%--    <link rel="stylesheet" href="/css/signin.css"/>--%>
     <script type="text/javascript" src="/js/test.js"></script>
 </head>
 
@@ -76,7 +77,7 @@
                 <label class="form-wrapper__label" for="signup-age">Age</label>
                 <input id="signup-age" class="form-wrapper__input" type="text" placeholder="age" name="age" required>
 
-                <button class="buttons__signup buttons__signup--sign-up-form" type="submit">Sign up</button>
+                <button id="form-sigin-up-fin" class="buttons__signup buttons__signup--sign-up-form" type="submit">Sign up</button>
 
             </form>
         </div>

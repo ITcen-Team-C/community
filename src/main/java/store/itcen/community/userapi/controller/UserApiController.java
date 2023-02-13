@@ -63,7 +63,7 @@ public class UserApiController {
             cookie.setPath("/");
             cookie.setMaxAge(60 * 60 * 24);
             response.addCookie(cookie);
-            return "redirect:/index1";
+            return "redirect:/index";
         } catch (RuntimeException e) {
             ra.addFlashAttribute("message", "비번 틀림!");
             return "redirect:/signin";

@@ -403,4 +403,10 @@
     .buttons__signup--sign-up-form{
         top: 54px;
     }
-} 
+}
+
+/*  signup */
+.buttons__signup.buttons__signup--sign-up-form {
+    position: static;
+    margin: 20px auto;
+}
