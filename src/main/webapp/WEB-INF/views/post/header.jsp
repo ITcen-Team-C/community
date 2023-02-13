@@ -17,8 +17,8 @@
         if (WebUtils.getCookie(request,"token")!=null){
             Cookie tokenCookie = WebUtils.getCookie(request, "token");
             String token = tokenCookie.getValue();
-            userId = tokenProvider.validateAndGetUserId(token);
-            pageContext.setAttribute("userId", userId);
+//            userId = tokenProvider.validateAndGetUserId(token);
+//            pageContext.setAttribute("userId", userId);
         %>
         console.log("토큰이 있음")
         $("#toLoginBTN").val("로그아웃")
@@ -59,10 +59,22 @@
 
         })
         $("#toSignUpBTN").on('click',function (){
-            window.location.href="/join"
+            window.location.href="/"
         })
         $("#toWriteBTN").on('click',function (){
-            window.location.href="/post/write"
+            <%
+            if (WebUtils.getCookie(request,"token")!=null){
+
+            %>
+                window.location.href="/post/write"
+            <%
+            }else {
+
+            %>
+            alert("로그인 후 이용 가능합니다.");
+            <%
+            }
+            %>
         })
         $("#toChatBTN").on('click',function (){
             window.location.href="/chatList"
