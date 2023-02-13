@@ -59,6 +59,12 @@ body{
     cursor: pointer;
 }
 
+.to-chat:hover,.to-login:hover,.to-signup:hover{
+    /*background-color: rgb(255, 153, 0);*/
+    text-decoration: underline;
+    font-weight: 700;
+}
+
 .to-write{
     position: relative;
     top: 30%;
@@ -73,8 +79,14 @@ body{
     font-size: 15px;
     font-weight: 700;
     cursor: pointer;
+    border: none;
 }
 
+.to-write:hover{
+    background-color: rgb(255, 153, 0);
+    text-decoration: underline;
+    font-weight: 700;
+}
 
 footer{
     width: 100%;
@@ -84,11 +96,11 @@ footer{
     /*margin: 900px -10px -10px -10px;*/
     /*margin: 950px -10px -10px 0px;*/
     /*bottom: 0;*/
-    font-size: 20px;
+    font-size: 10px;
     text-align: center;
     /*background: rgb(199, 199, 199,0.2);*/
-    background: #222222;
-    color: white;
+    background: rgb(199, 199, 199,0.2);
+    color: black;
     z-index: 100;
 
 }

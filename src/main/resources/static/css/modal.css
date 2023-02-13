@@ -54,3 +54,10 @@
     border-radius: 10px;
     cursor:pointer;
 }
+
+
+.delete-no:hover,.delete-ok:hover{
+    background-color: rgb(255, 153, 0);
+    text-decoration: underline;
+    font-weight: 700;
+}
