@@ -33,7 +33,7 @@
     box-shadow: 0 0 8px #aaa;
 }
 
-.write .title-contents .title{
+.write .title-contents .title-write{
     font-size: 30px;
     width: 830px;
     margin-left: 30px;
@@ -48,7 +48,7 @@
 .write .title-contents .contents{
 
     width: 830px;
-    height: 180px;
+    height: 350px;
     font-size: 20px;
     margin-left: 35px;
     margin-top: 10px;
@@ -71,3 +71,5 @@
     border-radius: 10px;
     cursor: pointer;
 }
+
+
