@@ -57,7 +57,7 @@
 			<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 			<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
 			<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-			<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+			<li><a href="https://github.com/ITcen-Team-C/community" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 		</ul>
 	</nav>
 
@@ -72,7 +72,7 @@
 					소개</a></h2>
 				<p>넘처나는 정보화 사회속에서 필요한 정보만 찾기 힘든 지금. 무물보를 이용해보세요.</p>
 			</header>
-			<a href="#" class="image main"><img src="/images/pic01.jpg" alt="" /></a>
+			<a href="http://localhost:8080/post/1" class="image main"><img src="/images/pic01.png" alt="" /></a>
 			<ul class="actions special">
 				<li><a href="#" class="button large">Full Story</a></li>
 			</ul>
