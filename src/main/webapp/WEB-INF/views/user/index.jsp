@@ -45,7 +45,7 @@
 
 	<!-- Header -->
 	<header id="header">
-		<a href="http://localhost:8080/post/1" class="logo">시작하기</a>
+		<a href="/post/1" class="logo">시작하기</a>
 	</header>
 
 	<!-- Nav -->
@@ -72,7 +72,7 @@
 					소개</a></h2>
 				<p>넘처나는 정보화 사회속에서 필요한 정보만 찾기 힘든 지금. 무물보를 이용해보세요.</p>
 			</header>
-			<a href="http://localhost:8080/post/1" class="image main"><img src="/images/pic01.png" alt="" /></a>
+			<a href="/post/1" class="image main"><img src="/images/pic01.png" alt="" /></a>
 			<ul class="actions special">
 				<li><a href="#" class="button large">Full Story</a></li>
 			</ul>
