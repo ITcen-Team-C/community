@@ -10,6 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="${path}/css/allboard.css">
+    <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/header_footer.css"/>
     <script src="${path}/js/jquery-3.6.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script>
@@ -67,6 +68,9 @@
     </script>
 </head>
 <body>
+
+<%@include file="/WEB-INF/views/post/header.jsp"%>
+
 
 <div class="allPostContainer">
 <%-- 검색 --%>
@@ -148,14 +152,16 @@
                 </c:if>
 
                 <div class="pricing-box text-center">
-                    <h5>${each.category}</h5>
-                    <p class="price">${each.title}</p>
+                    <a class="allboard-a" href="/post/detail/${each.postId}">
+                    <h5><strong>${each.category}</strong></h5>
+                    <p id="allboard-title" class="price">${each.title}</p>
                     <ul class="features-list">
                         <li><strong>가격</strong> ${each.price}</li>
                         <li><strong>작성자</strong> ${each.nickName}</li>
                         <li><strong>${dateDiffShow}</strong></li>
                     </ul>
-                    <button id="chatbtn" class="btn-primary"><a href="/post/detail/${each.postId}">Get Started</a></button>
+                    <button id="chatbtn" class="btn-primary"><a class="allboard-a" href="/post/detail/${each.postId}">답변하러 가기</a></button>
+                    </a>
                 </div>
 
             </c:forEach>
@@ -184,6 +190,7 @@
     </div>
 </div>
 
+<%@include file="/WEB-INF/views/post/footer.jsp"%>
 
 </body>
 </html>
