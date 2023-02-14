@@ -103,7 +103,7 @@
 
 <%@include file="/WEB-INF/views/post/header.jsp"%>
 
-
+<div class="detail-container">
 <div class="detail">
     <div style="margin-left: 40px; padding-top: 30px; font-size: 15px; font-weight: 700;"> >>>  ${responseDTO.category}</div>
 
