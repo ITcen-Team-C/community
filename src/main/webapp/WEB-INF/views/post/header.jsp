@@ -141,7 +141,7 @@
 
     <c:if test="${!empty userId}">
     <div class="to-chat">
-    <a href="/chatList"><img src="/pictures/notice.png" width="23">채팅 &nbsp; <span id="messageAlert" style="color:orange; font-weight:700;"></span></a>
+    <a href="/chatList">채팅 &nbsp; <span id="messageAlert" style="color:orange; font-weight:700;"></span></a>
     </div>
     </c:if>
 <%--    <input type="button" id="toChatBTN" class="to-chat" value="채팅리스트">--%>

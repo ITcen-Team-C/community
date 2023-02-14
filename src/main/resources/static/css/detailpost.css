@@ -1,4 +1,5 @@
 .detail{
+    background: #3ba4fa url(https://i.ibb.co/dkW0tm9/img-1.png) center no-repeat;
     position:absolute;
     margin: -300px 0px 0px -500px;
     top:50%; left:50%;
@@ -9,7 +10,7 @@
     border-radius: 10px;
     box-shadow: 0px 4px 4px rgb(0,0,0,0.25);
 
-    background-color: #E7E7E7;
+    /*background-color: #E7E7E7;*/
 }
 
 .detail .title-contents{
