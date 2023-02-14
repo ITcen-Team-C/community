@@ -74,10 +74,10 @@
 
         const sessionId = '${userId}';
 
-        if (sessionId != "") {
-            getUnread();
-            getInfiniteUnread();
-        }
+        // if (sessionId != "") {
+        //     getUnread();
+        //     getInfiniteUnread();
+        // }
 
         function getUnread() {
             $.ajax({
@@ -127,9 +127,11 @@
     <%--        <span class="menu-icon"><a href="/chatList"><img src="${path}/pictures/chatting.png" alt=""></a></span>--%>
     <%--        <span class="menu-title close"><a href="/chatList">채팅리스트</a></span>--%>
 
+    <c:if test="${!empty userId}">
     <div class="to-chat">
     <a href="/chatList"><img src="/pictures/notice.png" width="23">채팅 &nbsp; <span id="messageAlert" style="color:orange; font-weight:700;"></span></a>
     </div>
+    </c:if>
 <%--    <input type="button" id="toChatBTN" class="to-chat" value="채팅리스트">--%>
     <input type="button" id="toLoginBTN" class="to-login" value="로그인">
     <input type="button" id="toSignUpBTN"class="to-signup" value="회원가입">
