@@ -48,12 +48,13 @@ public class PostApiController {
 
 
     //글 등록 요청
-    @PostMapping("/writeProcess")
+    @PostMapping(value = "/writeProcess", consumes = {"application/json"})
     public ResponseEntity<?> createPost(
             @AuthenticationPrincipal String userId,
             @Validated @RequestBody PostCreateRequestDTO requestDTO,
             BindingResult result
     ){
+        log.info("post요청 확인 - {}, {}",userId, requestDTO);
         if(result.hasErrors()) {
             log.warn("DTO 검증 에러 발생 : {}", result.getFieldError());
             return org.springframework.http.ResponseEntity
