@@ -17,8 +17,8 @@
         if (WebUtils.getCookie(request,"token")!=null){
             Cookie tokenCookie = WebUtils.getCookie(request, "token");
             String token = tokenCookie.getValue();
-//            userId = tokenProvider.validateAndGetUserId(token);
-//            pageContext.setAttribute("userId", userId);
+            userId = tokenProvider.validateAndGetUserId(token);
+            pageContext.setAttribute("userId", userId);
         %>
         console.log("토큰이 있음")
         $("#toLoginBTN").val("로그아웃")
