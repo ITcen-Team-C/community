@@ -86,10 +86,10 @@
 
         const sessionId = '${userId}';
 
-        // if (sessionId != "") {
-        //     getUnread();
-        //     getInfiniteUnread();
-        // }
+        if (sessionId != "") {
+            getUnread();
+            getInfiniteUnread();
+        }
 
         function getUnread() {
             $.ajax({
