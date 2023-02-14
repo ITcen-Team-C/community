@@ -12,7 +12,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>join</title>
+    <title>write</title>
     <script src="${path}/js/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
@@ -84,6 +84,7 @@
 <body>
 <%@include file="/WEB-INF/views/post/header.jsp"%>
 
+<div class="write-container">
 <div class="write">
     <form id="writeForm">
 <%-- ignore test--%>
@@ -112,7 +113,7 @@
         <input class="send-btn" id="writeBTN" type="button" value="작성">
     </form>
 </div>
-
+</div>
 <%@include file="/WEB-INF/views/post/footer.jsp"%>
 </body>
 

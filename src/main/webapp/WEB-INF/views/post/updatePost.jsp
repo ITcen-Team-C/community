@@ -60,7 +60,7 @@
 <body>
 <%--responseDTO.category eq cg.cat--%>
 <%@include file="/WEB-INF/views/post/header.jsp"%>
-
+<div class="update-container">
 <div class="update">
     <form id="updateForm">
 
@@ -92,7 +92,7 @@
         <input class="send-btn" id="updateBTN" type="button" value="수정">
     </form>
 </div>
-
+</div>
 
 
 <%@include file="/WEB-INF/views/post/footer.jsp"%>
