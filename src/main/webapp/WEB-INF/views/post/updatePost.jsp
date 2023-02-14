@@ -31,7 +31,8 @@
 
                 fetch('/community/post/update/${responseDTO.postId}',{
                     method: "PATCH",
-                    headers: {"content-type" : "application/json"},
+                    headers: {"content-type" : "application/json",
+                    "accept":"application/json"},
                     body: JSON.stringify({
                         'title': title,
                         'contents': contents,
