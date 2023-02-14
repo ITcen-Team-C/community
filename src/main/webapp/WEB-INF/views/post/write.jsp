@@ -13,7 +13,6 @@
 <head>
     <meta charset="UTF-8">
     <title>join</title>
-    <link rel="stylesheet" href="${path}/css/test.css">
     <script src="${path}/js/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
