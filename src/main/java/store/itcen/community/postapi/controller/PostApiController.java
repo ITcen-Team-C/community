@@ -87,6 +87,7 @@ public class PostApiController {
             , HttpServletRequest request
             ){
         if(result.hasErrors()){
+
             return ResponseEntity.badRequest()
                     .body(result.getFieldError());
         }
