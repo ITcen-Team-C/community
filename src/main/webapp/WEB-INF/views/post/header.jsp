@@ -133,7 +133,7 @@
 </script>
 
 <div class="header" >
-    <div id="toListBTN" class="header-title">AnyQ</div>
+    <div id="toListBTN" class="header-title">무물보</div>
 
 
     <%--        <span class="menu-icon"><a href="/chatList"><img src="${path}/pictures/chatting.png" alt=""></a></span>--%>

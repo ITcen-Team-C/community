@@ -59,7 +59,7 @@
                 else if(${userId eq ""}){
                     console.log("로그인 후 이용 바랍니다.")
                     window.alert("로그인 후 이용 바랍니다.")
-                    window.location.href="/login"
+                    window.location.href="/"
                 }
                 else{
                     console.log("작성자만 삭제 가능합니다.")
@@ -84,7 +84,7 @@
                 else if(${userId eq ""}){
                     console.log("로그인 후 이용 바랍니다.")
                     window.alert("로그인 후 이용 바랍니다.")
-                    window.location.href="/login"
+                    window.location.href="/"
                 }
                 else{
                     console.log("작성자만 수정 가능합니다.")
@@ -103,7 +103,7 @@
 
 <%@include file="/WEB-INF/views/post/header.jsp"%>
 
-
+<div class="detail-container">
 <div class="detail">
     <div style="margin-left: 40px; padding-top: 30px; font-size: 15px; font-weight: 700;"> >>>  ${responseDTO.category}</div>
 
