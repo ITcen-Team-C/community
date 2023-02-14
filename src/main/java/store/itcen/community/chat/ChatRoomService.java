@@ -22,8 +22,8 @@ public class ChatRoomService {
 	ChatRoomRepository chatRoomRepository;
     
 //    String fileUploadPath = "/upload/";
-    String fileUploadPath = "c:/chatupload/";
-//	String fileUploadPath = "/chatupload/";
+//    String fileUploadPath = "c:/chatupload/";
+	String fileUploadPath = "/chatupload/";
 
 
 	public void addChatRoom(ChatRoom chatRoom) throws IOException {
