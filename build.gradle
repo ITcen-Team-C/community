@@ -5,6 +5,13 @@ plugins {
     id 'io.spring.dependency-management' version '1.0.15.RELEASE'
 }
 
+war {
+    archiveName 'ROOT.war'
+}
+
+bootWar.enabled = false; // bootWar와 충돌 방지
+war.enabled = true;
+
 group = 'store.itcen'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
