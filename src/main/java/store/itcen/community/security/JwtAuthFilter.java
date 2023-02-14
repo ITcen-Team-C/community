@@ -39,7 +39,8 @@ public class JwtAuthFilter extends OncePerRequestFilter {
         try {
             // 요청 헤더에서 토큰 가져오기
             Cookie tokenCookie = WebUtils.getCookie(request, "token");
-            String token = tokenCookie.getValue();
+            String token = null;
+            if (tokenCookie != null) token = tokenCookie.getValue();
 
 //            String token = parseBearerToken(request);
 
