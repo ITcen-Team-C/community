@@ -58,7 +58,8 @@
 
                 fetch("/community/post/writeProcess",{
                     method: "POST",
-                    headers: {"content-type" : "application/json"},
+                    headers: {"content-type" : "application/json",
+                        "accept":"application/json"},
                     body: JSON.stringify({
                         'title': title,
                         'contents': contents,
@@ -69,7 +70,6 @@
                     })
                 })
                     .then(response => response.json())
-                    .catch()
                     .then(result => {
                         console.log(result);
                         console.log(result.title);
