@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="path" value="${pageContext.request.contextPath}" />
-
+<link rel="shortcut icon" type="image/x-icon" href="${path}/pictures/monster.png">
 <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/detailpost.css"/>
 <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/modal.css"/>
 <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/header_footer.css"/>

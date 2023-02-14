@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'PyeongChangPeace-Bold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/PyeongChangPeace-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+
 .chat-container {
   width: 1280px;
   display: flex;
@@ -5,11 +13,12 @@
   align-items: center;
   flex-direction: column;
   position: relative;
-  background-image:url("/pictures/chatListBG4.jpg");
+  /*background-image:url("/pictures/chatListBG4.jpg");*/
+  background-image: url(https://usercontents-d.styleshare.io/images/23437562/640x-);
   height: 100vh;
   width: 100vw;
-  background-repeat : no-repeat;
-  background-size : cover;
+  /*background-repeat : no-repeat;*/
+  /*background-size : cover;*/
 }
 
 /*body{*/
@@ -33,7 +42,16 @@
   color: #6462cb;
   font-size: 3rem;
   text-align: center;
+  font-family:'PyeongChangPeace-Bold' ;
+  margin-top: 8rem;
+
 }
+
+.chatTitle-strong {
+  color: darkorange;
+}
+
+
 
 .chatlist-box {
   width: 50%;
@@ -118,11 +136,16 @@
 }
 
 .main-container2 {
-  background-image:url("/pictures/chatListBG4.jpg");
+  /*background-image:url("/pictures/chatListBG4.jpg");*/
+  background-image: url(https://usercontents-d.styleshare.io/images/23437562/640x-);
   height: 95vh;
   width: 100vw;
-  background-repeat : no-repeat;
-  background-size : cover;
+  /*background-repeat : no-repeat;
+  background-size : cover;*/
+}
+
+.chatrchatroom-container2 {
+  margin-top: -5rem;
 }
 
 .content-container2 {

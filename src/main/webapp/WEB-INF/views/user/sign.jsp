@@ -11,6 +11,7 @@
     <meta name="keywords" content="Yulian Brito, Yulian, Brito, Frontend Developer, Sign Up Sign In 1"/>
     <meta name="author" content="Yulian Brito"/>
     <title>Sign Up / Sign In 1</title>
+    <link rel="shortcut icon" type="image/x-icon" href="${path}/pictures/monster.png">
     <link rel="stylesheet" href="/css/sign.css"/>
     <script type="text/javascript" src="/js/sign.js"></script>
 </head>
