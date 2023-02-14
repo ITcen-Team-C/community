@@ -157,13 +157,13 @@ var content = '';
     	        let chatroomContentMessage = document.querySelector('.chatroom-content-message');
     
         	}else{
-        		  return '<div class="message-id-time-content" style="width : 100%;  text-align : left;"><div class="message-id" style="width :100%; text-align : left;">[' +
-        	       messageObj.senderId  +
-        	        ']</div><div class="message-time close style="text-align : left;">' +
-        	        messageObj.sendTime +
-        	        '</div></div><div class="message-content mb-3" style="text-align : left; background-color : white; ">' +
-        	        messageObj.content+
-        	        '</div>';
+            return '<span class="message-id-time-content" style="width : 20%;  text-align : left;"><span class="message-time style="text-align : left;">' +
+                messageObj.sendTime +
+                '</span><span class="message-id" style="width :20%; text-align : left; margin-left : 20px">[' +
+                messageObj.senderId  +
+                ']</span></span><div class="message-content mb-3" style="text-align : left; background-color : white; ">' +
+                messageObj.content+
+                '</div>';
         	        
         	        let chatroomContentMessage = document.querySelector('.chatroom-content-message');
         
