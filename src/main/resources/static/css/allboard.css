@@ -4,7 +4,6 @@
 
 * {
     box-sizing: border-box;
-    background: #f3f3f3;
 }
 
 body {
@@ -20,7 +19,7 @@ body {
 
 
 .pricing-box {
-    background: #3ba4fa url(https://mblogthumb-phinf.pstatic.net/20150819_61/shine_2me_14399475473850DIjc_JPEG/%B9%CC_6.jpg?type=w2) center no-repeat;
+    background: #3ba4fa url(http://thumbnail.10x10.co.kr/webimage/image/basic600/262/B002626948.jpg?cmd=thumb&w=400&h=400&fit=true&ws=false);
     background-color: #ffffff;
     box-shadow: 0px 2px 15px 0px rgba(0,0,0,0.5);
     border-radius: 4px;

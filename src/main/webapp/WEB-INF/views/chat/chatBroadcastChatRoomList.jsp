@@ -10,16 +10,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="user-scalable=no, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, width=device-width">
 
-<title>Any Q</title>
+<title>채팅방</title>
 <script src="${path}/js/jquery-3.6.0.min.js" ></script>
 <script src="${path}/js/stomp.js" type="text/javascript"></script>
 <script src="${path}/js/sockjs.js" type="text/javascript"></script>
+<link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/header_footer.css"/>
+<link rel="shortcut icon" type="image/x-icon" href="${path}/pictures/monster.png">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
 integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 <link rel="stylesheet" href="${path}/css/chat.css">
 <script src="${path}/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
+
+<%@include file="/WEB-INF/views/post/header.jsp"%>
+
     <div class="main-container2">
         <!-- content-section -->
         <div class="content-container2">
@@ -279,5 +284,9 @@ $(document).ready(function(){
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
     integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
     crossorigin="anonymous"></script>
+
+
+<%@include file="/WEB-INF/views/post/footer.jsp"%>
+
 </body>
 </html>

@@ -11,14 +11,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, width=device-width">
 
-    <title>Any Q</title>
+    <title>채팅 리스트</title>
+    <link rel="shortcut icon" type="image/x-icon" href="${path}/pictures/monster.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="${path}/css/chat.css">
+    <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/header_footer.css"/>
     <script src="${path}/js/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
+<%@include file="/WEB-INF/views/post/header.jsp"%>
 
 <%--<img class="chatList-BG" src="/pictures/chatListBG.png">--%>
 
@@ -28,7 +31,7 @@
         <div class="content-container">
             
     	   <div class="chat-container">
-            <p class="chatTitle">Chat List</p>
+               <p class="chatTitle"><span class="chatTitle-strong">무</span>엇이든 <span class="chatTitle-strong">물</span>어 <span class="chatTitle-strong">보</span>세요</p>
     		    <div class="chatlist-box">
      	 	    </div>
       	   </div>
@@ -55,7 +58,8 @@
             	}else {
             		opponent = sellerId; 
             	}
-                $(chatList).prepend('<div class=chat-list-box chatMessageInfo' + i + '><div class="chatbox wrapPr_img"><img height=100% width=67 class="chatbox-img" src="/upload/' + img1 + '"><a href="/chatRoom/' + post_id + '/' + buyerId  + '"><div class=chat-title>'+ post_title+'</div><div class=chat-name><span style="color:orange; font-size:15px; font-weight : bold;">'+ opponent + '</span>  님 과의 채팅방'+'</div> <div class="wrapSellerTitle' + i +'"></div></div>');
+                $(chatList).prepend('<div class=chat-list-box chatMessageInfo' + i + '><div class="chatbox wrapPr_img"><img height=100% width=67 class="chatbox-img" src="/pictures/chatimg.png"><a href="/chatRoom/' + post_id + '/' + buyerId  + '"><div class=chat-title>'+ post_title+'</div><div class=chat-name><span style="color:orange; font-size:15px; font-weight : bold;">'+ opponent + '</span>  님 과의 채팅방'+'</div> <div class="wrapSellerTitle' + i +'"></div></div>');
+                // $(chatList).prepend('<div class=chat-list-box chatMessageInfo' + i + '><div class="chatbox wrapPr_img"><img height=100% width=67 class="chatbox-img" src="/upload/' + img1 + '"><a href="/chatRoom/' + post_id + '/' + buyerId  + '"><div class=chat-title>'+ post_title+'</div><div class=chat-name><span style="color:orange; font-size:15px; font-weight : bold;">'+ opponent + '</span>  님 과의 채팅방'+'</div> <div class="wrapSellerTitle' + i +'"></div></div>');
             }
     
             //페이지가 로드되는 시점 한 번만 출력하면 되는 div, img를 출력하는 메서드
@@ -151,6 +155,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
         integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
         crossorigin="anonymous"></script>
+
+<%@include file="/WEB-INF/views/post/footer.jsp"%>
 </body>
 
 </html>

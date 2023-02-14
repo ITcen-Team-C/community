@@ -12,6 +12,7 @@
 	<meta charset="UTF-8">
 	<title>무몰보</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" type="image/x-icon" href="${path}/pictures/monster.png">
 	<link rel="stylesheet" href="/css/main.css" />
 	<noscript><link rel="stylesheet" href="/css/noscript.css" /></noscript>
 </head>

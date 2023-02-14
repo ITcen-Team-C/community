@@ -4,7 +4,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="path" value="${pageContext.request.contextPath}" />
 <%@ page import ="store.itcen.community.postapi.entity.Category" %>
-
+<link rel="shortcut icon" type="image/x-icon" href="${path}/pictures/monster.png">
 <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/updatepost.css"/>
 <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/header_footer.css"/>
 

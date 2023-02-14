@@ -133,7 +133,7 @@
 </script>
 
 <div class="header" >
-    <div id="toListBTN" class="header-title">무물보</div>
+    <div id="toListBTN" class="header-title">무물보<img src="${path}/pictures/monster.png" height="40px;" width="40px;"></div>
 
 
     <%--        <span class="menu-icon"><a href="/chatList"><img src="${path}/pictures/chatting.png" alt=""></a></span>--%>
@@ -141,7 +141,7 @@
 
     <c:if test="${!empty userId}">
     <div class="to-chat">
-    <a href="/chatList">채팅 &nbsp; <span id="messageAlert" style="color:orange; font-weight:700;"></span></a>
+    <a href="/chatList"><img src="/pictures/notice.png" width="23">채팅 &nbsp<span id="messageAlert" style="color:orange; font-weight:700;"></span></a>
     </div>
     </c:if>
 <%--    <input type="button" id="toChatBTN" class="to-chat" value="채팅리스트">--%>
