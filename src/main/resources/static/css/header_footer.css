@@ -99,8 +99,8 @@ body{
     /*margin-top: 30px;*/
     /*margin-left: 20px;*/
     border-radius: 10px;
-    background-color: #222222;
-    color: white;
+    background-color: rgba(255,234,0);
+    color: black;
     font-size: 20px;
     font-weight: 700;
     cursor: pointer;
@@ -109,7 +109,8 @@ body{
 }
 
 .to-write:hover{
-    background-color: rgb(255, 153, 0);
+    background-color: black;
+    color: white;
     text-decoration: underline;
     font-weight: 700;
 }

@@ -86,8 +86,8 @@ img {
     margin-left: 820px;
     margin-top: 50px;
     font-size: 25px;
-    background-color: #222222;
-    color: white;
+    background-color: white;
+    color: black;
     border-radius: 10px;
     cursor: pointer;
     font-family: 'GangwonEdu_OTFBoldA';
@@ -97,5 +97,7 @@ img {
 .send-btn:hover{
     font-weight: 700;
     text-decoration: underline;
+    background-color: black;
+    color: white;
 
 }
