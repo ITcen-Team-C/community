@@ -146,7 +146,9 @@
     </c:if>
 <%--    <input type="button" id="toChatBTN" class="to-chat" value="채팅리스트">--%>
     <input type="button" id="toLoginBTN" class="to-login" value="로그인">
+    <c:if test="${empty userId}">
     <input type="button" id="toSignUpBTN"class="to-signup" value="회원가입">
+    </c:if>
     <input type="button" id="toWriteBTN"class="to-write" value="글쓰기">
 
 
