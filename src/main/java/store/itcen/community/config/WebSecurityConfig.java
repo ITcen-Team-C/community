@@ -39,7 +39,7 @@ public class WebSecurityConfig {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 // 인증 요청중에서 '/'경로랑 '/api/auth'로 시작되는 경로는 인증하지 않고 모두 허용
-                .authorizeRequests().antMatchers("/","/index", "/login", "/join", "/api/auth/**", "/css/**", "/js/**", "/img/**", "/chatUnreadAlert/**").permitAll()
+                .authorizeRequests().antMatchers("/","/index", "/login", "/join", "/api/auth/**", "/css/**", "/js/**", "/pictures/**", "/chatUnreadAlert/**").permitAll()
                 // post URL 에 GET 접근은 인증없이도 permitAll
                 .antMatchers(HttpMethod.GET,"/post/**").permitAll()
                 // 그 외의 모든 경로는 인증을 거쳐야함.
