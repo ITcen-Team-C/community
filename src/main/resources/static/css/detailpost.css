@@ -1,27 +1,10 @@
-body {
-    margin: 0;
-    font-family: 'Open Sans', 'SansSerif';
-    font-size: 14px;
-    line-height: 1.428;
-    -webkit-text-size-adjust: 100%;
+img {
+    border: 0;
+    vertical-align: middle;
+    overflow-clip-margin: content-box;
+    overflow: clip;
 }
 
-
-
-* {
-    box-sizing: border-box;
-}
-
-.to-chat{
-    position: relative;
-    border: none;
-    left: 63%;
-    top: 40%; !important;
-    /*margin-left: 1400px;*/
-    background-color: rgba(0,0,0,0);
-    font-size: 15px;
-    cursor: pointer;
-}
 
 
 .detail-container{
