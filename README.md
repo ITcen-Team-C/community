@@ -1,3 +1,4 @@
+![header](https://capsule-render.vercel.app/api?type=waving&color=0:FA6588,100:5AACD7&height=200&section=header&text=ITcen%20Team%20Project&fontSize=40)
 # ITcen Team Project
 
 # 주제 소개
