@@ -53,27 +53,27 @@ body {
 
 
 #allboard-title {
-    background-color: #ffffff;
-    background-color: rgba( 255, 255, 255, 0.5 );
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     height: 100px;
     overflow: hidden;
     text-overflow: ellipsis;
+    margin-top: 0.1px;
     /*white-space: nowrap;*/
 }
 
 
-.pricing-box h5 {
-    background-color: #ffffff;
-    background-color: rgba( 255, 255, 255, 0.5 );
+.allboard-category {
+    padding: 7px;
+}
+
+
+.pricing-box .allboard-category {
     text-transform: uppercase;
 }
 
 .price {
-    background-color: #ffffff;
-    background-color: rgba( 255, 255, 255, 0.5 );
     margin: 24px 0;
     font-size: 36px;
     font-weight: 900;
@@ -91,6 +91,7 @@ body {
     background-color: rgba( 255, 255, 255, 0.5 );
     padding: 0;
     list-style-type: none;
+    font-size: 16px;
 }
 
 .features-list li {
@@ -108,7 +109,7 @@ body {
 .btn-primary {
     border-radius: 25px;
     border: none;
-    background-color: rgba(200,10,20,0.5);
+    background-color: rgba(255,234,0);
     /*color: #ffffff;*/
     cursor: pointer;
     padding: 10px 15px;

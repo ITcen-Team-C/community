@@ -143,11 +143,11 @@
 
                 <div class="pricing-box text-center">
                     <a class="allboard-a" href="/post/detail/${each.postId}">
-                    <h5><strong>${each.category}</strong></h5>
+                    <div class="allboard-category"><strong>${each.category}</strong></div>
                     <p id="allboard-title" class="price">${each.title}</p>
                     <ul class="features-list">
-                        <li><strong>가격</strong> ${each.price}</li>
-                        <li><strong>작성자</strong> ${each.nickName}</li>
+                        <li><strong>의뢰비 : &nbsp;${each.price}원</strong></li>
+                        <li><strong>작성자 : &nbsp;${each.nickName}</strong></li>
                         <li><strong>${dateDiffShow}</strong></li>
                     </ul>
                     <button class="btn-primary"><a class="allboard-a" href="/post/detail/${each.postId}">답변하러 가기</a>
