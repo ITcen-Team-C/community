@@ -1,9 +1,44 @@
 # ITcen Team Project
 
 # 주제 소개
-### **AWS Notice Board**   
-
+### **무몰보**   
+정보화 시대속에서 넘쳐나는 수많은 정보속에서 필요한 정보만 쏙쏙 학인하고 물어보는 커뮤니티 서비스
 
 # 소프트웨어 아키텍처
 
 ![ItcenProject drawio](https://user-images.githubusercontent.com/87744606/216478642-aa447af9-5ee3-4cc2-a79d-d77a19653a3f.png)
+
+# 기술스택
+## Tech Stack
+
+
+|                                                                                                                                                                                                              Frontend                                                                                                                                                                                                              |                                                                                                         Backend                                                                                                         |                                                                                                                                                                        AWS                                                                                                                                                                        |                                                DB                                                 |
+|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------:|
+| <img src="https://img.shields.io/badge/HTML-E34F26?style=flat-square&logo=HTML5&logoColor=white"/> <br> <img src="https://img.shields.io/badge/CSS-1572B6?style=flat-square&logo=CSS3&logoColor=white"/> <br> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=white"/> <br> <img src="https://img.shields.io/badge/SASS-CC6699?style=flat-square&logo=SASS&logoColor=white"/> | <img src="https://img.shields.io/badge/SpringBoot-6DB33F?style=flat-square&logo=SpringBoot&logoColor=white"/> | <img src="https://img.shields.io/badge/Amazon S3-1572B6?style=flat-square&logo=Amazon S3&logoColor=white"/> <br> <img src="https://img.shields.io/badge/Amazon RDS-527FFF?style=flat-square&logo=Amazon RDS&logoColor=white"/> <br> <img src="https://img.shields.io/badge/Amazon EC2-FF9900?style=flat-square&logo=Amazon EC2&logoColor=white"/> |<img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=MySQL&logoColor=white"/>|
+
+
+
+------
+
+- Frontend: JSP, CSS, Javascript, SASS
+- Backend : Spring, Spring Boot
+- Web Server: Apache
+- Database: MySQL
+- Deployment: AWS EC2, AWS RDS, Route 53
+- API Test : Postman
+- Chat : Web Socket, StompJS
+------
+
+## 팀원
+
+| Name   | 김건혁 | 김유림 | 임준엽 |
+| ------- | ---- | ---- | ---- |
+| Profile | <img width="200px" src="https://avatars.githubusercontent.com/u/87744606?v=4" />     | <img width="200px" src="https://avatars.githubusercontent.com/u/72953987?v=4" />  | <img width="200px" src="https://avatars.githubusercontent.com/u/104817256?v=4" />    |
+|Role| Team Leader, Frontend, Backend, Devops| Frontend, Backend, Devops | Frontend, Backend, Devops|
+| gitHub  | [김건혁](https://github.com/hyeokinen)  | [김유림](https://github.com/yeaygit)    | [임준엽](https://github.com/Backcoder-June)     |  
+
+
+# 베포주소
+http://itcen.store/
+
+![Footer](https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=footer)
