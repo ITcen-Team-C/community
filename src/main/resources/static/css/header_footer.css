@@ -10,7 +10,12 @@ body{
     font-style: normal;
 }
 
-
+@font-face {
+    font-family: 'GangwonEdu_OTFBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 .header{
 
     background: white;
@@ -45,34 +50,37 @@ body{
 .to-chat{
     position: relative;
     border: none;
-    left: 63%;
+    left: 58%;
     top: 40%;
     /*margin-left: 1400px;*/
     background-color: rgba(0,0,0,0);
-    font-size: 15px;
+    font-size: 20px;
     cursor: pointer;
+    font-family: 'GangwonEdu_OTFBoldA';
 }
 
 .to-login{
     position: relative;
     /*top: 40%;*/
-    left: 66%;
+    left: 61%;
     border: none;
     /*margin-left: 1400px;*/
     background-color: rgba(0,0,0,0);
-    font-size: 15px;
+    font-size: 20px;
     cursor: pointer;
+    font-family: 'GangwonEdu_OTFBoldA';
 }
 
 .to-signup{
     position: relative;
     /*top: 40%;*/
-    left: 69%;
-    font-size: 15px;
+    left: 64%;
+    font-size: 20px;
     border: none;
     /*margin-left: 20px;*/
     background-color: rgba(0,0,0,0);
     cursor: pointer;
+    font-family: 'GangwonEdu_OTFBoldA';
 }
 
 .to-chat:hover,.to-login:hover,.to-signup:hover{
@@ -83,19 +91,21 @@ body{
 
 .to-write{
     position: relative;
+    padding: 3px;
     top: 30%;
-    left: 72%;
-    width: 80px;
-    height: 50px;
+    left: 67%;
+    width: 90px;
+    height: 45px;
     /*margin-top: 30px;*/
     /*margin-left: 20px;*/
     border-radius: 10px;
     background-color: #222222;
     color: white;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: 700;
     cursor: pointer;
     border: none;
+    font-family: 'GangwonEdu_OTFBoldA';
 }
 
 .to-write:hover{
