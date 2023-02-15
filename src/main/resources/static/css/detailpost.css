@@ -5,7 +5,12 @@ img {
     overflow: clip;
 }
 
-
+@font-face {
+    font-family: 'GangwonEdu_OTFBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 .detail-container{
     width: 100%;
@@ -88,7 +93,7 @@ img {
     background-color: #222222;
     color: white;
     border-radius: 10px;
-
+    font-family: 'GangwonEdu_OTFBoldA';
 }
 
 
@@ -96,21 +101,23 @@ img {
     display: flex;
     margin-left: 630px;
     margin-top: 280px;
+
 }
 
 .detail .to-list{
     cursor: pointer;
-    font-size: 15px;
+    font-size: 18px;
     background-color: #222222;
     color: white;
     border-radius: 10px;
     width: 60px;
     height: 40px;
     border: none;
+    font-family: 'GangwonEdu_OTFBoldA';
 }
 .detail .post-modify{
     cursor: pointer;
-    font-size: 15px;
+    font-size: 18px;
     background-color: #222222;
     color: white;
     border-radius: 10px;
@@ -119,6 +126,7 @@ img {
     margin-left: 20px;
     /*text-decoration: underline;*/
     border: none;
+    font-family: 'GangwonEdu_OTFBoldA';
 }
 
 .detail .post-delete{
@@ -126,15 +134,17 @@ img {
     height: 40px;
     margin-left: 20px;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 18px;
     background-color: #222222;
     color: white;
     border-radius: 10px;
     border: none;
+    font-family: 'GangwonEdu_OTFBoldA';
 }
 
-.to-list:hover,.post-modify:hover,.post-delete:hover, .solve-btn:hover{
-    background-color: rgb(255, 153, 0);
+.to-list:hover,.post-modify:hover,.post-delete:hover,.solve-btn:hover{
+    /*background-color: #3ba4fa;*/
     text-decoration: underline;
-    font-weight: 700;
+    font-weight: 900;
+    /*color: black;*/
 }
