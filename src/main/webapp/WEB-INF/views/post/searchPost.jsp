@@ -6,6 +6,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, width=device-width">
     <title>Question</title>
     <link rel="shortcut icon" type="image/x-icon" href="${path}/pictures/monster.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
@@ -154,7 +155,7 @@
 
                 <div class="pricing-box text-center">
                     <a class="allboard-a" href="/post/detail/${each.postId}">
-                    <h5><strong>${each.category}</strong></h5>
+                    <div class="allboard-category"><strong>${each.category}</strong></div>
                     <p id="allboard-title" class="price">${each.title}</p>
                     <ul class="features-list">
                         <li><strong>가격</strong> ${each.price}</li>
@@ -173,7 +174,7 @@
         <nav aria-label="...">
             <ul class="pagination pagination-lg">
                 <li id="pagingPrevious" class="page-item">
-                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                    <a class="page-link" href="#" tabindex="-1"><</a>
                 </li>
 
                 <c:set var="counter" value="0" />
@@ -184,7 +185,7 @@
                 </c:forEach>
 
                 <li id="pagingNext" class="page-item">
-                    <a class="page-link" href="#">Next</a>
+                    <a class="page-link" href="#">></a>
                 </li>
             </ul>
         </nav>

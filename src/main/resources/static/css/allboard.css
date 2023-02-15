@@ -321,5 +321,102 @@ footer a {
     /*bottom: 0%;*/
     /*transform: translate(-50%, 0);*/
     /*margin-top: 800px;*/
+}
+
+
+@media screen and (max-width: 767px) {
+    * {
+        margin : 0;
+        padding: 0;
+        width: auto;
+    }
+    body {
+        width: auto;
+    }
+
+    .smartSearchBox-Table {
+        background: white;
+        width: 100%;
+        text-align: left;
+        font-weight: 700;
+        margin-left: -30px;
+        margin-top: -11rem;
+    }
+
+    .main-content {
+        background: white;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        margin-left: 12rem;
+    }
+
+    .pricing-box {
+        background: #3ba4fa url(http://thumbnail.10x10.co.kr/webimage/image/basic600/262/B002626948.jpg?cmd=thumb&w=400&h=400&fit=true&ws=false);
+        background-color: #ffffff;
+        box-shadow: 0px 2px 15px 0px rgb(0 0 0 / 50%);
+        border-radius: 4px;
+        padding: 0 30px 30px;
+        margin: 2%;
+        min-width: 240px;
+        height: 200px;
+    }
+
+    .allboard-category {
+        padding: 0px;
+    }
+
+    #allboard-title {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-top: 0.1px;
+        white-space: nowrap;
+        height: 40px;
+    }
+
+    .price {
+        margin: -5px;
+        font-size: 25px;
+        font-weight: 600;
+    }
+
+    .header-title {
+        width: 300px;
+        font-size: 40px;
+        margin-bottom: 25px;
+        margin-left: 70px;
+        margin-top: 25px;
+        color: black;
+        font-weight: 900;
+        cursor: pointer;
+        font-family: 'PyeongChangPeace-Bold';
+    }
+
+    .header-title img {
+        margin-top: -12rem;
+        margin-left: 11rem;
+    }
+
+    .main-content nav {
+        background: white;
+        position: relative;
+        width: fit-content;
+        left: 0%;
+        margin-bottom: -50px;
+        margin-left: -80px;
+        margin-top: 10px;
+    }
+
+    body {
+        font-family: 'Open Sans', sans-serif;
+        margin-bottom: 50px;
+        background: white;
+    }
+
+
+
 
 }

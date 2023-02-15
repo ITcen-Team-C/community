@@ -6,6 +6,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, width=device-width">
     <title>무몰보</title>
     <link rel="shortcut icon" type="image/x-icon" href="${path}/pictures/monster.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -164,7 +165,7 @@
         <nav aria-label="...">
             <ul class="pagination pagination-lg">
                 <li id="pagingPrevious" class="page-item">
-                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                    <a class="page-link" href="#" tabindex="-1"><</a>
                 </li>
 
                 <c:set var="counter" value="0"/>
@@ -186,7 +187,7 @@
 
 
                 <li id="pagingNext" class="page-item">
-                    <a class="page-link" href="#">Next</a>
+                    <a class="page-link" href="#">></a>
                 </li>
             </ul>
         </nav>
