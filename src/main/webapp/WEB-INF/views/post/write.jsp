@@ -56,27 +56,35 @@
                 //
                 // }); //ajax
 
-                fetch("/community/post/writeProcess",{
-                    method: "POST",
-                    headers: {"content-type" : "application/json",
-                        "accept":"application/json"},
-                    body: JSON.stringify({
-                        'title': title,
-                        'contents': contents,
-                        'price': price,
-                        'category': category,
-                        'nickName': nickName,
-                        'userId': userId
+                if (title==""||contents==""||price==""){
+                    window.alert("내용을 전부 입력해주세요!")
+                }
+                else {
+                    fetch("/community/post/writeProcess", {
+                        method: "POST",
+                        headers: {
+                            "content-type": "application/json",
+                            "accept": "application/json"
+                        },
+                        body: JSON.stringify({
+                            'title': title,
+                            'contents': contents,
+                            'price': price,
+                            'category': category,
+                            'nickName': nickName,
+                            'userId': userId
+                        })
                     })
-                })
-                    .then(response => response.json())
-                    .then(result => {
-                        console.log(result);
-                        console.log(result.title);
-                        window.location.href="/post/1"
-                    })
+                        .then(response => response.json())
+                        .then(result => {
+                            console.log(result);
+                            console.log(result.title);
+                            window.location.href = "/post/1"
+                        })
+                }
 
-            }); //onClick
+                }); //onClick
+
         }); // onload
     </script>
 </head>
