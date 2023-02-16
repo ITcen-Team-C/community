@@ -174,7 +174,7 @@
         <nav aria-label="...">
             <ul class="pagination pagination-lg">
                 <li id="pagingPrevious" class="page-item">
-                    <a class="page-link" href="#" tabindex="-1"><</a>
+                    <a class="page-link" href="#" tabindex="-1">◀</a>
                 </li>
 
                 <c:set var="counter" value="0" />
@@ -185,7 +185,7 @@
                 </c:forEach>
 
                 <li id="pagingNext" class="page-item">
-                    <a class="page-link" href="#">></a>
+                    <a class="page-link" href="#">▶</a>
                 </li>
             </ul>
         </nav>

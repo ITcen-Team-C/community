@@ -85,6 +85,11 @@
 
                 }); //onClick
 
+
+
+
+
+
         }); // onload
     </script>
 </head>
@@ -109,11 +114,11 @@
                 <option value="${category}">${category.cat}</option>
             </c:forEach>
         </select>
-        <input class="input-price" id="price" name="price" type="number" placeholder="질문 해결 가격을 입력하세요!">
+        <input class="input-price" id="price" name="price" type="number" oninput="handleOnInput(this, 10)" placeholder="질문 해결 가격을 입력하세요!">
         <div class="title-contents">
-            <input class="title-write" id="title" name="title" type="text" placeholder="제목" > <br>
+            <input class="title-write" id="title" name="title" type="text" placeholder="제목" maxlength="50" > <br>
 
-            <textarea class="contents" id="contents" name="contents" PLACEHOLDER="내용"></textarea> <br>
+            <textarea class="contents" id="contents" name="contents" PLACEHOLDER="내용" maxlength="1000"></textarea> <br>
         </div>
 
         <input id="nickName" name="nickName" type="hidden" value="${nickname}">
@@ -123,6 +128,18 @@
 </div>
 </div>
 <%@include file="/WEB-INF/views/post/footer.jsp"%>
+
+<script>
+    // price input 제한
+    function handleOnInput(el, maxlength) {
+        if(el.value.length > maxlength)  {
+            el.value = el.value.substr(0, maxlength);
+            alert('가격 제한을 초과하였습니다.');
+        }
+    }
+</script>
+
+
 </body>
 
 </html>
