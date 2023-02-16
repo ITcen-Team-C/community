@@ -25,7 +25,7 @@
 - Backend : Spring, Spring Boot
 - Web Server: Apache
 - Database: MySQL
-- Deployment: AWS EC2, AWS RDS, Route 53
+- Deployment: AWS EC2, AWS RDS, Route 53, AWS s3
 - API Test : Postman
 - Chat : Web Socket, StompJS
 ------
