@@ -30,6 +30,30 @@
 - Chat : Web Socket, StompJS
 ------
 
+# 시연화면
+
+## 로그인 및 회원가입 화면
+![로그인,회원가입 화면](https://user-images.githubusercontent.com/87744606/219274792-6ec08b06-ad73-4bab-b6ff-22f03ee6b5f1.PNG)
+----------
+
+## 메인화면
+![메인화면](https://user-images.githubusercontent.com/87744606/219274552-5bcb77fb-c716-41fd-b15d-7b5c8574946b.PNG)
+![메인홤녀2](https://user-images.githubusercontent.com/87744606/219274556-be5ca2d1-d0be-400a-9cc4-d9ea022f597b.PNG)
+---------
+
+## 커뮤니티 게시판 화면 및 글쓰기 화면
+![질문화면](https://user-images.githubusercontent.com/87744606/219274541-18ee0987-5c0a-4cc3-9889-eacd253b6eb3.PNG)
+![질문화면2](https://user-images.githubusercontent.com/87744606/219274545-499861d1-f29b-4232-91c3-8be6c5fa81cd.PNG)
+
+-----------
+
+## 채팅 기능 화면
+![채팅기능](https://user-images.githubusercontent.com/87744606/219274549-30a53ed3-b664-4f20-b04c-90c4132ca0a5.PNG)
+![채팅목록](https://user-images.githubusercontent.com/87744606/219274551-68f20875-e504-48c2-9914-3f6e1110b723.PNG)
+-----------
+
+
+
 ## 팀원
 
 | Name   | 김건혁 | 김유림 | 임준엽 |
