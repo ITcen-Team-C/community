@@ -469,7 +469,40 @@
     display: flex;
     justify-content: left;
     flex-direction: column;
-    overflow: auto;
+    overflow: unset;
+  }
+
+  .chat-title {
+    position: absolute;
+    top: 15%;
+    left: 22%;
+    font-size: 1.2rem;
+    width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .chat-name {
+    position: absolute;
+    bottom: 15%;
+    left: 22%;
+    font-size: 0.8rem;
+  }
+
+
+
+  .chatroom-input-button {
+    position: absolute;
+    width: 15%;
+    height: 80%;
+    border: none;
+    background-color: #6462cb;
+    color: white;
+    border-radius: 5px;
+    right: 3%;
+    font-size: 15px;
+    bottom: 10%;
   }
 
 
