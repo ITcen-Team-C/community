@@ -383,11 +383,11 @@ footer a {
         font-weight: 600;
     }
 
-    .header-title {
+    #toListBTN {
         width: 300px;
         font-size: 40px;
         margin-bottom: 25px;
-        margin-left: 70px;
+        margin-left: 5px;
         margin-top: 25px;
         color: black;
         font-weight: 900;
@@ -414,6 +414,44 @@ footer a {
         font-family: 'Open Sans', sans-serif;
         margin-bottom: 50px;
         background: white;
+    }
+
+    .header .to-chat {
+        position: relative;
+        border: none;
+        left: -10%;
+        top: 25%;
+        background-color: rgba(0,0,0,0);
+        font-size: 11px;
+        cursor: pointer;
+        font-family: 'GangwonEdu_OTFBoldA';
+    }
+
+    .header .to-login {
+        position: relative;
+        left: -5%;
+        border: none;
+        background-color: rgba(0,0,0,0);
+        font-size: 20px;
+        cursor: pointer;
+        font-family: 'GangwonEdu_OTFBoldA';
+    }
+
+    .header .to-write {
+        position: relative;
+        padding: 3px;
+        top: 30%;
+        left: 0%;
+        width: 90px;
+        height: 45px;
+        border-radius: 10px;
+        background-color: rgba(255,234,0);
+        color: black;
+        font-size: 20px;
+        font-weight: 700;
+        cursor: pointer;
+        border: none;
+        font-family: 'GangwonEdu_OTFBoldA';
     }
 
 
