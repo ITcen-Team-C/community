@@ -17,8 +17,8 @@
 .modal .modal_content .close{
 
     /*margin-top: 100px;*/
-    padding-top: 10px;
-    margin-left: 355px;
+
+    margin-left: 350px;
     font-size: 30px;
     font-weight: 700;
     color: black;
@@ -61,3 +61,5 @@
     text-decoration: underline;
     font-weight: 700;
 }
+
+

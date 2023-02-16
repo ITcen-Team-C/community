@@ -33,6 +33,11 @@ img {
     /*background-color: #E7E7E7;*/
 }
 
+.detail .title-contents .row-flex{
+    display: flex;
+    flex-direction: row;
+}
+
 .detail .title-contents{
 
     width: 907px;
@@ -53,13 +58,19 @@ img {
 
 .detail .title-contents .contents{
 
+    overflow: auto;
+    white-space: normal;
     margin-left: 50px;
-    margin-top: 30px;
+    /* margin-top: 30px; */
+    outline: none;
+    border: none;
+    resize: none;
     width: 500px;
     padding-top: 20px;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     font-size: 20px;
-
+    margin-right: 50px;
+    height: 450px;
 }
 
 .detail .title-contents .price-box{
@@ -68,10 +79,11 @@ img {
     box-shadow: 0 0 8px #aaa;
     width: 250px;
     height: 200px;
-    margin-top: -120px;
-    margin-left: 610px;
+    margin-top: -50px;
+    /* margin-left: 0px; */
+    margin-right: -300px;
     border-radius: 15px;
-    /*border: 1px solid #000000;*/
+    /* border: 1px solid #000000;*/
 
 
 }
@@ -99,8 +111,8 @@ img {
 
 .detail .ul-modify-delete{
     display: flex;
-    margin-left: 630px;
-    margin-top: 280px;
+    margin-left: 0px;
+    margin-top: 250px;
 
 }
 
@@ -150,6 +162,58 @@ img {
 }
 
 @media screen and (max-width: 767px) {
+
+    #toListBTN {
+        width: 300px;
+        font-size: 40px;
+        margin-bottom: 25px;
+        margin-left: 5px;
+        margin-top: 25px;
+        color: black;
+        font-weight: 900;
+        cursor: pointer;
+        font-family: 'PyeongChangPeace-Bold';
+    }
+
+
+    .header .to-chat {
+        position: relative;
+        border: none;
+        left: -10%;
+        top: 25%;
+        background-color: rgba(0,0,0,0);
+        font-size: 11px;
+        cursor: pointer;
+        font-family: 'GangwonEdu_OTFBoldA';
+    }
+
+    .header .to-login {
+        position: relative;
+        left: -5%;
+        border: none;
+        background-color: rgba(0,0,0,0);
+        font-size: 20px;
+        cursor: pointer;
+        font-family: 'GangwonEdu_OTFBoldA';
+    }
+
+    .header .to-write {
+        position: relative;
+        padding: 3px;
+        top: 30%;
+        left: 0%;
+        width: 90px;
+        height: 45px;
+        border-radius: 10px;
+        background-color: rgba(255,234,0);
+        color: black;
+        font-size: 20px;
+        font-weight: 700;
+        cursor: pointer;
+        border: none;
+        font-family: 'GangwonEdu_OTFBoldA';
+    }
+
     * {
         margin: 0;
         padding: 0;
@@ -179,58 +243,125 @@ img {
 
     .detail-container {
         all: unset;
+        display: block;
+        height: 100%;
+        margin-bottom: 20px;
+
 }
     .detail {
         all: unset;
+        display: block;
+        width: 300px;
+        height: 480px;
+        margin-top: 100px;
+
+
+    }
+    .detail .title-contents .row-flex{
+        display: unset;
+    }
+    .detail .title-contents {
+        width: 100%;
+        height: 100%;
+        margin-top: 10px;
+        margin-left: 37px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 0 8px #aaa;
     }
 
-.detail .title-contents {
-    width: 100%;
-    height: 100%;
-    margin-top: 30px;
-    margin-left: 37px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 0 8px #aaa;
-}
 
-.detail .title-contents h1 {
-    padding-top: 30px;
-    padding-bottom: 10px;
-    width: 100%;
-}
 
-.detail .title-contents .contents {
-    margin-left: 10px;
-    margin-top: 30px;
-    width: 100%;
-    padding-top: 20px;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    font-size: 20px;
-}
 
-.detail .title-contents .price-box {
-    box-sizing: border-box;
-    border: none;
-    box-shadow: 0 0 8px #aaa;
-    width: 250px;
-    height: 200px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 10px;
-    border-radius: 15px;
-}
+    .detail .title-contents .contents {
+        all: unset;
+        display: block;
+        margin-left: 20px;
+        margin-top: 10px;
+        width: 250px;
+        height: 280px;
+        word-break: break-all;
+        margin-bottom: 55px;
+        padding-top: 10px;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        font-size: 20px;
+        /* margin-right: 50px;*/
+    }
 
-.detail .ul-modify-delete {
-    display: flex;
-    margin-left: 10px;
-    margin-top: 10px;
-}
+    .detail .title-contents .row-flex2{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .detail .title-contents .price-box {
+        width: 150px;
+        height: 100px;
+        margin-left: 15px;
+
+
+    }
+
+    .detail .title-contents .price-box .price{
+        font-size: 20px;
+        font-weight: 700;
+        text-align: center;
+        padding-top: 20px;
+    }
+
+    .detail .title-contents .price-box .solve-btn{
+        margin: unset;
+        width: 80px;
+        height: 30px;
+        margin-top: 10px;
+        margin-left: 33px;
+        font-size: 15px;
+        cursor: pointer;
+        background-color: #222222;
+        color: white;
+        border-radius: 10px;
+        font-family: 'GangwonEdu_OTFBoldA';
+    }
+
+
+    .detail .ul-modify-delete {
+        all: unset;
+        display: block;
+        margin-top: 10px;
+        margin-left: 305px;
+    }
 
     .detail .title-contents h1 {
-        margin-left: 10px;
+        margin-left: unset;
+        margin-left: 15px;
+        padding-top: 10px;
     }
 
+
+    .detail .to-list{
+        all: unset;
+        cursor: pointer;
+        margin-left: 10px;
+        font-size: 15px;
+        color: black;
+        font-family: 'GangwonEdu_OTFBoldA';
+    }
+    .detail .post-modify{
+        all: unset;
+        cursor: pointer;
+        margin-left: 10px;
+        font-size: 15px;
+        color: black;
+        font-family: 'GangwonEdu_OTFBoldA';
+    }
+
+    .detail .post-delete{
+        all: unset;
+        cursor: pointer;
+        margin-left: 10px;
+        font-size: 15px;
+        color: black;
+        font-family: 'GangwonEdu_OTFBoldA';
+    }
 
 
 

@@ -114,59 +114,64 @@
             ${responseDTO.title}
         </h1>
 
-        <div class="contents">
-            ${responseDTO.contents}
-        </div>
+        <div class="row-flex">
+            <textarea class="contents" readonly>
+                ${responseDTO.contents}
+            </textarea>
 
-        <div class="price-box">
-            <div class="price">
-                ${responseDTO.price} 원
+            <div class="row-flex2">
+                <div class="price-box">
+                    <div class="price">
+                        ${responseDTO.price} 원
+                    </div>
+
+                    <c:if test="${userId != responseDTO.userId && not empty userId }">
+                    <form id="chatSubmit_form" action="/chatMessage" method="GET">
+                        <a id="chatLink" href="javascript:{}" onclick="chatSubmit()">
+                            <input type="hidden" name="buyerId" value="${nickname}" />
+                            <input type="hidden" name="sellerId" value="${responseDTO.nickName}" />
+                            <input type="hidden" name="post_id" value="${responseDTO.postId}" />
+                            <input type="hidden" name="post_title" value="${responseDTO.title}" />
+
+                            <button class="solve-btn" id="btn_chat">채팅하기</button>
+                        </a>
+                    </form>
+                    </c:if>
+
+                    <!-- 세션 없을 때, 가짜 채팅버튼 -->
+                    <c:if test="${empty userId }">
+                        <button class="solve-btn" id="noSession_FakeChatBTN">채팅하기</button>
+                    </c:if>
+
+                    <!-- 자기가 올린 물품일 때, 가짜 채팅버튼 -->
+                    <c:if test="${userId == responseDTO.userId && not empty userId }">
+                        <button class="solve-btn" id="Owner_FakeChatBTN">채팅하기</button>
+                    </c:if>
+
+
+
+
+                <%--            <input class="solve-btn" id="solveBTN" type="button" value="질문 해결하기">--%>
+                </div>
+
+
+                <div class="ul-modify-delete">
+                    <form id="mod-del">
+                        <input class="to-list"  id="goListBTN" type="button" value="목록">
+                        <input class="post-modify"  id="updateBTN" type="button" value="수정">
+                        <input class="post-delete"  id="deleteBTN" type="button" value="삭제">
+
+                    </form>
+
+
+                </div>
+
             </div>
 
-            <c:if test="${userId != responseDTO.userId && not empty userId }">
-            <form id="chatSubmit_form" action="/chatMessage" method="GET">
-                <a id="chatLink" href="javascript:{}" onclick="chatSubmit()">
-                    <input type="hidden" name="buyerId" value="${nickname}" />
-                    <input type="hidden" name="sellerId" value="${responseDTO.nickName}" />
-                    <input type="hidden" name="post_id" value="${responseDTO.postId}" />
-                    <input type="hidden" name="post_title" value="${responseDTO.title}" />
-
-                    <button class="solve-btn" id="btn_chat">채팅하기</button>
-                </a>
-            </form>
-            </c:if>
-
-            <!-- 세션 없을 때, 가짜 채팅버튼 -->
-            <c:if test="${empty userId }">
-                <button class="solve-btn" id="noSession_FakeChatBTN">채팅하기</button>
-            </c:if>
-
-            <!-- 자기가 올린 물품일 때, 가짜 채팅버튼 -->
-            <c:if test="${userId == responseDTO.userId && not empty userId }">
-                <button class="solve-btn" id="Owner_FakeChatBTN">채팅하기</button>
-            </c:if>
-
-
-
-
-        <%--            <input class="solve-btn" id="solveBTN" type="button" value="질문 해결하기">--%>
-        </div>
-
-        <div class="ul-modify-delete">
-            <form id="mod-del">
-                <input class="to-list"  id="goListBTN" type="button" value="목록">
-                <input class="post-modify"  id="updateBTN" type="button" value="수정">
-                <input class="post-delete"  id="deleteBTN" type="button" value="삭제">
-
-            </form>
-
-
-        </div>
-
-
         <!-- 채팅버튼 -->
-        <div class="product-detail-chatbutton">
+            <div class="product-detail-chatbutton">
 
+            </div>
         </div>
 
     </div>
