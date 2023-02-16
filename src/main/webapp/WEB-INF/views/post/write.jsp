@@ -136,6 +136,10 @@
             el.value = el.value.substr(0, maxlength);
             alert('가격 제한을 초과하였습니다.');
         }
+        if (el.value < 0) {
+            el.value = 0;
+            alert("0원 이상의 가격을 입력해 주세요.");
+        }
     }
 </script>
 
