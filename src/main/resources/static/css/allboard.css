@@ -88,15 +88,16 @@ body {
 
 .features-list {
     background-color: #ffffff;
-    background-color: rgba( 255, 255, 255, 0.5 );
+    background-color: rgba( 255, 255, 255, 0.9 );
     padding: 0;
     list-style-type: none;
     font-size: 16px;
+    border-radius: 20px;
 }
 
 .features-list li {
     background-color: #ffffff;
-    background-color: rgba( 255, 255, 255, 0.5 );
+    background-color: rgba( 255, 255, 255, 0 );
     font-weight: 100;
     padding: 12px 0;
     font-weight: 100;
@@ -379,7 +380,7 @@ footer a {
 
     .price {
         margin: -5px;
-        font-size: 25px;
+        font-size: 15px;
         font-weight: 600;
     }
 
