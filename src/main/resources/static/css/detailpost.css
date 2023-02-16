@@ -334,6 +334,7 @@ img {
         margin-left: unset;
         margin-left: 15px;
         padding-top: 10px;
+        width: fit-content;
     }
 
 
